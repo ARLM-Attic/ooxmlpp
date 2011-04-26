@@ -1,41 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="pml.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shared-relationshipReference.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dml-main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="shared-commonSimpleTypes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="Bool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Byte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_AdjPoint2D.cpp">
@@ -188,6 +157,9 @@
     <ClCompile Include="CT_CommentAuthor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CT_EmbeddedFontList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="CT_CommentAuthorList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -293,7 +265,7 @@
     <ClCompile Include="CT_EmbeddedFontDataId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_EmbeddedFontList.cpp">
+    <ClCompile Include="CT_GroupShapeProperties.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_EmbeddedFontListEntry.cpp">
@@ -401,7 +373,7 @@
     <ClCompile Include="CT_GroupShapeNonVisual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_GroupShapeProperties.cpp">
+    <ClCompile Include="CT_LineJoinRound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_GroupTransform2D.cpp">
@@ -509,7 +481,7 @@
     <ClCompile Include="CT_LineJoinMiterProperties.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_LineJoinRound.cpp">
+    <ClCompile Include="CT_Path2DCubicBezierTo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_LineProperties.cpp">
@@ -617,7 +589,7 @@
     <ClCompile Include="CT_Path2DClose.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_Path2DCubicBezierTo.cpp">
+    <ClCompile Include="CT_Scene3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_Path2DLineTo.cpp">
@@ -725,7 +697,7 @@
     <ClCompile Include="CT_Scale2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_Scene3D.cpp">
+    <ClCompile Include="CT_SRgbColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_SchemeColor.cpp">
@@ -833,7 +805,7 @@
     <ClCompile Include="CT_SplitTransition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_SRgbColor.cpp">
+    <ClCompile Include="CT_TextLineBreak.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_StretchInfoProperties.cpp">
@@ -941,7 +913,7 @@
     <ClCompile Include="CT_TextFont.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_TextLineBreak.cpp">
+    <ClCompile Include="CT_TLByRgbColorTransform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_TextListStyle.cpp">
@@ -1049,7 +1021,7 @@
     <ClCompile Include="CT_TLByHslColorTransform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_TLByRgbColorTransform.cpp">
+    <ClCompile Include="CT_ViewProperties.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_TLCommandBehavior.cpp">
@@ -1157,7 +1129,7 @@
     <ClCompile Include="CT_VideoFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CT_ViewProperties.cpp">
+    <ClCompile Include="ST_DrawingElementId.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_WebProperties.cpp">
@@ -1170,6 +1142,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CT_XYAdjustHandle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Int.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Long.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_AdjAngle.cpp">
@@ -1211,6 +1192,9 @@
     <ClCompile Include="ST_BookmarkIdSeed.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ST_CalendarType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ST_ChartBuildStep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1218,6 +1202,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_CompoundLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ST_ConformanceClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_Coordinate.cpp">
@@ -1235,7 +1222,7 @@
     <ClCompile Include="ST_DgmBuildStep.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_DrawingElementId.cpp">
+    <ClCompile Include="ST_SchemeColorVal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_EffectContainerType.cpp">
@@ -1257,6 +1244,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_GeomGuideName.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ST_Guid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ST_HexColorRGB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_LightRigDirection.cpp">
@@ -1283,6 +1276,9 @@
     <ClCompile Include="ST_OnOffStyleType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ST_Panose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ST_PathFillMode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1290,6 +1286,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_PenAlignment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ST_Percentage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_PositiveCoordinate.cpp">
@@ -1305,6 +1304,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_PositivePercentage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ST_PositiveUniversalMeasure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_PresetCameraType.cpp">
@@ -1328,7 +1330,7 @@
     <ClCompile Include="ST_RectAlignment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_SchemeColorVal.cpp">
+    <ClCompile Include="ST_TextWrappingType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_ShapeID.cpp">
@@ -1436,46 +1438,13 @@
     <ClCompile Include="ST_TextVertOverflowType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_TextWrappingType.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ST_TileFlipMode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bool.cpp">
+    <ClCompile Include="ST_TwipsMeasure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Int.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UInt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Long.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Byte.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UByte.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ULong.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ST_Guid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ST_Percentage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ST_HexColorRGB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ST_Panose.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ST_CalendarType.cpp">
+    <ClCompile Include="ST_UniversalMeasure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ST_VerticalAlignRun.cpp">
@@ -1487,17 +1456,44 @@
     <ClCompile Include="ST_YAlign.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_ConformanceClass.cpp">
+    <ClCompile Include="UByte.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_UniversalMeasure.cpp">
+    <ClCompile Include="UInt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_PositiveUniversalMeasure.cpp">
+    <ClCompile Include="ULong.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ST_TwipsMeasure.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="shared-commonSimpleTypes.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="shared-relationshipReference.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="dml-main.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="pml.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{5cbff13b-f1b0-4197-a630-60670a5a8624}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{b6f27789-5142-4b00-90db-2a803343094a}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
   </ItemGroup>
 </Project>
