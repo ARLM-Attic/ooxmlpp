@@ -1,0 +1,130 @@
+#include <Windows.h>
+#include <Shlwapi.h>
+#include "OpcFactory.h"
+
+const wchar_t *slideMasterContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.slideMaster+xml";
+const wchar_t *slideMasterRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideMaster";
+const wchar_t *slideLayoutContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.slideLayout+xml";
+const wchar_t *slideLayoutRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideLayout";
+const wchar_t *slideContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.slide+xml";
+const wchar_t *slideRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide";
+const wchar_t *themeContentType_Strict = L"application/vnd.openxmlformats-officedocument.theme+xml";
+const wchar_t *themeRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme";
+const wchar_t *presentationContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml";
+const wchar_t *presentationRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument";
+const wchar_t *presPropsContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.presProps+xml";
+const wchar_t *presPropsRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/presProps";
+const wchar_t *tableStylesContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.tableStyles+xml";
+const wchar_t *tableStylesRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/tableStyles";
+const wchar_t *viewPropsContentType_Strict = L"application/vnd.openxmlformats-officedocument.presentationml.viewProps+xml";
+const wchar_t *viewPropsRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/viewProps";
+const wchar_t *appPropsContentType_Strict = L"application/vnd.openxmlformats-officedocument.extended-properties+xml";
+const wchar_t *appPropsRelationshipType_Strict = L"http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties";
+const wchar_t *corePropsContentType_Strict = L"application/vnd.openxmlformats-package.core-properties+xml";
+const wchar_t *corePropsRelationshipType_Strict = L"http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties";
+
+int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+	COpcFactory *factory;
+	CoInitialize(0);
+	//CoCreateInstance(__uuidof(OpcFactory),NULL,CLSCTX_INPROC_SERVER,__uuidof(IOpcFactory), (LPVOID*)&factory);
+	WCHAR out[MAX_PATH];
+	PathCanonicalize(out,L"/slides/slide1.xml ../slideLayouts/slideLayout1.xml");
+	factory = new COpcFactory();
+	IOpcPackage *package;
+	factory->CreatePackage(&package);
+	IOpcPartSet *partset;
+	IOpcRelationshipSet *relset;
+	IOpcPartUri *slideMaster1, *slideLayout1, *slide1, *presentation, *theme1, *presProps, *tableStyles, *viewProps, *app, *core;
+	package->GetPartSet(&partset);
+	factory->CreatePartUri(L"/ppt/slideMasters/slideMaster1.xml",&slideMaster1);
+	factory->CreatePartUri(L"/ppt/slideLayouts/slideLayout1.xml",&slideLayout1);
+	factory->CreatePartUri(L"/ppt/slides/slide1.xml",&slide1);
+	factory->CreatePartUri(L"/ppt/theme/theme1.xml",&theme1);
+	factory->CreatePartUri(L"/ppt/presentation.xml",&presentation);
+	factory->CreatePartUri(L"/ppt/presProps.xml",&presProps);
+	factory->CreatePartUri(L"/ppt/tableStyles.xml",&tableStyles);
+	factory->CreatePartUri(L"/ppt/viewProps.xml",&viewProps);
+	factory->CreatePartUri(L"/docProps/app.xml",&app);
+	factory->CreatePartUri(L"/docProps/core.xml",&core);
+	//create properties
+	//add props to package
+	IOpcPart *slideMaster1Part, *slideLayout1Part, *slide1Part, *theme1Part,*presentationPart, *presPropsPart, *tableStylesPart, *viewPropsPart, *appPropsPart, *corePropsPart;
+	partset->CreatePart(slideMaster1,slideMasterContentType_Strict,OPC_COMPRESSION_NORMAL,&slideMaster1Part);
+	partset->CreatePart(slideLayout1,slideLayoutContentType_Strict,OPC_COMPRESSION_NORMAL,&slideLayout1Part);
+	partset->CreatePart(slide1,slideContentType_Strict,OPC_COMPRESSION_NORMAL,&slide1Part);
+	partset->CreatePart(theme1,themeContentType_Strict,OPC_COMPRESSION_NORMAL,&theme1Part);
+	partset->CreatePart(presentation,presentationContentType_Strict,OPC_COMPRESSION_NORMAL,&presentationPart);
+	partset->CreatePart(presProps,presPropsContentType_Strict,OPC_COMPRESSION_NORMAL,&presPropsPart);
+	partset->CreatePart(tableStyles,tableStylesContentType_Strict,OPC_COMPRESSION_NORMAL,&tableStylesPart);
+	partset->CreatePart(viewProps,viewPropsContentType_Strict,OPC_COMPRESSION_NORMAL,&viewPropsPart);
+	partset->CreatePart(app,appPropsContentType_Strict,OPC_COMPRESSION_NORMAL,&appPropsPart);
+	partset->CreatePart(core,corePropsContentType_Strict,OPC_COMPRESSION_NORMAL,&corePropsPart);
+	IOpcRelationship *temp;
+	slideMaster1Part->GetRelationshipSet(&relset);
+	relset->CreateRelationship(L"rId1",slideLayoutRelationshipType_Strict,slideLayout1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId2",themeRelationshipType_Strict,theme1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->Release();
+	slideLayout1Part->GetRelationshipSet(&relset);
+	relset->CreateRelationship(L"rId1",slideMasterRelationshipType_Strict,slideMaster1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->Release();
+	slide1Part->GetRelationshipSet(&relset);
+	relset->CreateRelationship(L"rId1",slideLayoutRelationshipType_Strict,slideLayout1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->Release();
+	presentationPart->GetRelationshipSet(&relset);
+	relset->CreateRelationship(L"rId1",slideMasterRelationshipType_Strict,slideMaster1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId2",slideMasterRelationshipType_Strict,slide1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId3",presPropsRelationshipType_Strict,presProps,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId4",viewPropsRelationshipType_Strict,viewProps,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId5",themeRelationshipType_Strict,theme1,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId6",tableStylesRelationshipType_Strict,tableStyles,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->Release();
+	package->GetRelationshipSet(&relset);
+	relset->CreateRelationship(L"rId1",presentationRelationshipType_Strict,presentation,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId2",corePropsRelationshipType_Strict,core,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->CreateRelationship(L"rId3",appPropsRelationshipType_Strict,app,OPC_URI_TARGET_MODE_INTERNAL,&temp);
+	temp->Release();
+	relset->Release();
+
+	partset->Release();
+	IStream *stream;
+	factory->CreateStreamOnFile(L"test1.pptx",OPC_STREAM_IO_WRITE,NULL,0,&stream);
+	factory->WritePackageToStream(package,OPC_WRITE_DEFAULT,stream);
+	stream->Release();
+	slideMaster1->Release();
+	slideMaster1Part->Release();
+	slideLayout1->Release();
+	slideLayout1Part->Release();
+	slide1->Release();
+	slide1Part->Release();
+	theme1->Release();
+	theme1Part->Release();
+	presentation->Release();
+	presentationPart->Release();
+	presProps->Release();
+	presPropsPart->Release();
+	tableStyles->Release();
+	tableStylesPart->Release();
+	viewProps->Release();
+	viewPropsPart->Release();
+	app->Release();
+	appPropsPart->Release();
+	core->Release();
+	corePropsPart->Release();
+
+	package->Release();
+
+	CoUninitialize();
+	return 0;
+}
