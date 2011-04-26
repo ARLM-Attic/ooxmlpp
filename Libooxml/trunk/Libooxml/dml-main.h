@@ -494,30 +494,40 @@ namespace drawingml {
 			std::wstring Xml();
 		};
 
+		class EG_ColorChoice {
+		private:
+			std::shared_ptr<CT_ScRgbColor> _scrgbColor;
+			std::shared_ptr<CT_SRgbColor> _srgbColor;
+			std::shared_ptr<CT_HslColor> _hslColor;
+			std::shared_ptr<CT_SystemColor> _sysColor;
+			std::shared_ptr<CT_SchemeColor> _schemeColor;
+			std::shared_ptr<CT_PresetColor> _prstColor;
+		public:
+			EG_ColorChoice();
+			EG_ColorChoice& operator=(std::shared_ptr<CT_ScRgbColor> &__scrgbColor);
+			EG_ColorChoice& operator=(std::shared_ptr<CT_SRgbColor> &__srgbColor);
+			EG_ColorChoice& operator=(std::shared_ptr<CT_HslColor> &__hslColor);
+			EG_ColorChoice& operator=(std::shared_ptr<CT_SystemColor> &__sysColor);
+			EG_ColorChoice& operator=(std::shared_ptr<CT_SchemeColor> &__schemeColor);
+			EG_ColorChoice& operator=(std::shared_ptr<CT_PresetColor> &__prstColor);
+
+			std::shared_ptr<CT_ScRgbColor> scrgbColor();
+			std::shared_ptr<CT_SRgbColor> srgbColor();
+			std::shared_ptr<CT_HslColor> hslColor();
+			std::shared_ptr<CT_SystemColor> sysColor();
+			std::shared_ptr<CT_SchemeColor> schemeColor();
+			std::shared_ptr<CT_PresetColor> prstColor();
+		};
+
 		class CT_CustomColor {
 		public:
 		//elements
-
-			std::shared_ptr<CT_ScRgbColor> scrgbClr;
-			std::shared_ptr<CT_SRgbColor> srgbClr;
-			std::shared_ptr<CT_HslColor> hslClr;
-			std::shared_ptr<CT_SystemColor> sysClr;
-			std::shared_ptr<CT_SchemeColor> schemeClr;
-			std::shared_ptr<CT_PresetColor> prstClr;
-
-		private:
-			int type;
-		public:
+			EG_ColorChoice colorChoice;
 		//attributes
 			std::wstring name;
 		public:
 		//end
-			CT_CustomColor(std::shared_ptr<CT_ScRgbColor> _scrgbClr,std::wstring _name = L"");
-			CT_CustomColor(std::shared_ptr<CT_SRgbColor> _srgbClr,std::wstring _name = L"");
-			CT_CustomColor(std::shared_ptr<CT_HslColor> _hslClr,std::wstring _name = L"");
-			CT_CustomColor(std::shared_ptr<CT_SystemColor> _sysClr,std::wstring _name = L"");
-			CT_CustomColor(std::shared_ptr<CT_SchemeColor> _schemeClr,std::wstring _name = L"");
-			CT_CustomColor(std::shared_ptr<CT_PresetColor> _prstClr,std::wstring _name = L"");
+			CT_CustomColor(EG_ColorChoice &_colorChoice,std::wstring _name = L"");
 			CT_CustomColor(CT_CustomColor &b);
 			CT_CustomColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_CustomColor& operator=(CT_CustomColor &b);
@@ -3504,6 +3514,19 @@ namespace drawingml {
 			std::wstring Xml();
 		};
 
+		class EG_ShadeProperties {
+		private:
+			std::shared_ptr<CT_LinearShadeProperties> _lin;
+			std::shared_ptr<CT_PathShadeProperties> _path;
+		public:
+			EG_ShadeProperties();
+			EG_ShadeProperties& operator=(std::shared_ptr<CT_LinearShadeProperties> &__lin);
+			EG_ShadeProperties& operator=(std::shared_ptr<CT_PathShadeProperties> &__path);
+
+			std::shared_ptr<CT_LinearShadeProperties> lin();
+			std::shared_ptr<CT_PathShadeProperties> path();
+		};
+
 		class CT_GradientFillProperties {
 		public:
 		//elements
@@ -3924,6 +3947,104 @@ namespace drawingml {
 			ST_EffectContainerType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
+		};
+
+		class EG_Effect {
+		private:
+			std::shared_ptr<CT_EffectContainer> _cont;
+			std::shared_ptr<CT_EffectReference> _effect;
+			std::shared_ptr<CT_AlphaBiLevelEffect> _alphaBiLevel;
+			std::shared_ptr<CT_AlphaCeilingEffect> _alphaCeiling;
+			std::shared_ptr<CT_AlphaFloorEffect> _alphaFloor;
+			std::shared_ptr<CT_AlphaInverseEffect> _alphaInv;
+			std::shared_ptr<CT_AlphaModulateEffect> _alphaMod;
+			std::shared_ptr<CT_AlphaModulateFixedEffect> _alphaModFix;
+			std::shared_ptr<CT_AlphaOutsetEffect> _alphaOutset;
+			std::shared_ptr<CT_AlphaReplaceEffect> _alphaRepl;
+			std::shared_ptr<CT_BiLevelEffect> _biLevel;
+			std::shared_ptr<CT_BlendEffect> _blend;
+			std::shared_ptr<CT_BlurEffect> _blur;
+			std::shared_ptr<CT_ColorChangeEffect> _clrChange;
+			std::shared_ptr<CT_ColorReplaceEffect> _clrRepl;
+			std::shared_ptr<CT_DuotoneEffect> _duotone;
+			std::shared_ptr<CT_FillEffect> _fill;
+			std::shared_ptr<CT_FillOverlayEffect> _fillOverlay;
+			std::shared_ptr<CT_GlowEffect> _glow;
+			std::shared_ptr<CT_GrayscaleEffect> _grayscl;
+			std::shared_ptr<CT_HSLEffect> _hsl;
+			std::shared_ptr<CT_InnerShadowEffect> _innerShdw;
+			std::shared_ptr<CT_LuminanceEffect> _lum;
+			std::shared_ptr<CT_OuterShadowEffect> _outerShdw;
+			std::shared_ptr<CT_PresetShadowEffect> _prstShdw;
+			std::shared_ptr<CT_ReflectionEffect> _reflection;
+			std::shared_ptr<CT_RelativeOffsetEffect> _relOff;
+			std::shared_ptr<CT_SoftEdgesEffect> _softEdge;
+			std::shared_ptr<CT_TintEffect> _tint;
+			std::shared_ptr<CT_TransformEffect> _xfrm;
+		public:
+			EG_Effect();
+
+			EG_Effect& operator=(std::shared_ptr<CT_EffectContainer> &__cont);
+			EG_Effect& operator=(std::shared_ptr<CT_EffectReference> &__effect);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaBiLevelEffect> &__alphaBiLevel);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaCeilingEffect> &__alphaCeiling);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaFloorEffect> &__alphaFloor);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaInverseEffect> &__alphaInv);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaModulateEffect> &__alphaMod);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaModulateFixedEffect> &__alphaModFix);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaOutsetEffect> &__alphaOutset);
+			EG_Effect& operator=(std::shared_ptr<CT_AlphaReplaceEffect> &__alphaRepl);
+			EG_Effect& operator=(std::shared_ptr<CT_BiLevelEffect> &__biLevel);
+			EG_Effect& operator=(std::shared_ptr<CT_BlendEffect> &__blend);
+			EG_Effect& operator=(std::shared_ptr<CT_BlurEffect> &__blur);
+			EG_Effect& operator=(std::shared_ptr<CT_ColorChangeEffect> &__clrChange);
+			EG_Effect& operator=(std::shared_ptr<CT_ColorReplaceEffect> &__clrRepl);
+			EG_Effect& operator=(std::shared_ptr<CT_DuotoneEffect> &__duotone);
+			EG_Effect& operator=(std::shared_ptr<CT_FillEffect> &__fill);
+			EG_Effect& operator=(std::shared_ptr<CT_FillOverlayEffect> &__fillOverlay);
+			EG_Effect& operator=(std::shared_ptr<CT_GlowEffect> &__glow);
+			EG_Effect& operator=(std::shared_ptr<CT_GrayscaleEffect> &__grayscl);
+			EG_Effect& operator=(std::shared_ptr<CT_HSLEffect> &__hsl);
+			EG_Effect& operator=(std::shared_ptr<CT_InnerShadowEffect> &__innerShdw);
+			EG_Effect& operator=(std::shared_ptr<CT_LuminanceEffect> &__lum);
+			EG_Effect& operator=(std::shared_ptr<CT_OuterShadowEffect> &__outerShdw);
+			EG_Effect& operator=(std::shared_ptr<CT_PresetShadowEffect> &__prstShdw);
+			EG_Effect& operator=(std::shared_ptr<CT_ReflectionEffect> &__reflection);
+			EG_Effect& operator=(std::shared_ptr<CT_RelativeOffsetEffect> &__relOff);
+			EG_Effect& operator=(std::shared_ptr<CT_SoftEdgesEffect> &__softEdge);
+			EG_Effect& operator=(std::shared_ptr<CT_TintEffect> &__tint);
+			EG_Effect& operator=(std::shared_ptr<CT_TransformEffect> &__xfrm);
+
+			std::shared_ptr<CT_EffectContainer> cont();
+			std::shared_ptr<CT_EffectReference> effect();
+			std::shared_ptr<CT_AlphaBiLevelEffect> alphaBiLevel();
+			std::shared_ptr<CT_AlphaCeilingEffect> alphaCeiling();
+			std::shared_ptr<CT_AlphaFloorEffect> alphaFloor();
+			std::shared_ptr<CT_AlphaInverseEffect> alphaInv();
+			std::shared_ptr<CT_AlphaModulateEffect> alphaMod();
+			std::shared_ptr<CT_AlphaModulateFixedEffect> alphaModFix();
+			std::shared_ptr<CT_AlphaOutsetEffect> alphaOutset();
+			std::shared_ptr<CT_AlphaReplaceEffect> alphaRepl();
+			std::shared_ptr<CT_BiLevelEffect> biLevel();
+			std::shared_ptr<CT_BlendEffect> blend();
+			std::shared_ptr<CT_BlurEffect> blur();
+			std::shared_ptr<CT_ColorChangeEffect> clrChange();
+			std::shared_ptr<CT_ColorReplaceEffect> clrRepl();
+			std::shared_ptr<CT_DuotoneEffect> duotone();
+			std::shared_ptr<CT_FillEffect> fill();
+			std::shared_ptr<CT_FillOverlayEffect> fillOverlay();
+			std::shared_ptr<CT_GlowEffect> glow();
+			std::shared_ptr<CT_GrayscaleEffect> grayscl();
+			std::shared_ptr<CT_HSLEffect> hsl();
+			std::shared_ptr<CT_InnerShadowEffect> innerShdw();
+			std::shared_ptr<CT_LuminanceEffect> lum();
+			std::shared_ptr<CT_OuterShadowEffect> outerShdw();
+			std::shared_ptr<CT_PresetShadowEffect> prstShdw();
+			std::shared_ptr<CT_ReflectionEffect> reflection();
+			std::shared_ptr<CT_RelativeOffsetEffect> relOff();
+			std::shared_ptr<CT_SoftEdgesEffect> softEdge();
+			std::shared_ptr<CT_TintEffect> tint();
+			std::shared_ptr<CT_TransformEffect> xfrm();
 		};
 
 		class CT_EffectContainer {
@@ -4804,8 +4925,8 @@ namespace drawingml {
 			ST_LineEndType(value _v);
 			ST_LineEndType(std::wstring b);
 			ST_LineEndType(ST_LineEndType &b);
-			ST_LineEndType& operator=(ST_LineEndType &b);
-			ST_LineEndType& operator =(const ST_LineEndType& b);
+			ST_LineEndType& operator=(value _v);
+			ST_LineEndType& operator =(ST_LineEndType& b);
 			ST_LineEndType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5109,8 +5230,8 @@ namespace drawingml {
 			ST_CompoundLine(value _v);
 			ST_CompoundLine(std::wstring b);
 			ST_CompoundLine(ST_CompoundLine &b);
-			ST_CompoundLine& operator=(ST_CompoundLine &b);
-			ST_CompoundLine& operator =(const ST_CompoundLine& b);
+			ST_CompoundLine& operator=(value _v);
+			ST_CompoundLine& operator =(ST_CompoundLine& b);
 			ST_CompoundLine& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5626,11 +5747,19 @@ namespace drawingml {
 		//elements
 			EG_FillProperties fillProperties;
 			EG_EffectProperties effectProperties;
-			//todo
-			std::shared_ptr<CT_TableStyle> tableStyle;
-			officeDocument::sharedTypes::ST_Guid tableStyleId;
-			
+			class Choice {
+			private:
+				std::shared_ptr<CT_TableStyle> _tableStyle;
+				officeDocument::sharedTypes::ST_Guid _tableStyleId;
+			public:
+				Choice();
+				Choice& operator=(std::shared_ptr<CT_TableStyle> &__tableStyle);
+				Choice& operator=(officeDocument::sharedTypes::ST_Guid &__tableStyleId);
 
+				std::shared_ptr<CT_TableStyle> tableStyle();
+				officeDocument::sharedTypes::ST_Guid tableStyleId();
+			}
+			Choice choice;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
 		//attributes
 			Bool rtl;
@@ -5710,6 +5839,32 @@ namespace drawingml {
 		//end
 			CT_ThemeableLineStyle(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			~CT_ThemeableLineStyle();
+		};
+
+		class EG_ThemeableEffectStyle {
+		private:
+			std::shared_ptr<CT_EffectProperties> _effect;
+			std::shared_ptr<CT_StyleMatrixReference> _effectRef;
+		public:
+			EG_ThemeableEffectStyle();
+			EG_ThemeableEffectStyle& operator=(std::shared_ptr<CT_EffectProperties> &__effect);
+			EG_ThemeableEffectStyle& operator=(std::shared_ptr<CT_StyleMatrixReference> &__effectRef);
+
+			std::shared_ptr<CT_EffectProperties> effect();
+			std::shared_ptr<CT_StyleMatrixReference> effectRef();
+		};
+
+		class EG_ThemeableFontStyles {
+		private:
+			std::shared_ptr<CT_FontCollection> _font;
+			std::shared_ptr<CT_FontReference> _fontRef;
+		public:
+			EG_ThemeableFontStyles();
+			EG_ThemeableFontStyles& operator=(std::shared_ptr<CT_FontCollection> &__font);
+			EG_ThemeableFontStyles& operator=(std::shared_ptr<CT_FontReference> &__fontRef);
+
+			std::shared_ptr<CT_FontCollection> font();
+			std::shared_ptr<CT_FontReference> fontRef();
 		};
 
 		class ST_OnOffStyleType {
@@ -5877,18 +6032,38 @@ namespace drawingml {
 			std::wstring Xml();
 		};
 
+		class EG_TextRun {
+		private:
+			std::shared_ptr<CT_RegularTextRun> _r;
+			std::shared_ptr<CT_TextLineBreak> _br;
+			std::shared_ptr<CT_TextField> _fld;
+		public:
+			EG_TextRun();
+			EG_TextRun& operator=(std::shared_ptr<CT_RegularTextRun> &__r);
+			EG_TextRun& operator=(std::shared_ptr<CT_TextLineBreak> &__br);
+			EG_TextRun& operator=(std::shared_ptr<CT_TextField> &__fld);
+
+			std::shared_ptr<CT_RegularTextRun> r();
+			std::shared_ptr<CT_TextLineBreak> br();
+			std::shared_ptr<CT_TextField> fld();
+		};
+
 		class CT_TextParagraph {
 		public:
 		//elements
 			std::shared_ptr<CT_TextParagraphProperties> pPr;
-			//<xsd:group ref="EG_TextRun" minOccurs="0" maxOccurs="unbounded"/>
+			std::vector<EG_TextRun> textRun;
 			std::shared_ptr<CT_TextCharacterProperties> endParaRPr;
 		//attributes
 
 		public:
 		//end
+			CT_TextParagraph();
+			CT_TextParagraph(CT_TextParagraph &b);
 			CT_TextParagraph(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextParagraph& operator=(CT_TextParagraph &b);
 			~CT_TextParagraph();
+			std::wstring Xml();
 		};
 
 		class ST_TextVertOverflowType {
@@ -5902,9 +6077,14 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextVertOverflowType(value _v);
+			ST_TextVertOverflowType(std::wstring b);
+			ST_TextVertOverflowType(ST_TextVertOverflowType &b);
+			ST_TextVertOverflowType& operator=(value _v);
 			ST_TextVertOverflowType& operator =(const ST_TextVertOverflowType& b);
 			ST_TextVertOverflowType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class ST_TextWrappingType {
@@ -5917,9 +6097,14 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextWrappingType(value _v);
+			ST_TextWrappingType(std::wstring b);
+			ST_TextWrappingType(ST_TextWrappingType &b);
+			ST_TextWrappingType& operator=(value _v);
 			ST_TextWrappingType& operator =(const ST_TextWrappingType& b);
 			ST_TextWrappingType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class ST_TextColumnCount {
@@ -5932,6 +6117,10 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextColumnCount(value _v);
+			ST_TextColumnCount(std::wstring b);
+			ST_TextColumnCount(ST_TextColumnCount &b);
+			ST_TextColumnCount& operator=(value _v);
 			ST_TextColumnCount& operator =(const ST_TextColumnCount& b);
 			ST_TextColumnCount& operator =(std::wstring b);
 			operator const wchar_t*() const;
@@ -5955,30 +6144,26 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextListStyle();
+			CT_TextListStyle(CT_TextListStyle &b);
 			CT_TextListStyle(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextListStyle& operator=(CT_TextListStyle &b);
 			~CT_TextListStyle();
+			std::wstring Xml();
 		};
 
-		class ST_TextFontScalePercentOrPercentString {
+		class ST_TextFontScalePercentOrPercentString : public officeDocument::sharedTypes::ST_Percentage {
 		public:
 		//end
-			ST_Percentage v;
 		public:
 		//end
-			ST_TextFontScalePercentOrPercentString& operator =(const ST_TextFontScalePercentOrPercentString& b);
-			ST_TextFontScalePercentOrPercentString& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
-		class ST_TextSpacingPercentOrPercentString {
+		class ST_TextSpacingPercentOrPercentString : public officeDocument::sharedTypes::ST_Percentage {
 		public:
 		//end
-			ST_Percentage v;
 		public:
 		//end
-			ST_TextSpacingPercentOrPercentString& operator =(const ST_TextSpacingPercentOrPercentString& b);
-			ST_TextSpacingPercentOrPercentString& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class CT_TextNormalAutofit {
@@ -5990,8 +6175,12 @@ namespace drawingml {
 			ST_TextSpacingPercentOrPercentString lnSpcReduction;
 		public:
 		//end
+			CT_TextNormalAutofit();
+			CT_TextNormalAutofit(CT_TextNormalAutofit &b);
 			CT_TextNormalAutofit(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextNormalAutofit& operator=(CT_TextNormalAutofit &b);
 			~CT_TextNormalAutofit();
+			std::wstring Xml();
 		};
 
 		class CT_TextShapeAutofit {
@@ -6002,8 +6191,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextShapeAutofit();
+			CT_TextShapeAutofit(CT_TextShapeAutofit &b);
 			CT_TextShapeAutofit(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextShapeAutofit& operator=(CT_TextShapeAutofit &b);
 			~CT_TextShapeAutofit();
+			std::wstring Xml();
 		};
 
 		class CT_TextNoAutofit {
@@ -6014,29 +6207,38 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextNoAutofit();
+			CT_TextNoAutofit(CT_TextNoAutofit &b);
 			CT_TextNoAutofit(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextNoAutofit& operator=(CT_TextNoAutofit &b);
 			~CT_TextNoAutofit();
+			std::wstring Xml();
+		};
+
+		class EG_TextAutofit {
+		private:
+			std::shared_ptr<CT_TextNoAutofit> _noAutofit;
+			std::shared_ptr<CT_TextNormalAutofit> _normAutoFit;
+			std::shared_ptr<CT_TextShapeAutofit> _spAutofit;
+		public:
+			EG_TextAutofit();
+			EG_TextAutofit& operator=(std::shared_ptr<CT_TextNoAutofit> &__noAutofit);
+			EG_TextAutofit& operator=(std::shared_ptr<CT_TextNormalAutofit> &__normAutoFit);
+			EG_TextAutofit& operator=(std::shared_ptr<CT_TextShapeAutofit> &__spAutofit);
+
+			std::shared_ptr<CT_TextNoAutofit> noAutofit();
+			std::shared_ptr<CT_TextNormalAutofit> normAutoFit();
+			std::shared_ptr<CT_TextShapeAutofit> spAutofit();
 		};
 
 		class CT_TextBodyProperties {
 		public:
 		//elements
 			std::shared_ptr<CT_PresetTextShape> prstTxWarp;
-			
-			std::shared_ptr<CT_TextNoAutofit> noAutoFit;
-			std::shared_ptr<CT_TextNormalAutofit> normAutoFit;
-			std::shared_ptr<CT_TextShapeAutofit> spautoFit;
-
+			EG_TextAutofit textAutoFit;
 			std::shared_ptr<CT_Scene3D> scene3D;
-			
-			std::shared_ptr<CT_Shape3D> sp3d;
-			std::shared_ptr<CT_FlatText> flatTx;
-
+			EG_Text3D text3D;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
-		private:
-			int typeFit;
-			int type3D;
-		public:
 		//attributes
 			ST_Angle rot;
 			Bool spcFirstLastPara;
@@ -6059,8 +6261,12 @@ namespace drawingml {
 			Bool compatLnSpc;
 		public:
 		//end
+			CT_TextBodyProperties();
+			CT_TextBodyProperties(CT_TextBodyProperties &b);
 			CT_TextBodyProperties(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBodyProperties& operator=(CT_TextBodyProperties &b);
 			~CT_TextBodyProperties();
+			std::wstring Xml();
 		};
 
 		class CT_TextBody {
@@ -6073,19 +6279,20 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextBody(std::shared_ptr<CT_TextBodyProperties> &_bodyPr,std::shared_ptr<CT_TextParagraph> &_para);
+			CT_TextBody(CT_TextBody &b);
 			CT_TextBody(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBody& operator=(CT_TextBody &b);
 			~CT_TextBody();
+			std::wstring Xml();
 		};
 
-		class ST_TextBulletStartAtNum {
+		class ST_TextBulletStartAtNum : Int {
 		public:
 		//end
-			Int v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextBulletStartAtNum& operator =(const ST_TextBulletStartAtNum& b);
-			ST_TextBulletStartAtNum& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class ST_TextAutonumberScheme {
@@ -6137,9 +6344,27 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextAutonumberScheme(value _v);
+			ST_TextAutonumberScheme(std::wstring b);
+			ST_TextAutonumberScheme(ST_TextAutonumberScheme &b);
+			ST_TextAutonumberScheme& operator=(value _v);
 			ST_TextAutonumberScheme& operator =(const ST_TextAutonumberScheme& b);
 			ST_TextAutonumberScheme& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
+		};
+
+		class EG_TextBulletColor {
+		private:
+			std::shared_ptr<CT_TextBulletColorFollowText> _buClrTx;
+			std::shared_ptr<CT_Color> _buClr;
+		public:
+			EG_TextBulletColor();
+			EG_TextBulletColor& operator=(std::shared_ptr<CT_TextBulletColorFollowText> _buClrTx);
+			EG_TextBulletColor& operator=(std::shared_ptr<CT_Color> _buClr);
+
+			std::shared_ptr<CT_TextBulletColorFollowText> buClrTx();
+			std::shared_ptr<CT_Color> buClr();
 		};
 
 		class CT_TextBulletColorFollowText {
@@ -6155,14 +6380,20 @@ namespace drawingml {
 		};
 
 		class ST_TextBulletSizePercent {
-		public:
 		//end
+		private:
 			std::wstring v;
 		public:
+			bool check(std::wstring chkval);
+		public:
 		//end
-			ST_TextBulletSizePercent& operator =(const ST_TextBulletSizePercent& b);
+			ST_TextBulletSizePercent();
+			ST_TextBulletSizePercent(std::wstring b);
+			ST_TextBulletSizePercent(ST_TextBulletSizePercent &b);
+			ST_TextBulletSizePercent& operator =(ST_TextBulletSizePercent& b);
 			ST_TextBulletSizePercent& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class CT_TextBulletSizeFollowText {
@@ -6173,8 +6404,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextBulletSizeFollowText();
+			CT_TextBulletSizeFollowText(CT_TextBulletSizeFollowText &b);
 			CT_TextBulletSizeFollowText(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBulletSizeFollowText& operator=(CT_TextBulletSizeFollowText &b);
 			~CT_TextBulletSizeFollowText();
+			std::wstring Xml();
 		};
 
 		class CT_TextBulletSizePercent {
@@ -6185,19 +6420,20 @@ namespace drawingml {
 			ST_TextBulletSizePercent val;
 		public:
 		//end
+			CT_TextBulletSizePercent(ST_TextBulletSizePercent &_val);
+			CT_TextBulletSizePercent(CT_TextBulletSizePercent &b);
 			CT_TextBulletSizePercent(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBulletSizePercent& operator=(CT_TextBulletSizePercent &b);
 			~CT_TextBulletSizePercent();
+			std::wstring Xml();
 		};
 
-		class ST_TextFontSize {
+		class ST_TextFontSize : Int {
 		public:
 		//end
-			Int v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextFontSize& operator =(const ST_TextFontSize& b);
-			ST_TextFontSize& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class CT_TextBulletSizePoint {
@@ -6208,8 +6444,28 @@ namespace drawingml {
 			ST_TextFontSize val;
 		public:
 		//end
+			CT_TextBulletSizePoint();
+			CT_TextBulletSizePoint(CT_TextBulletSizePoint &b);
 			CT_TextBulletSizePoint(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBulletSizePoint& operator=(CT_TextBulletSizePoint &b);
 			~CT_TextBulletSizePoint();
+			std::wstring Xml();
+		};
+
+		class EG_TextBulletSize {
+		private:
+			std::shared_ptr<CT_TextBulletSizeFollowText> _buSzTx;
+			std::shared_ptr<CT_TextBulletSizePercent> _buSzPct;
+			std::shared_ptr<CT_TextBulletSizePoint> _buSzPts;
+		public:
+			EG_TextBulletSize();
+			EG_TextBulletSize& operator=(std::shared_ptr<CT_TextBulletSizeFollowText> &__buSzTx);
+			EG_TextBulletSize& operator=(std::shared_ptr<CT_TextBulletSizePercent> &__buSzPct);
+			EG_TextBulletSize& operator=(std::shared_ptr<CT_TextBulletSizePoint> &__buSzPts);
+
+			std::shared_ptr<CT_TextBulletSizeFollowText> buSzTx();
+			std::shared_ptr<CT_TextBulletSizePercent> buSzPct();
+			std::shared_ptr<CT_TextBulletSizePoint> buSzPts();
 		};
 
 		class CT_TextBulletTypefaceFollowText {
@@ -6220,8 +6476,25 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextBulletTypefaceFollowText();
+			CT_TextBulletTypefaceFollowText(CT_TextBulletTypefaceFollowText &b);
 			CT_TextBulletTypefaceFollowText(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBulletTypefaceFollowText& operator=(CT_TextBulletTypefaceFollowText &b);
 			~CT_TextBulletTypefaceFollowText();
+			std::wstring Xml();
+		};
+
+		class EG_TextBulletTypeface {
+		private:
+			std::shared_ptr<CT_TextBulletTypefaceFollowText> _buFontTx;
+			std::shared_ptr<CT_TextFont> _buFont;
+		public:
+			EG_TextBulletTypeface();
+			EG_TextBulletTypeface& operator=(std::shared_ptr<CT_TextBulletTypefaceFollowText> &__buFontTx);
+			EG_TextBulletTypeface& operator=(std::shared_ptr<CT_TextFont> &__buFont);
+
+			std::shared_ptr<CT_TextBulletTypefaceFollowText> buFontTx();
+			std::shared_ptr<CT_TextFont> buFont();
 		};
 
 		class CT_TextAutonumberBullet {
@@ -6233,8 +6506,12 @@ namespace drawingml {
 			ST_TextBulletStartAtNum startAt;
 		public:
 		//end
+			CT_TextAutonumberBullet(ST_TextAutonumberScheme &_type);
+			CT_TextAutonumberBullet(CT_TextAutonumberBullet &b);
 			CT_TextAutonumberBullet(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextAutonumberBullet& operator=(CT_TextAutonumberBullet &b);
 			~CT_TextAutonumberBullet();
+			std::wstring Xml();
 		};
 
 		class CT_TextCharBullet {
@@ -6245,8 +6522,12 @@ namespace drawingml {
 			std::wstring _char;
 		public:
 		//end
+			CT_TextCharBullet(std::wstring &__char);
+			CT_TextCharBullet(CT_TextCharBullet &b);
 			CT_TextCharBullet(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextCharBullet& operator=(CT_TextCharBullet &b);
 			~CT_TextCharBullet();
+			std::wstring Xml();
 		};
 
 		class CT_TextBlipBullet {
@@ -6257,8 +6538,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextBlipBullet(std::shared_ptr<CT_Blip> &_blip);
+			CT_TextBlipBullet(CT_TextBlipBullet &b);
 			CT_TextBlipBullet(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBlipBullet& operator=(CT_TextBlipBullet &b);
 			~CT_TextBlipBullet();
+			std::wstring Xml();
 		};
 
 		class CT_TextNoBullet {
@@ -6269,11 +6554,35 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextNoBullet();
+			CT_TextNoBullet(CT_TextNoBullet &b);
 			CT_TextNoBullet(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextNoBullet& operator=(CT_TextNoBullet &b);
 			~CT_TextNoBullet();
+			std::wstring Xml();
 		};
 
-		class ST_TextPoint {
+		class EG_TextBullet {
+		private:
+			std::shared_ptr<CT_TextNoBullet> _buNone;
+			std::shared_ptr<CT_TextAutonumberBullet> _buAutoNum;
+			std::shared_ptr<CT_TextCharBullet> _buChar;
+			std::shared_ptr<CT_TextBlipBullet> _buBlip;
+		public:
+			EG_TextBullet();
+
+			EG_TextBullet& operator=(std::shared_ptr<CT_TextNoBullet> &__buNone);
+			EG_TextBullet& operator=(std::shared_ptr<CT_TextAutonumberBullet> &__buAutoNum);
+			EG_TextBullet& operator=(std::shared_ptr<CT_TextCharBullet> &__buChar);
+			EG_TextBullet& operator=(std::shared_ptr<CT_TextBlipBullet> &__buBlip);
+
+			std::shared_ptr<CT_TextNoBullet> buNone();
+			std::shared_ptr<CT_TextAutonumberBullet> buAutoNum();
+			std::shared_ptr<CT_TextCharBullet> buChar();
+			std::shared_ptr<CT_TextBlipBullet> buBlip();
+		};
+
+		class ST_TextPoint {//todo
 		public:
 		//elements
 			//<xsd:union memberTypes="ST_TextPointUnqualified s:ST_UniversalMeasure"/>
@@ -6284,28 +6593,23 @@ namespace drawingml {
 			ST_TextPoint& operator =(const ST_TextPoint& b);
 			ST_TextPoint& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
-		class ST_TextPointUnqualified {
+		class ST_TextPointUnqualified : Int {
 		public:
 		//end
-			Int v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextPointUnqualified& operator =(const ST_TextPointUnqualified& b);
-			ST_TextPointUnqualified& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
-		class ST_TextNonNegativePoint {
+		class ST_TextNonNegativePoint : Int {
 		public:
 		//end
-			Int v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextNonNegativePoint& operator =(const ST_TextNonNegativePoint& b);
-			ST_TextNonNegativePoint& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class CT_TextFont {
@@ -6319,8 +6623,12 @@ namespace drawingml {
 			Byte charset;
 		public:
 		//end
+			CT_TextFont(ST_TextTypeface &_typeface);
+			CT_TextFont(CT_TextFont &b);
 			CT_TextFont(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextFont& operator=(CT_TextFont &b);
 			~CT_TextFont();
+			std::wstring Xml();
 		};
 
 		class ST_TextUnderlineType {
@@ -6349,9 +6657,14 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextUnderlineType(value _v);
+			ST_TextUnderlineType(std::wstring b);
+			ST_TextUnderlineType(ST_TextUnderlineType &b);
+			ST_TextUnderlineType& operator=(value _v);
 			ST_TextUnderlineType& operator =(const ST_TextUnderlineType& b);
 			ST_TextUnderlineType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class CT_TextUnderlineLineFollowText {
@@ -6362,8 +6675,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextUnderlineLineFollowText();
+			CT_TextUnderlineLineFollowText(CT_TextUnderlineLineFollowText &b);
 			CT_TextUnderlineLineFollowText(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextUnderlineLineFollowText& operator=(CT_TextUnderlineLineFollowText &b);
 			~CT_TextUnderlineLineFollowText();
+			std::wstring Xml();
 		};
 
 		class CT_TextUnderlineFillFollowText {
@@ -6374,30 +6691,56 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextUnderlineFillFollowText();
+			CT_TextUnderlineFillFollowText(CT_TextUnderlineFillFollowText &b);
 			CT_TextUnderlineFillFollowText(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextUnderlineFillFollowText& operator=(CT_TextUnderlineFillFollowText &b);
 			~CT_TextUnderlineFillFollowText();
+			std::wstring Xml();
 		};
 
 		class CT_TextUnderlineFillGroupWrapper {
 		public:
 		//elements
-			
-			std::shared_ptr<CT_NoFillProperties> noFill;
-			std::shared_ptr<CT_SolidColorFillProperties> solidFill;
-			std::shared_ptr<CT_GradientFillProperties> gradFill;
-			std::shared_ptr<CT_BlipFillProperties> blipFill;
-			std::shared_ptr<CT_PatternFillProperties> pattFill;
-			std::shared_ptr<CT_GroupFillProperties> grpFill;
-
-		private:
-			int type;
-		public:
+			EG_FillProperties fillProperties;
 		//attributes
 
 		public:
 		//end
+			CT_TextUnderlineFillGroupWrapper(EG_FillProperties &_fillProperties);
+			CT_TextUnderlineFillGroupWrapper(CT_TextUnderlineFillGroupWrapper &b);
 			CT_TextUnderlineFillGroupWrapper(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextUnderlineFillGroupWrapper& operator=(CT_TextUnderlineFillGroupWrapper &b);
 			~CT_TextUnderlineFillGroupWrapper();
+			std::wstring Xml();
+		};
+
+		class EG_TextUnderlineLine {
+		private:
+			std::shared_ptr<CT_TextUnderlineLineFollowText> _uLnTx;
+			std::shared_ptr<CT_LineProperties> _uLn;
+		public:
+			EG_TextUnderlineLine();
+
+			EG_TextUnderlineLine& operator=(std::shared_ptr<CT_TextUnderlineLineFollowText> &__uLnTx);
+			EG_TextUnderlineLine& operator=(std::shared_ptr<CT_LineProperties> &__uLn);
+
+			std::shared_ptr<CT_TextUnderlineLineFollowText> uLnTx();
+			std::shared_ptr<CT_LineProperties> uLn();
+		};
+
+		class EG_TextUnderlineFill {
+		private:
+			std::shared_ptr<CT_TextUnderlineFillFollowText> _uFillTx;
+			std::shared_ptr<CT_TextUnderlineFillGroupWrapper> _uFill;
+		public:
+			EG_TextUnderlineFill();
+
+			EG_TextUnderlineFill& operator=(std::shared_ptr<CT_TextUnderlineFillFollowText> &__uFillTx);
+			EG_TextUnderlineFill& operator=(std::shared_ptr<CT_TextUnderlineFillGroupWrapper> &__uFill);
+
+			std::shared_ptr<CT_TextUnderlineFillFollowText> uFillTx();
+			std::shared_ptr<CT_TextUnderlineFillGroupWrapper> uFill();
 		};
 
 		class ST_TextStrikeType {
@@ -6411,9 +6754,14 @@ namespace drawingml {
 			value v;
 		public:
 		//end
-			ST_TextStrikeType& operator =(const ST_TextStrikeType& b);
+			ST_TextStrikeType(value _v);
+			ST_TextStrikeType(std::wstring b);
+			ST_TextStrikeType(ST_TextStrikeType &b);
+			ST_TextStrikeType& operator=(value _v);
+			ST_TextStrikeType& operator =(ST_TextStrikeType& b);
 			ST_TextStrikeType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class ST_TextCapsType {
@@ -6427,33 +6775,27 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextCapsType(value _v);
+			ST_TextCapsType(std::wstring b);
+			ST_TextCapsType(ST_TextCapsType &b);
+			ST_TextCapsType& operator=(value _v);
 			ST_TextCapsType& operator =(const ST_TextCapsType& b);
 			ST_TextCapsType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class CT_TextCharacterProperties {
 		public:
 		//elements
 			std::shared_ptr<CT_LineProperties> ln;
-			
-			std::shared_ptr<CT_NoFillProperties> noFill;
-			std::shared_ptr<CT_SolidColorFillProperties> solidFill;
-			std::shared_ptr<CT_GradientFillProperties> gradFill;
-			std::shared_ptr<CT_BlipFillProperties> blipFill;
-			std::shared_ptr<CT_PatternFillProperties> pattFill;
-			std::shared_ptr<CT_GroupFillProperties> grpFill;
-			
-			std::shared_ptr<CT_EffectList> effectLst;
-			std::shared_ptr<CT_EffectContainer> effectDag;
+			EG_FillProperties fillProperties;
+			EG_EffectProperties effectProperties;
 
 			std::shared_ptr<CT_Color> highlight;
 			
-			std::shared_ptr<CT_TextUnderlineLineFollowText> uLnTx;
-			std::shared_ptr<CT_LineProperties> uLn;
-			
-			std::shared_ptr<CT_TextUnderlineFillFollowText> uFillTx;
-			std::shared_ptr<CT_TextUnderlineFillGroupWrapper> uFill;
+			EG_TextUnderlineLine textUnderlineLine;
+			EG_TextUnderlineFill textUnderlineFill;
 			
 			std::shared_ptr<CT_TextFont> latin;
 			std::shared_ptr<CT_TextFont> ea;
@@ -6463,12 +6805,6 @@ namespace drawingml {
 			std::shared_ptr<CT_Hyperlink> hlinkMouseOver;
 			std::shared_ptr<CT_Boolean> rtl;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
-		private:
-			int typeFill;
-			int typeEffect;
-			int typeLine;
-			int typeULineFill;
-		public:
 		//attributes
 			Bool kumimoji;
 			officeDocument::sharedTypes::ST_Lang lang;
@@ -6491,8 +6827,12 @@ namespace drawingml {
 			std::wstring bmk;
 		public:
 		//end
+			CT_TextCharacterProperties();
+			CT_TextCharacterProperties(CT_TextCharacterProperties &b);
 			CT_TextCharacterProperties(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextCharacterProperties& operator=(CT_TextCharacterProperties &b);
 			~CT_TextCharacterProperties();
+			std::wstring Xml();
 		};
 		
 		class CT_Boolean {
@@ -6503,19 +6843,20 @@ namespace drawingml {
 			officeDocument::sharedTypes::ST_OnOff val;
 		public:
 		//end
+			CT_Boolean();
+			CT_Boolean(CT_Boolean &b);
 			CT_Boolean(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_Boolean& operator=(CT_Boolean &b);
 			~CT_Boolean();
+			std::wstring Xml();
 		};
 
-		class ST_TextSpacingPoint {
+		class ST_TextSpacingPoint : Int {
 		public:
 		//end
-			Int v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextSpacingPoint& operator =(const ST_TextSpacingPoint& b);
-			ST_TextSpacingPoint& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class CT_TextSpacingPercent {
@@ -6526,8 +6867,12 @@ namespace drawingml {
 			ST_TextSpacingPercentOrPercentString val;
 		public:
 		//end
+			CT_TextSpacingPercent(ST_TextSpacingPercentOrPercentString &_val);
+			CT_TextSpacingPercent(CT_TextSpacingPercent &b);
 			CT_TextSpacingPercent(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextSpacingPercent& operator=(CT_TextSpacingPercent &b);
 			~CT_TextSpacingPercent();
+			std::wstring Xml();
 		};
 
 		class CT_TextSpacingPoint {
@@ -6538,30 +6883,28 @@ namespace drawingml {
 			ST_TextSpacingPoint val;
 		public:
 		//end
+			CT_TextSpacingPoint(ST_TextSpacingPoint &_val);
+			CT_TextSpacingPoint(CT_TextSpacingPoint &b);
 			CT_TextSpacingPoint(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextSpacingPoint& operator=(CT_TextSpacingPoint &b);
 			~CT_TextSpacingPoint();
+			std::wstring Xml();
 		};
 
-		class ST_TextMargin {
+		class ST_TextMargin : public ST_Coordinate32Unqualified {
 		public:
 		//end
-			ST_Coordinate32Unqualified v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextMargin& operator =(const ST_TextMargin& b);
-			ST_TextMargin& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
-		class ST_TextIndent {
+		class ST_TextIndent : public ST_Coordinate32Unqualified {
 		public:
 		//end
-			ST_Coordinate32Unqualified v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextIndent& operator =(const ST_TextIndent& b);
-			ST_TextIndent& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class ST_TextTabAlignType {
@@ -6576,6 +6919,10 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextTabAlignType(value _v);
+			ST_TextTabAlignType(std::wstring b);
+			ST_TextTabAlignType(ST_TextTabAlignType &b);
+			ST_TextTabAlignType& operator=(value _v);
 			ST_TextTabAlignType& operator =(const ST_TextTabAlignType& b);
 			ST_TextTabAlignType& operator =(std::wstring b);
 			operator const wchar_t*() const;
@@ -6590,8 +6937,12 @@ namespace drawingml {
 			ST_TextTabAlignType algn;
 		public:
 		//end
+			CT_TextTabStop();
+			CT_TextTabStop(CT_TextTabStop &b);
 			CT_TextTabStop(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextTabStop& operator=(CT_TextTabStop &b);
 			~CT_TextTabStop();
+			std::wstring Xml();
 		};
 
 		class CT_TextTabStopList {
@@ -6602,8 +6953,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextTabStopList();
+			CT_TextTabStopList(CT_TextTabStopList &b);
 			CT_TextTabStopList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextTabStopList& operator=(CT_TextTabStopList &b);
 			~CT_TextTabStopList();
+			std::wstring Xml();
 		};
 
 		class CT_TextLineBreak {
@@ -6614,21 +6969,41 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextLineBreak();
+			CT_TextLineBreak(CT_TextLineBreak &b);
 			CT_TextLineBreak(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextLineBreak& operator=(CT_TextLineBreak &b);
 			~CT_TextLineBreak();
+			std::wstring Xml();
 		};
 
 		class CT_TextSpacing {
 		public:
 		//elements
-			std::shared_ptr<CT_TextSpacingPercent> spcPct;
-			std::shared_ptr<CT_TextSpacingPoint> spcPts;
+			class Choice {
+			private:
+				std::shared_ptr<CT_TextSpacingPercent> _spcPct;
+				std::shared_ptr<CT_TextSpacingPoint> _spcPts;
+			public:
+				Choice();
+
+				Choice& operator=(std::shared_ptr<CT_TextSpacingPercent> &__spcPct);
+				Choice& operator=(std::shared_ptr<CT_TextSpacingPoint> &__spcPts);
+
+				std::shared_ptr<CT_TextSpacingPercent> spcPct();
+				std::shared_ptr<CT_TextSpacingPoint> spcPts();
+			};
+			Choice choice;
 		//attributes
 
 		public:
 		//end
+			CT_TextSpacing();
+			CT_TextSpacing(CT_TextSpacing &b);
 			CT_TextSpacing(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextSpacing& operator=(CT_TextSpacing &b);
 			~CT_TextSpacing();
+			std::wstring Xml();
 		};
 
 		class ST_TextAlignType {
@@ -6646,9 +7021,14 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextAlignType(value _v);
+			ST_TextAlignType(std::wstring b);
+			ST_TextAlignType(ST_TextAlignType &b);
+			ST_TextAlignType& operator=(value _v);
 			ST_TextAlignType& operator =(const ST_TextAlignType& b);
 			ST_TextAlignType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class ST_TextFontAlignType {
@@ -6664,20 +7044,22 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_TextFontAlignType(value _v);
+			ST_TextFontAlignType(std::wstring b);
+			ST_TextFontAlignType(ST_TextFontAlignType &b);
+			ST_TextFontAlignType& operator=(value _v);
 			ST_TextFontAlignType& operator =(const ST_TextFontAlignType& b);
 			ST_TextFontAlignType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
-		class ST_TextIndentLevelType {
+		class ST_TextIndentLevelType : Int {
 		public:
 		//end
-			Int v;
+			bool check(int chkval);
 		public:
 		//end
-			ST_TextIndentLevelType& operator =(const ST_TextIndentLevelType& b);
-			ST_TextIndentLevelType& operator =(std::wstring b);
-			operator const wchar_t*() const;
 		};
 
 		class CT_TextParagraphProperties {
@@ -6687,30 +7069,14 @@ namespace drawingml {
 			std::shared_ptr<CT_TextSpacing> spcBef;
 			std::shared_ptr<CT_TextSpacing> spcAft;
 			
-			std::shared_ptr<CT_TextBulletColorFollowText> buClrTx;
-			std::shared_ptr<CT_Color> buClr;
-			
-			std::shared_ptr<CT_TextBulletSizeFollowText> buSzTx;
-			std::shared_ptr<CT_TextBulletSizePercent> buSzPct;
-			std::shared_ptr<CT_TextBulletSizePoint> buSzPts;
-			
-			std::shared_ptr<CT_TextBulletTypefaceFollowText> buFontTx;
-			std::shared_ptr<CT_TextFont> buFont;
-			
-			std::shared_ptr<CT_TextNoBullet> buNone;
-			std::shared_ptr<CT_TextAutonumberBullet> buAutonum;
-			std::shared_ptr<CT_TextCharBullet> buChar;
-			std::shared_ptr<CT_TextBlipBullet> buBlip;
+			EG_TextBulletColor textBulletColor;
+			EG_TextBulletSize textBulletSize;
+			EG_TextBulletTypeface textBulletTypeface;
+			EG_TextBullet textBullet;
 
 			std::shared_ptr<CT_TextTabStopList> tabLst;
 			std::shared_ptr<CT_TextCharacterProperties> defRPr;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
-		private:
-			int typeBulletColor;
-			int typeBulletSize;
-			int typeBulletTypeface;
-			int typeBullet;
-		public:
 		//attributes
 			ST_TextMargin marL;
 			ST_TextMargin marR;
@@ -6725,8 +7091,12 @@ namespace drawingml {
 			Bool hangingPunct;
 		public:
 		//end
+			CT_TextParagraphProperties();
+			CT_TextParagraphProperties(CT_TextParagraphProperties &b);
 			CT_TextParagraphProperties(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextParagraphProperties& operator=(CT_TextParagraphProperties &b);
 			~CT_TextParagraphProperties();
+			std::wstring Xml();
 		};
 
 		class CT_TextField {
@@ -6740,8 +7110,12 @@ namespace drawingml {
 			std::wstring type;
 		public:
 		//end
+			CT_TextField(officeDocument::sharedTypes::ST_Guid &_id,	std::wstring &_type);
+			CT_TextField(CT_TextField &b);
 			CT_TextField(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextField& operator=(CT_TextField &b);
 			~CT_TextField();
+			std::wstring Xml();
 		};
 
 		class CT_RegularTextRun {
@@ -6753,8 +7127,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_RegularTextRun(std::wstring &_t);
+			CT_RegularTextRun(CT_RegularTextRun &b);
 			CT_RegularTextRun(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_RegularTextRun& operator=(CT_RegularTextRun &b);
 			~CT_RegularTextRun();
+			std::wstring Xml();
 		};
 	}
 }
