@@ -26,7 +26,7 @@ Int::operator const wchar_t*() const {
 	_itow_s(val,buffer,10);
 	return buffer;
 }
-Int::operator const wchar_t*() const {
+Int::operator std::wstring() const {
 	return (wchar_t *)this;
 }
 Int::operator int() const {
