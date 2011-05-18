@@ -68,12 +68,12 @@ public:
 	Long();
 	Long(long b);
 	Long(std::wstring b);
-	Long& operator =(const Long& b);
-	Long& operator =(long b);
-	Long& operator =(std::wstring b);
-	operator const wchar_t*() const;
-	operator std::wstring() const;
-	operator long() const;
+	virtual Long& operator =(const Long& b);
+	virtual Long& operator =(long b);
+	virtual Long& operator =(std::wstring b);
+	virtual operator const wchar_t*() const;
+	virtual operator std::wstring() const;
+	virtual operator long() const;
 	~Long();
 };
 

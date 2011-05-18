@@ -5,6 +5,8 @@
 using namespace drawingml::main;
 
 CT_Bevel::CT_Bevel() {
+	prst = ST_BevelPresetType::circle;
+	w = h = 76200;
 }
 
 CT_Bevel::CT_Bevel(CT_Bevel &b) {

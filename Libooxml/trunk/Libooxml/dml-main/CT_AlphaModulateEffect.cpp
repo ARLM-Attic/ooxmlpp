@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_AlphaModulateEffect::CT_AlphaModulateEffect() {
-	cont = NULL;
+CT_AlphaModulateEffect::CT_AlphaModulateEffect(std::shared_ptr<CT_EffectContainer> &_cont) {
+	cont = _cont;
 }
 
 CT_AlphaModulateEffect::CT_AlphaModulateEffect(CT_AlphaModulateEffect &b) {

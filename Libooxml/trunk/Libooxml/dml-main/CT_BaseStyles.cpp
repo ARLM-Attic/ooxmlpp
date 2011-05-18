@@ -4,11 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_BaseStyles::CT_BaseStyles() {
-	clrScheme = NULL;
-	fontScheme = NULL;
+CT_BaseStyles::CT_BaseStyles(std::shared_ptr<CT_ColorScheme> _clrScheme, std::shared_ptr<CT_FontScheme> _fontScheme, std::shared_ptr<CT_StyleMatrix> _fmtScheme) {
+	clrScheme = _clrScheme;
+	fontScheme = _fontScheme;
 	extLst = NULL;
-	fmtScheme = NULL;
+	fmtScheme = _fmtScheme;
 }
 
 CT_BaseStyles::CT_BaseStyles(CT_BaseStyles &b) {

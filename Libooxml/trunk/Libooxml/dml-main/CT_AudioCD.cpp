@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_AudioCD::CT_AudioCD() {
-	st = NULL;
-	end = NULL;
+CT_AudioCD::CT_AudioCD(std::shared_ptr<CT_AudioCDTime> &_st,std::shared_ptr<CT_AudioCDTime> &_end) {
+	st = _st;
+	end = _end;
 	extLst = NULL;
 }
 

@@ -4,6 +4,10 @@
 
 using namespace drawingml::main;
 
+ST_DgmBuildStep::ST_DgmBuildStep() {
+	v=sp;
+}
+
 ST_DgmBuildStep::ST_DgmBuildStep(value _v) {
 	v=_v;
 }

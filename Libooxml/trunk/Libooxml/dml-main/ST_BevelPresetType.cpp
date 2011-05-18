@@ -4,6 +4,10 @@
 
 using namespace drawingml::main;
 
+ST_BevelPresetType::ST_BevelPresetType() {
+	v = circle;
+}
+
 ST_BevelPresetType::ST_BevelPresetType(value _v) {
 	v=_v;
 }

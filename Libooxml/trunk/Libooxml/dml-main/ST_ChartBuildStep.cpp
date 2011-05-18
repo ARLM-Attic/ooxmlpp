@@ -4,6 +4,10 @@
 
 using namespace drawingml::main;
 
+ST_ChartBuildStep::ST_ChartBuildStep() {
+	v = category;
+}
+
 ST_ChartBuildStep::ST_ChartBuildStep(value _v) {
 	v=_v;
 }

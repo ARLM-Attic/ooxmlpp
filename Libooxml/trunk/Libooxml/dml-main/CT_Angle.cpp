@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_Angle::CT_Angle() {
+CT_Angle::CT_Angle(ST_Angle &_val) {
+	val = _val;
 }
 
 CT_Angle::CT_Angle(CT_Angle &b) {

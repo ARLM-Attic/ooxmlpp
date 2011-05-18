@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_BackgroundFillStyleList::CT_BackgroundFillStyleList() {
-	fillProperties = NULL;
+	fillProperties.clear();
 }
 
 CT_BackgroundFillStyleList::CT_BackgroundFillStyleList(CT_BackgroundFillStyleList &b) {
@@ -13,10 +13,10 @@ CT_BackgroundFillStyleList::CT_BackgroundFillStyleList(CT_BackgroundFillStyleLis
 }
 
 CT_BackgroundFillStyleList::CT_BackgroundFillStyleList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	fillProperties = NULL;
+	fillProperties.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"fillProperties") == 0) {
-			fillProperties.reset(new EG_FillProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			fillProperties.push_back(new EG_FillProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
 		}
 	}
 }

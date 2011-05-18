@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_Camera::CT_Camera() {
+CT_Camera::CT_Camera(ST_PresetCameraType _prst) : prst(_prst) {
 	rot = NULL;
 }
 

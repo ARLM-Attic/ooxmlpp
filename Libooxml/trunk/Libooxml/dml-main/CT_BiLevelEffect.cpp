@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_BiLevelEffect::CT_BiLevelEffect() {
+CT_BiLevelEffect::CT_BiLevelEffect(ST_PositiveFixedPercentage _thresh) : thresh(_thresh) {
 }
 
 CT_BiLevelEffect::CT_BiLevelEffect(CT_BiLevelEffect &b) {

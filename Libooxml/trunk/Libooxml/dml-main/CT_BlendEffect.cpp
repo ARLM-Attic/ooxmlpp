@@ -4,8 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_BlendEffect::CT_BlendEffect() {
-	cont = NULL;
+CT_BlendEffect::CT_BlendEffect(std::shared_ptr<CT_EffectContainer> &_cont,ST_BlendMode &_blend) : cont(_cont), blend(_blend) {
 }
 
 CT_BlendEffect::CT_BlendEffect(CT_BlendEffect &b) {

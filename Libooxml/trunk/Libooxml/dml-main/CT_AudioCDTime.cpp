@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_AudioCDTime::CT_AudioCDTime() {
+CT_AudioCDTime::CT_AudioCDTime(UByte _track, UInt _time = 0) {
+	track = _track;
+	time = _time;
 }
 
 CT_AudioCDTime::CT_AudioCDTime(CT_AudioCDTime &b) {

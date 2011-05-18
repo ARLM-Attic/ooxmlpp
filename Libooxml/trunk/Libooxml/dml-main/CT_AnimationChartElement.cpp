@@ -4,7 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_AnimationChartElement::CT_AnimationChartElement() {
+CT_AnimationChartElement::CT_AnimationChartElement(ST_ChartBuildStep _bldStep) {
+	bldStep = _bldStep;
+	seriesIdx = -1;
+	categoryIdx = -1;
 }
 
 CT_AnimationChartElement::CT_AnimationChartElement(CT_AnimationChartElement &b) {

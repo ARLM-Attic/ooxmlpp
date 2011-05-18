@@ -4,6 +4,10 @@
 
 using namespace drawingml::main;
 
+ST_AnimationDgmBuildType::ST_AnimationDgmBuildType() {
+	v=allAtOnce;
+}
+
 ST_AnimationDgmBuildType::ST_AnimationDgmBuildType(value _v) {
 	v=_v;
 }

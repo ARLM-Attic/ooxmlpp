@@ -4,6 +4,9 @@
 
 using namespace drawingml::main;
 
+ST_BlendMode::ST_BlendMode() {
+	v = over;
+}
 ST_BlendMode::ST_BlendMode(value _v) {
 	v=_v;
 }
