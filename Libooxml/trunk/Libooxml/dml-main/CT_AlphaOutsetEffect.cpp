@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_AlphaOutsetEffect::CT_AlphaOutsetEffect() : rad(0) {
+CT_AlphaOutsetEffect::CT_AlphaOutsetEffect() : rad(ST_CoordinateUnqualified(0)) {
 }
 
 CT_AlphaOutsetEffect::CT_AlphaOutsetEffect(CT_AlphaOutsetEffect &b) {

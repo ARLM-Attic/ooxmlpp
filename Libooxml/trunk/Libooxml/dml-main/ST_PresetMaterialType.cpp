@@ -4,6 +4,10 @@
 
 using namespace drawingml::main;
 
+ST_PresetMaterialType::ST_PresetMaterialType() {
+	v = flat;
+}
+
 ST_PresetMaterialType::ST_PresetMaterialType(value _v) {
 	v=_v;
 }

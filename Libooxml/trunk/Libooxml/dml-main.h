@@ -777,25 +777,39 @@ namespace drawingml {
 			std::wstring Xml();
 		};
 
-		class ST_Coordinate {
-		public:
-		//elements
-			//<xsd:union memberTypes="ST_CoordinateUnqualified s:ST_UniversalMeasure"/>
-		//attributes
-
-		public:
-		//end
-			ST_Coordinate& operator =(const ST_Coordinate& b);
-			ST_Coordinate& operator =(std::wstring b);
-			operator const wchar_t*() const;
-		};
-
 		class ST_CoordinateUnqualified : public Long {
 		public:
 		//end
 			bool check(long chkval);
 		public:
+			ST_CoordinateUnqualified();
+			ST_CoordinateUnqualified(long b);
+			ST_CoordinateUnqualified(std::wstring b);
+			virtual ST_CoordinateUnqualified& operator =(const Long& b);
+			virtual ST_CoordinateUnqualified& operator =(long b);
+			virtual ST_CoordinateUnqualified& operator =(std::wstring b);
 		//end
+		};
+
+		class ST_Coordinate {
+		public:
+		//elements
+			//<xsd:union memberTypes="ST_CoordinateUnqualified s:ST_UniversalMeasure"/>
+			ST_CoordinateUnqualified coord;
+			officeDocument::sharedTypes::ST_UniversalMeasure measure;
+		//attributes
+
+		public:
+		//end
+			ST_Coordinate();
+			ST_Coordinate(ST_CoordinateUnqualified &b);
+			ST_Coordinate(officeDocument::sharedTypes::ST_UniversalMeasure &b);
+			ST_Coordinate& operator=(ST_CoordinateUnqualified &b);
+			ST_Coordinate& operator=(officeDocument::sharedTypes::ST_UniversalMeasure &b);
+			ST_Coordinate& operator =( ST_Coordinate& b);
+			ST_Coordinate& operator =(std::wstring b);
+			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class ST_Coordinate32 {
@@ -806,7 +820,7 @@ namespace drawingml {
 
 		public:
 		//end
-			ST_Coordinate32& operator =(const ST_Coordinate32& b);
+			ST_Coordinate32& operator =( ST_Coordinate32& b);
 			ST_Coordinate32& operator =(std::wstring b);
 			operator const wchar_t*() const;
 		};
@@ -819,7 +833,7 @@ namespace drawingml {
 			ST_PositiveCoordinate();
 			ST_PositiveCoordinate(long b);
 			ST_PositiveCoordinate(std::wstring b);
-			virtual ST_PositiveCoordinate& operator =(const ST_PositiveCoordinate& b);
+			virtual ST_PositiveCoordinate& operator =( ST_PositiveCoordinate& b);
 			virtual ST_PositiveCoordinate& operator =(long b);
 			virtual ST_PositiveCoordinate& operator =(std::wstring b);
 		//end
@@ -1174,7 +1188,7 @@ namespace drawingml {
 			ST_SystemColorVal(value _v);
 			ST_SystemColorVal(ST_SystemColorVal &b);
 			ST_SystemColorVal(std::wstring b);
-			ST_SystemColorVal& operator =(const ST_SystemColorVal& b);
+			ST_SystemColorVal& operator =( ST_SystemColorVal& b);
 			ST_SystemColorVal& operator=(value _v);
 			ST_SystemColorVal& operator =(std::wstring b);
 			operator const wchar_t*() const;
@@ -1225,7 +1239,7 @@ namespace drawingml {
 		public:
 			ST_SchemeColorVal(value _v);
 			ST_SchemeColorVal(std::wstring b);
-			ST_SchemeColorVal& operator =(const ST_SchemeColorVal& b);
+			ST_SchemeColorVal& operator =( ST_SchemeColorVal& b);
 			ST_SchemeColorVal& operator=(value _v);
 			ST_SchemeColorVal& operator =(std::wstring b);
 			operator const wchar_t*() const;
@@ -1450,7 +1464,7 @@ namespace drawingml {
 			ST_PresetColorVal(std::wstring b);
 			ST_PresetColorVal(ST_PresetColorVal &b);
 			ST_PresetColorVal& operator=(value _v);
-			ST_PresetColorVal& operator =(const ST_PresetColorVal& b);
+			ST_PresetColorVal& operator =( ST_PresetColorVal& b);
 			ST_PresetColorVal& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -1639,7 +1653,7 @@ namespace drawingml {
 			ST_RectAlignment(ST_RectAlignment &b);
 			ST_RectAlignment(std::wstring b);
 			ST_RectAlignment& operator=(value _v);
-			ST_RectAlignment& operator =(const ST_RectAlignment& b);
+			ST_RectAlignment& operator =( ST_RectAlignment& b);
 			ST_RectAlignment& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2028,7 +2042,7 @@ namespace drawingml {
 			ST_ChartBuildStep(std::wstring b);
 			ST_ChartBuildStep(ST_ChartBuildStep &b);
 			ST_ChartBuildStep& operator=(value _v);
-			ST_ChartBuildStep& operator =(const ST_ChartBuildStep& b);
+			ST_ChartBuildStep& operator =( ST_ChartBuildStep& b);
 			ST_ChartBuildStep& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2135,7 +2149,7 @@ namespace drawingml {
 			ST_AnimationBuildType(std::wstring b);
 			ST_AnimationBuildType(ST_AnimationBuildType &b);
 			ST_AnimationBuildType& operator=(value _v);
-			ST_AnimationBuildType& operator =(const ST_AnimationBuildType& b);
+			ST_AnimationBuildType& operator =( ST_AnimationBuildType& b);
 			ST_AnimationBuildType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2157,7 +2171,7 @@ namespace drawingml {
 			ST_AnimationDgmOnlyBuildType(std::wstring b);
 			ST_AnimationDgmOnlyBuildType(ST_AnimationDgmOnlyBuildType &b);
 			ST_AnimationDgmOnlyBuildType& operator=(value _v);
-			ST_AnimationDgmOnlyBuildType& operator =(const ST_AnimationDgmOnlyBuildType& b);
+			ST_AnimationDgmOnlyBuildType& operator =( ST_AnimationDgmOnlyBuildType& b);
 			ST_AnimationDgmOnlyBuildType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2722,7 +2736,7 @@ namespace drawingml {
 			ST_LightRigDirection(ST_LightRigDirection &b);
 			ST_LightRigDirection(std::wstring b);
 			ST_LightRigDirection& operator=(value _v);
-			ST_LightRigDirection& operator =(const ST_LightRigDirection& b);
+			ST_LightRigDirection& operator =( ST_LightRigDirection& b);
 			ST_LightRigDirection& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2767,7 +2781,7 @@ namespace drawingml {
 			ST_LightRigType(std::wstring b);
 			ST_LightRigType(ST_LightRigType &b);
 			ST_LightRigType& operator=(value _v);
-			ST_LightRigType& operator =(const ST_LightRigType& b);
+			ST_LightRigType& operator =( ST_LightRigType& b);
 			ST_LightRigType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2853,7 +2867,7 @@ namespace drawingml {
 			ST_BevelPresetType(std::wstring b);
 			ST_BevelPresetType(ST_BevelPresetType &b);
 			ST_BevelPresetType& operator=(value _v);
-			ST_BevelPresetType& operator =(const ST_BevelPresetType& b);
+			ST_BevelPresetType& operator =( ST_BevelPresetType& b);
 			ST_BevelPresetType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -2900,6 +2914,7 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_PresetMaterialType();
 			ST_PresetMaterialType(value _v);
 			ST_PresetMaterialType(std::wstring b);
 			ST_PresetMaterialType(ST_PresetMaterialType &b);
@@ -3067,7 +3082,6 @@ namespace drawingml {
 			ST_PositiveFixedPercentage a;
 		public:
 		//end
-			CT_AlphaReplaceEffect();
 			CT_AlphaReplaceEffect(CT_AlphaReplaceEffect &b);
 			CT_AlphaReplaceEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_AlphaReplaceEffect& operator=(CT_AlphaReplaceEffect &b);
@@ -3298,7 +3312,7 @@ namespace drawingml {
 			ST_PresetShadowVal(std::wstring b);
 			ST_PresetShadowVal(ST_PresetShadowVal &b);
 			ST_PresetShadowVal& operator=(value _v);
-			ST_PresetShadowVal& operator =(const ST_PresetShadowVal& b);
+			ST_PresetShadowVal& operator =( ST_PresetShadowVal& b);
 			ST_PresetShadowVal& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -3486,7 +3500,7 @@ namespace drawingml {
 			ST_PathShadeType(std::wstring b);
 			ST_PathShadeType(ST_PathShadeType &b);
 			ST_PathShadeType& operator=(value _v);
-			ST_PathShadeType& operator =(const ST_PathShadeType& b);
+			ST_PathShadeType& operator =( ST_PathShadeType& b);
 			ST_PathShadeType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -3524,7 +3538,7 @@ namespace drawingml {
 			ST_TileFlipMode(std::wstring b);
 			ST_TileFlipMode(ST_TileFlipMode &b);
 			ST_TileFlipMode& operator=(value _v);
-			ST_TileFlipMode& operator =(const ST_TileFlipMode& b);
+			ST_TileFlipMode& operator =(ST_TileFlipMode& b);
 			ST_TileFlipMode& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -3661,7 +3675,7 @@ namespace drawingml {
 			ST_BlipCompression(std::wstring b);
 			ST_BlipCompression(ST_BlipCompression &b);
 			ST_BlipCompression& operator=(value _v);
-			ST_BlipCompression& operator =(const ST_BlipCompression& b);
+			ST_BlipCompression& operator =( ST_BlipCompression& b);
 			ST_BlipCompression& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -3827,7 +3841,7 @@ namespace drawingml {
 			ST_PresetPatternVal(std::wstring b);
 			ST_PresetPatternVal(ST_PresetPatternVal &b);
 			ST_PresetPatternVal& operator=(value _v);
-			ST_PresetPatternVal& operator =(const ST_PresetPatternVal& b);
+			ST_PresetPatternVal& operator =( ST_PresetPatternVal& b);
 			ST_PresetPatternVal& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -3917,7 +3931,7 @@ namespace drawingml {
 			ST_BlendMode(std::wstring b);
 			ST_BlendMode(ST_BlendMode &b);
 			ST_BlendMode& operator=(value _v);
-			ST_BlendMode& operator =(const ST_BlendMode& b);
+			ST_BlendMode& operator =( ST_BlendMode& b);
 			ST_BlendMode& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -3970,7 +3984,7 @@ namespace drawingml {
 			ST_EffectContainerType(std::wstring b);
 			ST_EffectContainerType(ST_EffectContainerType &b);
 			ST_EffectContainerType& operator=(value _v);
-			ST_EffectContainerType& operator =(const ST_EffectContainerType& b);
+			ST_EffectContainerType& operator =( ST_EffectContainerType& b);
 			ST_EffectContainerType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -4362,7 +4376,7 @@ namespace drawingml {
 			ST_ShapeType(std::wstring b);
 			ST_ShapeType(ST_ShapeType &b);
 			ST_ShapeType& operator=(value _v);
-			ST_ShapeType& operator =(const ST_ShapeType& b);
+			ST_ShapeType& operator =( ST_ShapeType& b);
 			ST_ShapeType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -4421,7 +4435,7 @@ namespace drawingml {
 			ST_TextShapeType(std::wstring b);
 			ST_TextShapeType(ST_TextShapeType &b);
 			ST_TextShapeType& operator=(value _v);
-			ST_TextShapeType& operator =(const ST_TextShapeType& b);
+			ST_TextShapeType& operator =( ST_TextShapeType& b);
 			ST_TextShapeType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -4492,7 +4506,7 @@ namespace drawingml {
 			ST_AdjAngle(ST_Angle &__a);
 			ST_AdjAngle(ST_GeomGuideName &__g);
 			ST_AdjAngle(ST_AdjAngle &b);
-			ST_AdjAngle& operator =(const ST_AdjAngle& b);
+			ST_AdjAngle& operator =( ST_AdjAngle& b);
 			ST_AdjAngle& operator =(std::wstring b);
 			ST_AdjAngle& operator =(ST_Angle &__a);
 			ST_AdjAngle& operator =(ST_GeomGuideName &__g);
@@ -4773,7 +4787,7 @@ namespace drawingml {
 			ST_PathFillMode(std::wstring b);
 			ST_PathFillMode(ST_PathFillMode &b);
 			ST_PathFillMode& operator=(value _v);
-			ST_PathFillMode& operator =(const ST_PathFillMode& b);
+			ST_PathFillMode& operator =( ST_PathFillMode& b);
 			ST_PathFillMode& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -4957,7 +4971,7 @@ namespace drawingml {
 			ST_LineEndWidth(std::wstring b);
 			ST_LineEndWidth(ST_LineEndWidth &b);
 			ST_LineEndWidth& operator=(value _v);
-			ST_LineEndWidth& operator =(const ST_LineEndWidth& b);
+			ST_LineEndWidth& operator =( ST_LineEndWidth& b);
 			ST_LineEndWidth& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -4978,7 +4992,7 @@ namespace drawingml {
 			ST_LineEndLength(std::wstring b);
 			ST_LineEndLength(ST_LineEndLength &b);
 			ST_LineEndLength& operator=(value _v);
-			ST_LineEndLength& operator =(const ST_LineEndLength& b);
+			ST_LineEndLength& operator =( ST_LineEndLength& b);
 			ST_LineEndLength& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5108,7 +5122,7 @@ namespace drawingml {
 			ST_PresetLineDashVal(std::wstring b);
 			ST_PresetLineDashVal(ST_PresetLineDashVal &b);
 			ST_PresetLineDashVal& operator=(value _v);
-			ST_PresetLineDashVal& operator =(const ST_PresetLineDashVal& b);
+			ST_PresetLineDashVal& operator =( ST_PresetLineDashVal& b);
 			ST_PresetLineDashVal& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5191,7 +5205,7 @@ namespace drawingml {
 			ST_LineCap(std::wstring b);
 			ST_LineCap(ST_LineCap &b);
 			ST_LineCap& operator=(value _v);
-			ST_LineCap& operator =(const ST_LineCap& b);
+			ST_LineCap& operator =( ST_LineCap& b);
 			ST_LineCap& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5218,7 +5232,7 @@ namespace drawingml {
 			ST_PenAlignment(std::wstring b);
 			ST_PenAlignment(ST_PenAlignment &b);
 			ST_PenAlignment& operator=(value _v);
-			ST_PenAlignment& operator =(const ST_PenAlignment& b);
+			ST_PenAlignment& operator =( ST_PenAlignment& b);
 			ST_PenAlignment& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5584,7 +5598,7 @@ namespace drawingml {
 			ST_TextVerticalType(std::wstring b);
 			ST_TextVerticalType(ST_TextVerticalType &b);
 			ST_TextVerticalType& operator=(value _v);
-			ST_TextVerticalType& operator =(const ST_TextVerticalType& b);
+			ST_TextVerticalType& operator =(ST_TextVerticalType& b);
 			ST_TextVerticalType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5607,7 +5621,7 @@ namespace drawingml {
 			ST_TextAnchoringType(std::wstring b);
 			ST_TextAnchoringType(ST_TextAnchoringType &b);
 			ST_TextAnchoringType& operator=(value _v);
-			ST_TextAnchoringType& operator =(const ST_TextAnchoringType& b);
+			ST_TextAnchoringType& operator =( ST_TextAnchoringType& b);
 			ST_TextAnchoringType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5627,7 +5641,7 @@ namespace drawingml {
 			ST_TextHorzOverflowType(std::wstring b);
 			ST_TextHorzOverflowType(ST_TextHorzOverflowType &b);
 			ST_TextHorzOverflowType& operator=(value _v);
-			ST_TextHorzOverflowType& operator =(const ST_TextHorzOverflowType& b);
+			ST_TextHorzOverflowType& operator =( ST_TextHorzOverflowType& b);
 			ST_TextHorzOverflowType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -5892,7 +5906,7 @@ namespace drawingml {
 			ST_OnOffStyleType(std::wstring b);
 			ST_OnOffStyleType(ST_OnOffStyleType &b);
 			ST_OnOffStyleType& operator=(value _v);
-			ST_OnOffStyleType& operator =(const ST_OnOffStyleType& b);
+			ST_OnOffStyleType& operator =( ST_OnOffStyleType& b);
 			ST_OnOffStyleType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6091,7 +6105,7 @@ namespace drawingml {
 			ST_TextVertOverflowType(std::wstring b);
 			ST_TextVertOverflowType(ST_TextVertOverflowType &b);
 			ST_TextVertOverflowType& operator=(value _v);
-			ST_TextVertOverflowType& operator =(const ST_TextVertOverflowType& b);
+			ST_TextVertOverflowType& operator =(ST_TextVertOverflowType& b);
 			ST_TextVertOverflowType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6111,7 +6125,7 @@ namespace drawingml {
 			ST_TextWrappingType(std::wstring b);
 			ST_TextWrappingType(ST_TextWrappingType &b);
 			ST_TextWrappingType& operator=(value _v);
-			ST_TextWrappingType& operator =(const ST_TextWrappingType& b);
+			ST_TextWrappingType& operator =(ST_TextWrappingType& b);
 			ST_TextWrappingType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6131,7 +6145,7 @@ namespace drawingml {
 			ST_TextColumnCount(std::wstring b);
 			ST_TextColumnCount(ST_TextColumnCount &b);
 			ST_TextColumnCount& operator=(value _v);
-			ST_TextColumnCount& operator =(const ST_TextColumnCount& b);
+			ST_TextColumnCount& operator =(ST_TextColumnCount& b);
 			ST_TextColumnCount& operator =(std::wstring b);
 			operator const wchar_t*() const;
 		};
@@ -6358,7 +6372,7 @@ namespace drawingml {
 			ST_TextAutonumberScheme(std::wstring b);
 			ST_TextAutonumberScheme(ST_TextAutonumberScheme &b);
 			ST_TextAutonumberScheme& operator=(value _v);
-			ST_TextAutonumberScheme& operator =(const ST_TextAutonumberScheme& b);
+			ST_TextAutonumberScheme& operator =( ST_TextAutonumberScheme& b);
 			ST_TextAutonumberScheme& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6600,7 +6614,7 @@ namespace drawingml {
 
 		public:
 		//end
-			ST_TextPoint& operator =(const ST_TextPoint& b);
+			ST_TextPoint& operator =( ST_TextPoint& b);
 			ST_TextPoint& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6671,7 +6685,7 @@ namespace drawingml {
 			ST_TextUnderlineType(std::wstring b);
 			ST_TextUnderlineType(ST_TextUnderlineType &b);
 			ST_TextUnderlineType& operator=(value _v);
-			ST_TextUnderlineType& operator =(const ST_TextUnderlineType& b);
+			ST_TextUnderlineType& operator =(ST_TextUnderlineType& b);
 			ST_TextUnderlineType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6789,7 +6803,7 @@ namespace drawingml {
 			ST_TextCapsType(std::wstring b);
 			ST_TextCapsType(ST_TextCapsType &b);
 			ST_TextCapsType& operator=(value _v);
-			ST_TextCapsType& operator =(const ST_TextCapsType& b);
+			ST_TextCapsType& operator =( ST_TextCapsType& b);
 			ST_TextCapsType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -6933,9 +6947,10 @@ namespace drawingml {
 			ST_TextTabAlignType(std::wstring b);
 			ST_TextTabAlignType(ST_TextTabAlignType &b);
 			ST_TextTabAlignType& operator=(value _v);
-			ST_TextTabAlignType& operator =(const ST_TextTabAlignType& b);
+			ST_TextTabAlignType& operator =( ST_TextTabAlignType& b);
 			ST_TextTabAlignType& operator =(std::wstring b);
 			operator const wchar_t*() const;
+			operator std::wstring () const;
 		};
 
 		class CT_TextTabStop {
@@ -7035,7 +7050,7 @@ namespace drawingml {
 			ST_TextAlignType(std::wstring b);
 			ST_TextAlignType(ST_TextAlignType &b);
 			ST_TextAlignType& operator=(value _v);
-			ST_TextAlignType& operator =(const ST_TextAlignType& b);
+			ST_TextAlignType& operator =( ST_TextAlignType& b);
 			ST_TextAlignType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -7058,7 +7073,7 @@ namespace drawingml {
 			ST_TextFontAlignType(std::wstring b);
 			ST_TextFontAlignType(ST_TextFontAlignType &b);
 			ST_TextFontAlignType& operator=(value _v);
-			ST_TextFontAlignType& operator =(const ST_TextFontAlignType& b);
+			ST_TextFontAlignType& operator =( ST_TextFontAlignType& b);
 			ST_TextFontAlignType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;

@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_AudioFile::CT_AudioFile(officeDocument::relationships::ST_RelationshipId rLink) {
-	link = rlink;
+	link = rLink;
 	extLst = NULL;
 }
 

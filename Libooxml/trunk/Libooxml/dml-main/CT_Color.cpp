@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_Color::CT_Color() {
-	colorChoice = NULL;
+CT_Color::CT_Color(EG_ColorChoice &_colorChoice) {
+	colorChoice = _colorChoice;
 }
 
 CT_Color::CT_Color(CT_Color &b) {

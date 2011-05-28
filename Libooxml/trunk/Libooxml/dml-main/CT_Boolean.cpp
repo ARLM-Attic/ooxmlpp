@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_Boolean::CT_Boolean() {
+CT_Boolean::CT_Boolean() : val(0) {
 }
 
 CT_Boolean::CT_Boolean(CT_Boolean &b) {

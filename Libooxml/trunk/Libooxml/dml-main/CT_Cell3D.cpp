@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_Cell3D::CT_Cell3D() {
+CT_Cell3D::CT_Cell3D(std::shared_ptr<CT_Bevel> &_bevel) : prstMaterial(ST_PresetMaterialType::plastic) {
 	bevel = NULL;
 	lightRig = NULL;
 	extLst = NULL;

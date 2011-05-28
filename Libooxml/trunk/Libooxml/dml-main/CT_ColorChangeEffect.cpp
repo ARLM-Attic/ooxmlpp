@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_ColorChangeEffect::CT_ColorChangeEffect() {
-	clrFrom = NULL;
-	clrTo = NULL;
+CT_ColorChangeEffect::CT_ColorChangeEffect(std::shared_ptr<CT_Color> _clrFrom,	std::shared_ptr<CT_Color> _clrTo): useA(true) {
+	clrFrom = _clrFrom;
+	clrTo = _clrTo;
 }
 
 CT_ColorChangeEffect::CT_ColorChangeEffect(CT_ColorChangeEffect &b) {

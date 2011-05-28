@@ -4,9 +4,6 @@
 
 using namespace drawingml::main;
 
-CT_AlphaReplaceEffect::CT_AlphaReplaceEffect() {
-}
-
 CT_AlphaReplaceEffect::CT_AlphaReplaceEffect(CT_AlphaReplaceEffect &b) {
 	a = b.a;
 }

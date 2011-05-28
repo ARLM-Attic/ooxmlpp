@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_ClipboardStyleSheet::CT_ClipboardStyleSheet() {
-	themeElements = NULL;
-	clrMap = NULL;
+CT_ClipboardStyleSheet::CT_ClipboardStyleSheet(std::shared_ptr<CT_BaseStyles> &_themeElements, std::shared_ptr<CT_ColorMapping> &_clrMap) {
+	themeElements = _themeElements;
+	clrMap = _clrMap;
 }
 
 CT_ClipboardStyleSheet::CT_ClipboardStyleSheet(CT_ClipboardStyleSheet &b) {

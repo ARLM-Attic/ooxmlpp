@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_BlurEffect::CT_BlurEffect() {
+CT_BlurEffect::CT_BlurEffect(): rad(0), grow(true) {
 }
 
 CT_BlurEffect::CT_BlurEffect(CT_BlurEffect &b) {
