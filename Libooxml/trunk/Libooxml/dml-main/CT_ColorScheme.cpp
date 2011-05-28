@@ -4,18 +4,19 @@
 
 using namespace drawingml::main;
 
-CT_ColorScheme::CT_ColorScheme() {
-	dk1 = NULL;
-	lt1 = NULL;
-	dk2 = NULL;
-	lt2 = NULL;
-	accent1 = NULL;
-	accent2 = NULL;
-	accent3 = NULL;
-	accent4 = NULL;
-	accent5 = NULL;
-	hlink = NULL;
-	folHlink = NULL;
+CT_ColorScheme::CT_ColorScheme(std::wstring _name, std::shared_ptr<CT_Color> _dk1,std::shared_ptr<CT_Color> _lt1,std::shared_ptr<CT_Color> _dk2,std::shared_ptr<CT_Color> _lt2,std::shared_ptr<CT_Color> _accent1,std::shared_ptr<CT_Color> _accent2,std::shared_ptr<CT_Color> _accent3,std::shared_ptr<CT_Color> _accent4,std::shared_ptr<CT_Color> _accent5,std::shared_ptr<CT_Color> _hlink,std::shared_ptr<CT_Color> _folHlink) {
+	name = _name;
+	dk1 = _dk1;
+	lt1 = _lt1;
+	dk2 = _dk2;
+	lt2 = _lt2;
+	accent1 = _accent1;
+	accent2 = _accent2;
+	accent3 = _accent3;
+	accent4 = _accent4;
+	accent5 = _accent5;
+	hlink = _hlink;
+	folHlink = _folHlink;
 	extLst = NULL;
 }
 

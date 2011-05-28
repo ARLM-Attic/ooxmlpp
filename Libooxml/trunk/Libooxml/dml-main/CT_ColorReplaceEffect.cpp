@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_ColorReplaceEffect::CT_ColorReplaceEffect() {
+CT_ColorReplaceEffect::CT_ColorReplaceEffect(std::shared_ptr<EG_ColorChoice> _colorChoice) {
 	colorChoice = NULL;
 }
 

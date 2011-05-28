@@ -4,8 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_ConnectionSite::CT_ConnectionSite() {
-	pos = NULL;
+CT_ConnectionSite::CT_ConnectionSite(std::shared_ptr<CT_AdjPoint2D> &_pos,ST_AdjAngle &_ang): pos(_pos), ang(_ang) {
 }
 
 CT_ConnectionSite::CT_ConnectionSite(CT_ConnectionSite &b) {

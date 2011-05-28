@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_CustomColorList::CT_CustomColorList() {
-	custClr = NULL;
+	custClr.clear();
 }
 
 CT_CustomColorList::CT_CustomColorList(CT_CustomColorList &b) {
@@ -13,10 +13,12 @@ CT_CustomColorList::CT_CustomColorList(CT_CustomColorList &b) {
 }
 
 CT_CustomColorList::CT_CustomColorList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	custClr = NULL;
+	custClr.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"custClr") == 0) {
-			custClr.reset(new CT_CustomColor(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_CustomColor> temp;
+			temp.reset(new CT_CustomColor(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			custClr.push_back(temp);
 		}
 	}
 }

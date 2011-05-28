@@ -4,12 +4,12 @@
 
 using namespace drawingml::main;
 
-CT_DefaultShapeDefinition::CT_DefaultShapeDefinition() {
+CT_DefaultShapeDefinition::CT_DefaultShapeDefinition(std::shared_ptr<CT_ShapeProperties> &_spPr,	std::shared_ptr<CT_TextBodyProperties> &_bodyPr,std::shared_ptr<CT_TextListStyle> &_lstStyle) {
 	extLst = NULL;
-	spPr = NULL;
+	spPr = _spPr;
 	style = NULL;
-	bodyPr = NULL;
-	lstStyle = NULL;
+	bodyPr = _bodyPr;
+	lstStyle = _lstStyle;
 }
 
 CT_DefaultShapeDefinition::CT_DefaultShapeDefinition(CT_DefaultShapeDefinition &b) {

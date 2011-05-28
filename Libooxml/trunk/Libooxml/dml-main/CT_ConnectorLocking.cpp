@@ -6,6 +6,16 @@ using namespace drawingml::main;
 
 CT_ConnectorLocking::CT_ConnectorLocking() {
 	extLst = NULL;
+	noGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
+	noEditPoints = false;
+	noAdjustHandles = false;
+	noChangeArrowheads = false;
+	noChangeShapeType = false;
 }
 
 CT_ConnectorLocking::CT_ConnectorLocking(CT_ConnectorLocking &b) {
@@ -24,6 +34,16 @@ CT_ConnectorLocking::CT_ConnectorLocking(CT_ConnectorLocking &b) {
 
 CT_ConnectorLocking::CT_ConnectorLocking(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	extLst = NULL;
+	noGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
+	noEditPoints = false;
+	noAdjustHandles = false;
+	noChangeArrowheads = false;
+	noChangeShapeType = false;
 	if (attributes->getNamedItem(L"noGrp")) {
 		noGrp = attributes->getNamedItem(L"noGrp")->getNodeValue();
 	}

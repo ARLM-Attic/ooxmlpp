@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_ColorMapping::CT_ColorMapping() {
+CT_ColorMapping::CT_ColorMapping(ST_ColorSchemeIndex &_bg1, ST_ColorSchemeIndex &_tx1, ST_ColorSchemeIndex &_bg2, ST_ColorSchemeIndex &_tx2, ST_ColorSchemeIndex &_accent1, ST_ColorSchemeIndex &_accent2, ST_ColorSchemeIndex &_accent3, ST_ColorSchemeIndex &_accent4, ST_ColorSchemeIndex &_accent5, ST_ColorSchemeIndex &_accent6, ST_ColorSchemeIndex &_hlink, ST_ColorSchemeIndex &_folHlink) : bg1(_bg1), bg2(+bg2), tx1(_tx1), tx2(_tx2),accent1(_accent1), accent2(_accent2), accent3(_accent3), accent4(_accent4), accent5(_accent5), accent6(_accent6),hlink(_hlink), folHlink(_folHlink) {
 	extLst = NULL;
 }
 

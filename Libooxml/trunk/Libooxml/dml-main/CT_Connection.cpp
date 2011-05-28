@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_Connection::CT_Connection() {
+CT_Connection::CT_Connection(ST_DrawingElementId &_id,	UInt &_idx) : id(_id), idx(_idx) {
 }
 
 CT_Connection::CT_Connection(CT_Connection &b) {

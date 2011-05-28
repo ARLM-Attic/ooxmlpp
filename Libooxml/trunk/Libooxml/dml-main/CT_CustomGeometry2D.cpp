@@ -4,13 +4,13 @@
 
 using namespace drawingml::main;
 
-CT_CustomGeometry2D::CT_CustomGeometry2D() {
+CT_CustomGeometry2D::CT_CustomGeometry2D(std::shared_ptr<CT_Path2DList> &_pathLst) {
 	ahList = NULL;
 	cxnList = NULL;
 	avList = NULL;
 	gdList = NULL;
 	rect = NULL;
-	pathLst = NULL;
+	pathLst = _pathLst;
 }
 
 CT_CustomGeometry2D::CT_CustomGeometry2D(CT_CustomGeometry2D &b) {

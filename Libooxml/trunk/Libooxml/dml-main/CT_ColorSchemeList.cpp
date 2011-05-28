@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_ColorSchemeList::CT_ColorSchemeList() {
-	extraClrScheme = NULL;
+	extraClrScheme.clear();
 }
 
 CT_ColorSchemeList::CT_ColorSchemeList(CT_ColorSchemeList &b) {
@@ -13,10 +13,12 @@ CT_ColorSchemeList::CT_ColorSchemeList(CT_ColorSchemeList &b) {
 }
 
 CT_ColorSchemeList::CT_ColorSchemeList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	extraClrScheme = NULL;
+	extraClrScheme.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"extraClrScheme") == 0) {
-			extraClrScheme.reset(new CT_ColorSchemeAndMapping(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_ColorSchemeAndMapping> temp;
+			temp.reset(new CT_ColorSchemeAndMapping(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			extraClrScheme.push_back(temp);
 		}
 	}
 }

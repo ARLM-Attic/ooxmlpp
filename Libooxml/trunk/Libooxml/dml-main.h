@@ -457,6 +457,7 @@ namespace drawingml {
 			value v;
 		public:
 		//end
+			ST_ColorSchemeIndex();
 			ST_ColorSchemeIndex(value _v);
 			ST_ColorSchemeIndex(std::wstring b);
 			ST_ColorSchemeIndex(ST_ColorSchemeIndex &b);
@@ -522,12 +523,12 @@ namespace drawingml {
 		class CT_CustomColor {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			std::wstring name;
 		public:
 		//end
-			CT_CustomColor(EG_ColorChoice &_colorChoice,std::wstring _name = L"");
+			CT_CustomColor(std::shared_ptr<EG_ColorChoice> &_colorChoice,std::wstring _name = L"");
 			CT_CustomColor(CT_CustomColor &b);
 			CT_CustomColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_CustomColor& operator=(CT_CustomColor &b);
@@ -1662,7 +1663,7 @@ namespace drawingml {
 		class CT_Color {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 
 		public:
@@ -1678,7 +1679,7 @@ namespace drawingml {
 		class CT_ColorMRU {
 		public:
 		//elements
-			std::vector<EG_ColorChoice> colorChoices;
+			std::vector<std::shared_ptr<EG_ColorChoice>> colorChoices;
 		//attributes
 
 		public:
@@ -3028,7 +3029,7 @@ namespace drawingml {
 		class CT_AlphaInverseEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;//optional
+			std::shared_ptr<EG_ColorChoice> colorChoice;//optional
 		public:
 		//attributes
 
@@ -3142,12 +3143,12 @@ namespace drawingml {
 		class CT_ColorReplaceEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 
 		public:
 		//end
-			CT_ColorReplaceEffect(EG_ColorChoice _colorChoice);
+			CT_ColorReplaceEffect(std::shared_ptr<EG_ColorChoice> _colorChoice);
 			CT_ColorReplaceEffect(CT_ColorReplaceEffect &b);
 			CT_ColorReplaceEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_ColorReplaceEffect& operator=(CT_ColorReplaceEffect &b);
@@ -3158,7 +3159,7 @@ namespace drawingml {
 		class CT_DuotoneEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice[2];
+			std::shared_ptr<EG_ColorChoice> colorChoice[2];
 		//attributes
 
 		public:
@@ -4091,7 +4092,7 @@ namespace drawingml {
 		class CT_EffectContainer {
 		public:
 		//elements
-			std::vector<EG_Effect> effect;
+			std::vector<std::shared_ptr<EG_Effect>> effect;
 
 		//attributes
 			ST_EffectContainerType type;

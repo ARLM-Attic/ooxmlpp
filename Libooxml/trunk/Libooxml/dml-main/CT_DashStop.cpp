@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_DashStop::CT_DashStop() {
+CT_DashStop::CT_DashStop(ST_PositivePercentage &_d, ST_PositivePercentage &_sp) {
+	d = _d;
+	sp = _sp;
 }
 
 CT_DashStop::CT_DashStop(CT_DashStop &b) {

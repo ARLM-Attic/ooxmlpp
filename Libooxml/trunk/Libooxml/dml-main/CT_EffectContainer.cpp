@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_EffectContainer::CT_EffectContainer() {
-	effect = NULL;
+	effect.clear();
 }
 
 CT_EffectContainer::CT_EffectContainer(CT_EffectContainer &b) {
@@ -15,7 +15,7 @@ CT_EffectContainer::CT_EffectContainer(CT_EffectContainer &b) {
 }
 
 CT_EffectContainer::CT_EffectContainer(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	effect = NULL;
+	effect.clear();
 	if (attributes->getNamedItem(L"type")) {
 		type = attributes->getNamedItem(L"type")->getNodeValue();
 	}
@@ -24,7 +24,9 @@ CT_EffectContainer::CT_EffectContainer(xercesc_3_1::DOMNodeList *nodelist, xerce
 	}
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"effect") == 0) {
-			effect.reset(new EG_Effect(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<EG_Effect> temp;
+			temp.reset(new EG_Effect(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			effect.push_back(temp);
 		}
 	}
 }

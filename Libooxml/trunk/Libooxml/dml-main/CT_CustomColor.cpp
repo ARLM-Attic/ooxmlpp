@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_CustomColor::CT_CustomColor() {
-	colorChoice = NULL;
+CT_CustomColor::CT_CustomColor(std::shared_ptr<EG_ColorChoice> &_colorChoice,std::wstring _name) {
+	colorChoice = _colorChoice;
+	name = _name;
 }
 
 CT_CustomColor::CT_CustomColor(CT_CustomColor &b) {

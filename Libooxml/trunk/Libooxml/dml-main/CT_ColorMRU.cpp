@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_ColorMRU::CT_ColorMRU() {
-	colorChoices = NULL;
+	colorChoices.clear();
 }
 
 CT_ColorMRU::CT_ColorMRU(CT_ColorMRU &b) {
@@ -13,10 +13,10 @@ CT_ColorMRU::CT_ColorMRU(CT_ColorMRU &b) {
 }
 
 CT_ColorMRU::CT_ColorMRU(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	colorChoices = NULL;
+	colorChoices.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"colorChoices") == 0) {
-			colorChoices.reset(new EG_ColorChoice(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			colorChoices.push_back(new EG_ColorChoice(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
 		}
 	}
 }

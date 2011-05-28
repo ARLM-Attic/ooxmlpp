@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_ColorSchemeAndMapping::CT_ColorSchemeAndMapping() {
+CT_ColorSchemeAndMapping::CT_ColorSchemeAndMapping(std::shared_ptr<CT_ColorScheme> &_clrScheme) {
 	clrMap = NULL;
-	clrScheme = NULL;
+	clrScheme = _clrScheme;
 }
 
 CT_ColorSchemeAndMapping::CT_ColorSchemeAndMapping(CT_ColorSchemeAndMapping &b) {
