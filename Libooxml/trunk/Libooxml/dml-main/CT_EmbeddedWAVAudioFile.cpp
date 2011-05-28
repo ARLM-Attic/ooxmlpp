@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_EmbeddedWAVAudioFile::CT_EmbeddedWAVAudioFile() {
+CT_EmbeddedWAVAudioFile::CT_EmbeddedWAVAudioFile(officeDocument::relationships::ST_RelationshipId _embed) {
+	embed = _embed;
 }
 
 CT_EmbeddedWAVAudioFile::CT_EmbeddedWAVAudioFile(CT_EmbeddedWAVAudioFile &b) {

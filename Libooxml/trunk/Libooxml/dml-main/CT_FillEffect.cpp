@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_FillEffect::CT_FillEffect() {
-	fillProperties = NULL;
+CT_FillEffect::CT_FillEffect(std::shared_ptr<EG_FillProperties> &_fillProperties) {
+	fillProperties = _fillProperties;
 }
 
 CT_FillEffect::CT_FillEffect(CT_FillEffect &b) {

@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_GeomGuide::CT_GeomGuide() {
+CT_GeomGuide::CT_GeomGuide(ST_GeomGuideName _name,	ST_GeomGuideFormula _fmla) {
+	name = _name;
+	fmla = _fmla;
 }
 
 CT_GeomGuide::CT_GeomGuide(CT_GeomGuide &b) {

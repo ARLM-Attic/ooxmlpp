@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_GvmlShapeNonVisual::CT_GvmlShapeNonVisual() {
-	cNvPr = NULL;
-	cNvSpPr = NULL;
+CT_GvmlShapeNonVisual::CT_GvmlShapeNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr, std::shared_ptr<CT_NonVisualDrawingShapeProps> &_cNvSpPr) {
+	cNvPr = _cNvPr;
+	cNvSpPr = _cNvSpPr;
 }
 
 CT_GvmlShapeNonVisual::CT_GvmlShapeNonVisual(CT_GvmlShapeNonVisual &b) {

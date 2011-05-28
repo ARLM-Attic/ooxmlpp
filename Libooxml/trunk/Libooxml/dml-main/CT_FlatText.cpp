@@ -5,6 +5,7 @@
 using namespace drawingml::main;
 
 CT_FlatText::CT_FlatText() {
+	z = 0;
 }
 
 CT_FlatText::CT_FlatText(CT_FlatText &b) {

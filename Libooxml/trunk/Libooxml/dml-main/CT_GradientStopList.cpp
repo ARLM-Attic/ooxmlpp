@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_GradientStopList::CT_GradientStopList() {
-	gs = NULL;
+CT_GradientStopList::CT_GradientStopList(std::vector<std::shared_ptr<CT_GradientStop>> &_gs) {
+	gs = _gs;
 }
 
 CT_GradientStopList::CT_GradientStopList(CT_GradientStopList &b) {
@@ -13,10 +13,12 @@ CT_GradientStopList::CT_GradientStopList(CT_GradientStopList &b) {
 }
 
 CT_GradientStopList::CT_GradientStopList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	gs = NULL;
+	gs.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"gs") == 0) {
-			gs.reset(new CT_GradientStop(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_GradientStop> temp;
+			temp.reset(new CT_GradientStop(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			gs.push_back(temp);
 		}
 	}
 }

@@ -259,6 +259,7 @@
     <ClCompile Include="dml-main\CT_GvmlPictureNonVisual.cpp" />
     <ClCompile Include="dml-main\CT_GvmlShape.cpp" />
     <ClCompile Include="dml-main\CT_GvmlShapeNonVisual.cpp" />
+    <ClCompile Include="dml-main\CT_GvmlTextShape.cpp" />
     <ClCompile Include="dml-main\CT_GvmlUseShapeRectangle.cpp" />
     <ClCompile Include="dml-main\CT_Headers.cpp" />
     <ClCompile Include="dml-main\CT_HslColor.cpp" />

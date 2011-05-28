@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_FillOverlayEffect::CT_FillOverlayEffect() {
-	fillProperties = NULL;
+CT_FillOverlayEffect::CT_FillOverlayEffect(std::shared_ptr<EG_FillProperties> &_fillProperties, ST_BlendMode &_blend) {
+	fillProperties = _fillProperties;
+	blend = _blend;
 }
 
 CT_FillOverlayEffect::CT_FillOverlayEffect(CT_FillOverlayEffect &b) {

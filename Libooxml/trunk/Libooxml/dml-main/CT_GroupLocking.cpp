@@ -6,6 +6,13 @@ using namespace drawingml::main;
 
 CT_GroupLocking::CT_GroupLocking() {
 	extLst = NULL;
+	noGrp = false;
+	noUnGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
 }
 
 CT_GroupLocking::CT_GroupLocking(CT_GroupLocking &b) {
@@ -21,6 +28,13 @@ CT_GroupLocking::CT_GroupLocking(CT_GroupLocking &b) {
 
 CT_GroupLocking::CT_GroupLocking(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	extLst = NULL;
+	noGrp = false;
+	noUnGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
 	if (attributes->getNamedItem(L"noGrp")) {
 		noGrp = attributes->getNamedItem(L"noGrp")->getNodeValue();
 	}

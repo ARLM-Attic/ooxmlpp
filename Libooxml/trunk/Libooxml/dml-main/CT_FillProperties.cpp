@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_FillProperties::CT_FillProperties() {
-	fillProperties = NULL;
+CT_FillProperties::CT_FillProperties(std::shared_ptr<EG_FillProperties> &_fillProperties) {
+	fillProperties = _fillProperties;
 }
 
 CT_FillProperties::CT_FillProperties(CT_FillProperties &b) {

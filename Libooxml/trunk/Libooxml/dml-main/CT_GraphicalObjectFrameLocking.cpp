@@ -6,6 +6,12 @@ using namespace drawingml::main;
 
 CT_GraphicalObjectFrameLocking::CT_GraphicalObjectFrameLocking() {
 	extLst = NULL;
+	noGrp = false;
+	noDrilldown = false;
+	noSelect = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
 }
 
 CT_GraphicalObjectFrameLocking::CT_GraphicalObjectFrameLocking(CT_GraphicalObjectFrameLocking &b) {
@@ -20,6 +26,12 @@ CT_GraphicalObjectFrameLocking::CT_GraphicalObjectFrameLocking(CT_GraphicalObjec
 
 CT_GraphicalObjectFrameLocking::CT_GraphicalObjectFrameLocking(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	extLst = NULL;
+	noGrp = false;
+	noDrilldown = false;
+	noSelect = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
 	if (attributes->getNamedItem(L"noGrp")) {
 		noGrp = attributes->getNamedItem(L"noGrp")->getNodeValue();
 	}

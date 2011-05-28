@@ -4,9 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_FontScheme::CT_FontScheme() {
-	majorFont = NULL;
-	minorFont = NULL;
+CT_FontScheme::CT_FontScheme(std::shared_ptr<CT_FontCollection> _majorFont,std::shared_ptr<CT_FontCollection> _minorFont,std::wstring _name) {
+	majorFont = _majorFont;
+	minorFont = _minorFont;
+	name = _name;
 	extLst = NULL;
 }
 

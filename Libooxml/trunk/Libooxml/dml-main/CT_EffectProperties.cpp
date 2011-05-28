@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_EffectProperties::CT_EffectProperties() {
-	effectProperties = NULL;
+CT_EffectProperties::CT_EffectProperties(std::shared_ptr<EG_EffectProperties> &_effectProperties) {
+	effectProperties = _effectProperties;
 }
 
 CT_EffectProperties::CT_EffectProperties(CT_EffectProperties &b) {

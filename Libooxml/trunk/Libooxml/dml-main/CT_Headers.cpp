@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_Headers::CT_Headers() {
-	header = NULL;
+	header.clear();
 }
 
 CT_Headers::CT_Headers(CT_Headers &b) {
@@ -13,10 +13,10 @@ CT_Headers::CT_Headers(CT_Headers &b) {
 }
 
 CT_Headers::CT_Headers(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	header = NULL;
+	header.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"header") == 0) {
-			header.reset(new std::wstring(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			header.push_back(nodelist->item(i)->getNodeValue());
 		}
 	}
 }

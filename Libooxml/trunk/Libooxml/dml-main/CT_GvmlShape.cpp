@@ -4,11 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_GvmlShape::CT_GvmlShape() {
-	nvSpPr = NULL;
+CT_GvmlShape::CT_GvmlShape(std::shared_ptr<CT_GvmlShapeNonVisual> &_nvSpPr, std::shared_ptr<CT_ShapeProperties> &_spPr) {
+	nvSpPr = _nvSpPr;
 	txSp = NULL;
 	extLst = NULL;
-	spPr = NULL;
+	spPr = _spPr;
 	style = NULL;
 }
 

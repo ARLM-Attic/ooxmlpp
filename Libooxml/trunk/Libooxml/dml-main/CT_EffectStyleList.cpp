@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_EffectStyleList::CT_EffectStyleList() {
-	effectStyle = NULL;
+	effectStyle.clear();
 }
 
 CT_EffectStyleList::CT_EffectStyleList(CT_EffectStyleList &b) {
@@ -13,10 +13,12 @@ CT_EffectStyleList::CT_EffectStyleList(CT_EffectStyleList &b) {
 }
 
 CT_EffectStyleList::CT_EffectStyleList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	effectStyle = NULL;
+	effectStyle.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"effectStyle") == 0) {
-			effectStyle.reset(new CT_EffectStyleItem(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_EffectStyleItem> temp;
+			temp.reset(new CT_EffectStyleItem(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			effectStyle.push_back(temp);
 		}
 	}
 }

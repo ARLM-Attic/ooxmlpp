@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_FixedPercentage::CT_FixedPercentage() {
+CT_FixedPercentage::CT_FixedPercentage(ST_FixedPercentage &_val) {
+	val = _val;
 }
 
 CT_FixedPercentage::CT_FixedPercentage(CT_FixedPercentage &b) {

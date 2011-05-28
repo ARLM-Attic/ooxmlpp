@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_GlowEffect::CT_GlowEffect() {
-	colorChoice = NULL;
+CT_GlowEffect::CT_GlowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice) {
+	colorChoice = _colorChoice;
 }
 
 CT_GlowEffect::CT_GlowEffect(CT_GlowEffect &b) {

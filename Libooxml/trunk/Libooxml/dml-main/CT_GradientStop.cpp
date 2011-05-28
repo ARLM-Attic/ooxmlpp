@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_GradientStop::CT_GradientStop() {
-	colorChoice = NULL;
+CT_GradientStop::CT_GradientStop(std::shared_ptr<EG_ColorChoice> &_colorChoice,ST_PositiveFixedPercentage &_pos) {
+	colorChoice = _colorChoice;
+	pos = _pos;
 }
 
 CT_GradientStop::CT_GradientStop(CT_GradientStop &b) {

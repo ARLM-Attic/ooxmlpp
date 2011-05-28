@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_GraphicalObject::CT_GraphicalObject() {
-	graphicData = NULL;
+CT_GraphicalObject::CT_GraphicalObject(std::shared_ptr<CT_GraphicalObjectData> &_graphicData) {
+	graphicData = _graphicData;
 }
 
 CT_GraphicalObject::CT_GraphicalObject(CT_GraphicalObject &b) {

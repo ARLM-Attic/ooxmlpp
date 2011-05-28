@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_GvmlGraphicFrameNonVisual::CT_GvmlGraphicFrameNonVisual() {
-	cNvPr = NULL;
-	cNvGraphicFramePr = NULL;
+CT_GvmlGraphicFrameNonVisual::CT_GvmlGraphicFrameNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr,std::shared_ptr<CT_NonVisualGraphicFrameProperties> &_cNvGraphicFramePr) {
+	cNvPr = _cNvPr;
+	cNvGraphicFramePr = _cNvGraphicFramePr;
 }
 
 CT_GvmlGraphicFrameNonVisual::CT_GvmlGraphicFrameNonVisual(CT_GvmlGraphicFrameNonVisual &b) {

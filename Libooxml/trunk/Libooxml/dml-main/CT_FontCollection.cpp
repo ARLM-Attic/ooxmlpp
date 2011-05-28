@@ -4,12 +4,12 @@
 
 using namespace drawingml::main;
 
-CT_FontCollection::CT_FontCollection() {
+CT_FontCollection::CT_FontCollection(std::shared_ptr<CT_TextFont> _latin,std::shared_ptr<CT_TextFont> _ea,std::shared_ptr<CT_TextFont> _cs) {
 	extLst = NULL;
-	font = NULL;
-	latin = NULL;
-	ea = NULL;
-	cs = NULL;
+	font.clear();
+	latin = _latin;
+	ea = _ea;
+	cs = _cs;
 }
 
 CT_FontCollection::CT_FontCollection(CT_FontCollection &b) {
@@ -22,7 +22,7 @@ CT_FontCollection::CT_FontCollection(CT_FontCollection &b) {
 
 CT_FontCollection::CT_FontCollection(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	extLst = NULL;
-	font = NULL;
+	font.clear();
 	latin = NULL;
 	ea = NULL;
 	cs = NULL;
@@ -31,7 +31,9 @@ CT_FontCollection::CT_FontCollection(xercesc_3_1::DOMNodeList *nodelist, xercesc
 			extLst.reset(new CT_OfficeArtExtensionList(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
 		}
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"font") == 0) {
-			font.reset(new CT_SupplementalFont(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_SupplementalFont> temp;
+			temp.reset(new CT_SupplementalFont(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			font.push_back(temp);
 		}
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"latin") == 0) {
 			latin.reset(new CT_TextFont(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));

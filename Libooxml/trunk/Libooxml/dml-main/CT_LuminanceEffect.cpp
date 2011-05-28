@@ -5,6 +5,8 @@
 using namespace drawingml::main;
 
 CT_LuminanceEffect::CT_LuminanceEffect() {
+	bright = L"0%";
+	contrast = L"0%";
 }
 
 CT_LuminanceEffect::CT_LuminanceEffect(CT_LuminanceEffect &b) {

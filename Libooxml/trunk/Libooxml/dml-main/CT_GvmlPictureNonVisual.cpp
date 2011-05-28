@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_GvmlPictureNonVisual::CT_GvmlPictureNonVisual() {
-	cNvPr = NULL;
-	cNvPicPr = NULL;
+CT_GvmlPictureNonVisual::CT_GvmlPictureNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr,	std::shared_ptr<CT_NonVisualPictureProperties> &_cNvPicPr) {
+	cNvPr = _cNvPr;
+	cNvPicPr = _cNvPicPr;
 }
 
 CT_GvmlPictureNonVisual::CT_GvmlPictureNonVisual(CT_GvmlPictureNonVisual &b) {

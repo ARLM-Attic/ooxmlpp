@@ -5,6 +5,9 @@
 using namespace drawingml::main;
 
 CT_HSLEffect::CT_HSLEffect() {
+	hue = 0;
+	sat = L"0%";
+	lum = L"0%";
 }
 
 CT_HSLEffect::CT_HSLEffect(CT_HSLEffect &b) {

@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_GvmlConnectorNonVisual::CT_GvmlConnectorNonVisual() {
-	cNvCxnSpPr = NULL;
-	cNvPr = NULL;
+CT_GvmlConnectorNonVisual::CT_GvmlConnectorNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr, std::shared_ptr<CT_NonVisualConnectorProperties> &_cNvCxnSpPr) {
+	cNvCxnSpPr = _cNvCxnSpPr;
+	cNvPr = _cNvPr;
 }
 
 CT_GvmlConnectorNonVisual::CT_GvmlConnectorNonVisual(CT_GvmlConnectorNonVisual &b) {

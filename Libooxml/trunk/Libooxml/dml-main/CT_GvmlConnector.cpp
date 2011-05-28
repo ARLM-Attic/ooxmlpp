@@ -4,10 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_GvmlConnector::CT_GvmlConnector() {
-	nvCxnSpPr = NULL;
+CT_GvmlConnector::CT_GvmlConnector(std::shared_ptr<CT_GvmlConnectorNonVisual> &_nvCxnSpPr,	std::shared_ptr<CT_ShapeProperties> &_spPr) {
+	nvCxnSpPr = _nvCxnSpPr;
 	extLst = NULL;
-	spPr = NULL;
+	spPr = _spPr;
 	style = NULL;
 }
 

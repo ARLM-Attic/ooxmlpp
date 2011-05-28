@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_FillStyleList::CT_FillStyleList() {
-	fillProperties = NULL;
+	fillProperties.clear();
 }
 
 CT_FillStyleList::CT_FillStyleList(CT_FillStyleList &b) {
@@ -13,10 +13,12 @@ CT_FillStyleList::CT_FillStyleList(CT_FillStyleList &b) {
 }
 
 CT_FillStyleList::CT_FillStyleList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	fillProperties = NULL;
+	fillProperties.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"fillProperties") == 0) {
-			fillProperties.reset(new EG_FillProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<EG_FillProperties> temp;
+			temp.reset(new EG_FillProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			fillProperties.push_back(temp);
 		}
 	}
 }

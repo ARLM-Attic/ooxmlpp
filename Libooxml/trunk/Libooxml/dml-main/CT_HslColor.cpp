@@ -4,8 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_HslColor::CT_HslColor() {
-	colorTransform = NULL;
+CT_HslColor::CT_HslColor(ST_PositiveFixedAngle &_hue, ST_Percentage &_sat,	ST_Percentage &_lum) {
+	colorTransform.clear();
+	hue = _hue;
+	sat = _sat;
+	lum = _lum;
 }
 
 CT_HslColor::CT_HslColor(CT_HslColor &b) {
@@ -16,7 +19,7 @@ CT_HslColor::CT_HslColor(CT_HslColor &b) {
 }
 
 CT_HslColor::CT_HslColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	colorTransform = NULL;
+	colorTransform.clear();
 	if (attributes->getNamedItem(L"sat")) {
 		sat = attributes->getNamedItem(L"sat")->getNodeValue();
 	}
@@ -28,7 +31,9 @@ CT_HslColor::CT_HslColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNam
 	}
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"colorTransform") == 0) {
-			colorTransform.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<EG_ColorTransform> temp;
+			temp.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			colorTransform.push_back(temp);
 		}
 	}
 }

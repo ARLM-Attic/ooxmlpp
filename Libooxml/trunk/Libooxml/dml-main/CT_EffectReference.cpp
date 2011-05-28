@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_EffectReference::CT_EffectReference() {
+CT_EffectReference::CT_EffectReference(std::wstring _ref) {
+	ref = _ref;
 }
 
 CT_EffectReference::CT_EffectReference(CT_EffectReference &b) {

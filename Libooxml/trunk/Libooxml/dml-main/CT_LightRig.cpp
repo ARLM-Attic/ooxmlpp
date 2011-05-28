@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_LightRig::CT_LightRig() {
+CT_LightRig::CT_LightRig(ST_LightRigType &_rig, ST_LightRigDirection &_dir) {
+	rig = _rig;
+	dir = _dir;
 	rot = NULL;
 }
 

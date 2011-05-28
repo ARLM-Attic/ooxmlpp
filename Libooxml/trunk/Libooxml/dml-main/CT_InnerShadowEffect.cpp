@@ -4,8 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_InnerShadowEffect::CT_InnerShadowEffect() {
+CT_InnerShadowEffect::CT_InnerShadowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice) {
 	colorChoice = NULL;
+	blurRad = 0;
+	dist = 0;
+	dir = 0;
 }
 
 CT_InnerShadowEffect::CT_InnerShadowEffect(CT_InnerShadowEffect &b) {

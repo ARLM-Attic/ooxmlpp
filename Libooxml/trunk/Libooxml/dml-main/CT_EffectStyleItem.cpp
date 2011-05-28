@@ -4,10 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_EffectStyleItem::CT_EffectStyleItem() {
+CT_EffectStyleItem::CT_EffectStyleItem(std::shared_ptr<EG_EffectProperties> &_effectProperties) {
 	scene3d = NULL;
 	sp3d = NULL;
-	effectProperties = NULL;
+	effectProperties = _effectProperties;
 }
 
 CT_EffectStyleItem::CT_EffectStyleItem(CT_EffectStyleItem &b) {

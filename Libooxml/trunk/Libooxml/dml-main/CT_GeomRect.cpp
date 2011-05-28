@@ -4,7 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_GeomRect::CT_GeomRect() {
+CT_GeomRect::CT_GeomRect(ST_AdjCoordinate &_l,	ST_AdjCoordinate &_t,	ST_AdjCoordinate &_r,	ST_AdjCoordinate &_b) {
+	l = _l;
+	t = _t;
+	r = _r;
+	b = _b;
 }
 
 CT_GeomRect::CT_GeomRect(CT_GeomRect &b) {

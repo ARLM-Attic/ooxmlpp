@@ -603,7 +603,7 @@ namespace drawingml {
 		class CT_EffectStyleItem {
 		public:
 		//elements
-			EG_EffectProperties effectProperties;
+			std::shared_ptr<EG_EffectProperties> effectProperties;
 
 			std::shared_ptr<CT_Scene3D> scene3d;
 			std::shared_ptr<CT_Shape3D> sp3d;
@@ -611,7 +611,7 @@ namespace drawingml {
 			
 		public:
 		//end
-			CT_EffectStyleItem(EG_EffectProperties &_effectProperties);
+			CT_EffectStyleItem(std::shared_ptr<EG_EffectProperties> &_effectProperties);
 			CT_EffectStyleItem(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_EffectStyleItem(CT_EffectStyleItem &b);
 			~CT_EffectStyleItem();
@@ -936,7 +936,7 @@ namespace drawingml {
 			ST_FixedPercentage val;
 		public:
 		//end
-			CT_FixedPercentage(ST_FixedPercentage _val);
+			CT_FixedPercentage(ST_FixedPercentage &_val);
 			CT_FixedPercentage(CT_FixedPercentage &b);
 			CT_FixedPercentage(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_FixedPercentage& operator=(CT_FixedPercentage &b);
@@ -1123,7 +1123,7 @@ namespace drawingml {
 			officeDocument::sharedTypes::ST_HexColorRGB val;
 		public:
 		//end
-			CT_SRgbColor (officeDocument::sharedTypes::ST_HexColorRGB _val);
+			CT_SRgbColor(officeDocument::sharedTypes::ST_HexColorRGB &_val);
 			CT_SRgbColor(CT_SRgbColor &b);
 			CT_SRgbColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_SRgbColor& operator=(CT_SRgbColor &b);
@@ -1141,7 +1141,7 @@ namespace drawingml {
 			ST_Percentage lum;
 		public:
 		//end
-			CT_HslColor(ST_PositiveFixedAngle hue, ST_Percentage _sat,	ST_Percentage _lum);
+			CT_HslColor(ST_PositiveFixedAngle &_hue, ST_Percentage &_sat,	ST_Percentage &_lum);
 			CT_HslColor(CT_HslColor &b);
 			CT_HslColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_HslColor& operator=(CT_HslColor &b);
@@ -2001,7 +2001,7 @@ namespace drawingml {
 			std::wstring uri;
 		public:
 		//end
-			CT_GraphicalObjectData(std::wstring _uri);
+			CT_GraphicalObjectData(std::wstring &_uri);
 			CT_GraphicalObjectData(CT_GraphicalObjectData &b);
 			CT_GraphicalObjectData(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GraphicalObjectData& operator=(CT_GraphicalObjectData &b);
@@ -2017,7 +2017,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GraphicalObject(std::shared_ptr<CT_GraphicalObjectData> _graphicData);
+			CT_GraphicalObject(std::shared_ptr<CT_GraphicalObjectData> &_graphicData);
 			CT_GraphicalObject(CT_GraphicalObject &b);
 			CT_GraphicalObject(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GraphicalObject& operator=(CT_GraphicalObject &b);
@@ -2370,17 +2370,23 @@ namespace drawingml {
 			std::shared_ptr<CT_TextBody> txBody;
 
 			class Choice {
+			public:
+				enum valuetype {GvmlUseShapeRectangle,Transform2D};
 				typedef std::shared_ptr<CT_GvmlUseShapeRectangle> std_shared_ptr_CT_GvmlUseShapeRectangle;
 				typedef std::shared_ptr<CT_Transform2D> std_shared_ptr_CT_Transform2D;
 			private:
 				std::shared_ptr<CT_GvmlUseShapeRectangle> _useSpRect;
 				std::shared_ptr<CT_Transform2D> _xfrm;
+				valuetype vtype;
 			public:
 				Choice();
-				Choice& operator=(std_shared_ptr_CT_GvmlUseShapeRectangle __useSpRect);
-				Choice& operator=(std_shared_ptr_CT_Transform2D __xfrm);
+				Choice& operator=(std_shared_ptr_CT_GvmlUseShapeRectangle &__useSpRect);
+				Choice& operator=(std_shared_ptr_CT_Transform2D &__xfrm);
+				Choice& operator=(CT_GvmlUseShapeRectangle *__useSpRect);
+				Choice& operator=(CT_Transform2D *__xfrm);
 				std_shared_ptr_CT_GvmlUseShapeRectangle useSpRect();
 				std_shared_ptr_CT_Transform2D xfrm();
+				valuetype type();
 			};
 			Choice choice;
 
@@ -2389,7 +2395,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlTextShape(std::shared_ptr<CT_TextBody> _txBody, Choice _choice);
+			CT_GvmlTextShape(std::shared_ptr<CT_TextBody> &_txBody, Choice &_choice);
 			CT_GvmlTextShape(CT_GvmlTextShape &b);
 			CT_GvmlTextShape(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlTextShape& operator=(CT_GvmlTextShape &b);
@@ -2406,7 +2412,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlShapeNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> _cNvPr, std::shared_ptr<CT_NonVisualDrawingShapeProps> _cNvSpPr);
+			CT_GvmlShapeNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr, std::shared_ptr<CT_NonVisualDrawingShapeProps> &_cNvSpPr);
 			CT_GvmlShapeNonVisual(CT_GvmlShapeNonVisual &b);
 			CT_GvmlShapeNonVisual(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlShapeNonVisual& operator=(CT_GvmlShapeNonVisual &b);
@@ -2426,7 +2432,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlShape(std::shared_ptr<CT_GvmlShapeNonVisual> _nvSpPr, std::shared_ptr<CT_ShapeProperties> _spPr);
+			CT_GvmlShape(std::shared_ptr<CT_GvmlShapeNonVisual> &_nvSpPr, std::shared_ptr<CT_ShapeProperties> &_spPr);
 			CT_GvmlShape(CT_GvmlShape &b);
 			CT_GvmlShape(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlShape& operator=(CT_GvmlShape &b);
@@ -2443,7 +2449,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlConnectorNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> _cNvPr, std::shared_ptr<CT_NonVisualConnectorProperties> _cNvCxnSpPr);
+			CT_GvmlConnectorNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr, std::shared_ptr<CT_NonVisualConnectorProperties> &_cNvCxnSpPr);
 			CT_GvmlConnectorNonVisual(CT_GvmlConnectorNonVisual &b);
 			CT_GvmlConnectorNonVisual(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlConnectorNonVisual& operator=(CT_GvmlConnectorNonVisual &b);
@@ -2462,7 +2468,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlConnector(std::shared_ptr<CT_GvmlConnectorNonVisual> _nvCxnSpPr,	std::shared_ptr<CT_ShapeProperties> _spPr);
+			CT_GvmlConnector(std::shared_ptr<CT_GvmlConnectorNonVisual> &_nvCxnSpPr,	std::shared_ptr<CT_ShapeProperties> &_spPr);
 			CT_GvmlConnector(CT_GvmlConnector &b);
 			CT_GvmlConnector(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlConnector& operator=(CT_GvmlConnector &b);
@@ -2479,7 +2485,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlPictureNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> _cNvPr,	std::shared_ptr<CT_NonVisualPictureProperties> _cNvPicPr);
+			CT_GvmlPictureNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr,	std::shared_ptr<CT_NonVisualPictureProperties> &_cNvPicPr);
 			CT_GvmlPictureNonVisual(CT_GvmlPictureNonVisual &b);
 			CT_GvmlPictureNonVisual(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlPictureNonVisual& operator=(CT_GvmlPictureNonVisual &b);
@@ -2490,7 +2496,7 @@ namespace drawingml {
 		class CT_GvmlPicture {
 		public:
 		//elements
-			std::shared_ptr<CT_GvmlPictureNonVisual> nvvPicPr;
+			std::shared_ptr<CT_GvmlPictureNonVisual> nvPicPr;
 			std::shared_ptr<CT_BlipFillProperties> blipFill;
 			std::shared_ptr<CT_ShapeProperties> spPr;
 			std::shared_ptr<CT_ShapeStyle> style;
@@ -2499,7 +2505,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlPicture(std::shared_ptr<CT_GvmlPictureNonVisual> _nvvPicPr, std::shared_ptr<CT_BlipFillProperties> _blipFill, std::shared_ptr<CT_ShapeProperties> _spPr);
+			CT_GvmlPicture(std::shared_ptr<CT_GvmlPictureNonVisual> &_nvvPicPr, std::shared_ptr<CT_BlipFillProperties> &_blipFill, std::shared_ptr<CT_ShapeProperties> &_spPr);
 			CT_GvmlPicture(CT_GvmlPicture &b);
 			CT_GvmlPicture(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlPicture& operator=(CT_GvmlPicture &b);
@@ -2516,7 +2522,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlGraphicFrameNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> _cNvPr,std::shared_ptr<CT_NonVisualGraphicFrameProperties> _cNvGraphicFramePr);
+			CT_GvmlGraphicFrameNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr,std::shared_ptr<CT_NonVisualGraphicFrameProperties> &_cNvGraphicFramePr);
 			CT_GvmlGraphicFrameNonVisual(CT_GvmlGraphicFrameNonVisual &b);
 			CT_GvmlGraphicFrameNonVisual(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlGraphicFrameNonVisual& operator=(CT_GvmlGraphicFrameNonVisual &b);
@@ -2528,14 +2534,14 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_GvmlGraphicFrameNonVisual> nvGraphicFramePr;
-			//ref graphic
+			std::shared_ptr<CT_GraphicalObject> graphic;
 			std::shared_ptr<CT_Transform2D> xfrm;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
 		//attributes
 
 		public:
 		//end
-			CT_GvmlGraphicalObjectFrame(std::shared_ptr<CT_GvmlGraphicFrameNonVisual> _nvGraphicFramePr,/*ref graphic*/	std::shared_ptr<CT_Transform2D> _xfrm);
+			CT_GvmlGraphicalObjectFrame(std::shared_ptr<CT_GvmlGraphicFrameNonVisual> &_nvGraphicFramePr, std::shared_ptr<CT_GraphicalObject> &_graphic, std::shared_ptr<CT_Transform2D> &_xfrm);
 			CT_GvmlGraphicalObjectFrame(CT_GvmlGraphicalObjectFrame &b);
 			CT_GvmlGraphicalObjectFrame(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlGraphicalObjectFrame& operator=(CT_GvmlGraphicalObjectFrame &b);
@@ -2552,7 +2558,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GvmlGroupShapeNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> _cNvPr,std::shared_ptr<CT_NonVisualGroupDrawingShapeProps> _cNvGrpSpPr);
+			CT_GvmlGroupShapeNonVisual(std::shared_ptr<CT_NonVisualDrawingProps> &_cNvPr,std::shared_ptr<CT_NonVisualGroupDrawingShapeProps> &_cNvGrpSpPr);
 			CT_GvmlGroupShapeNonVisual(CT_GvmlGroupShapeNonVisual &b);
 			CT_GvmlGroupShapeNonVisual(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GvmlGroupShapeNonVisual& operator=(CT_GvmlGroupShapeNonVisual &b);
@@ -2782,7 +2788,7 @@ namespace drawingml {
 			ST_LightRigType(std::wstring b);
 			ST_LightRigType(ST_LightRigType &b);
 			ST_LightRigType& operator=(value _v);
-			ST_LightRigType& operator =( ST_LightRigType& b);
+			ST_LightRigType& operator =(ST_LightRigType& b);
 			ST_LightRigType& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
@@ -2797,7 +2803,7 @@ namespace drawingml {
 			ST_LightRigDirection dir;
 		public:
 		//end
-			CT_LightRig(ST_LightRigType _rig, ST_LightRigDirection _dir);
+			CT_LightRig(ST_LightRigType &_rig, ST_LightRigDirection &_dir);
 			CT_LightRig(CT_LightRig &b);
 			CT_LightRig(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_LightRig& operator=(CT_LightRig &b);
@@ -3175,12 +3181,12 @@ namespace drawingml {
 		class CT_GlowEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 
 		public:
 		//end
-			CT_GlowEffect(EG_ColorChoice _colorChoice);
+			CT_GlowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice);
 			CT_GlowEffect(CT_GlowEffect &b);
 			CT_GlowEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GlowEffect& operator=(CT_GlowEffect &b);
@@ -3225,14 +3231,14 @@ namespace drawingml {
 		class CT_InnerShadowEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			ST_PositiveCoordinate blurRad;
 			ST_PositiveCoordinate dist;
 			ST_PositiveFixedAngle dir;
 		public:
 		//end
-			CT_InnerShadowEffect(EG_ColorChoice _colorChoice);
+			CT_InnerShadowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice);
 			CT_InnerShadowEffect(CT_InnerShadowEffect &b);
 			CT_InnerShadowEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_InnerShadowEffect& operator=(CT_InnerShadowEffect &b);
@@ -3548,12 +3554,12 @@ namespace drawingml {
 		class CT_GradientStop {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			ST_PositiveFixedPercentage pos;
 		public:
 		//end
-			CT_GradientStop(EG_ColorChoice _colorChoice,ST_PositiveFixedPercentage _pos);
+			CT_GradientStop(std::shared_ptr<EG_ColorChoice> &_colorChoice,ST_PositiveFixedPercentage &_pos);
 			CT_GradientStop(CT_GradientStop &b);
 			CT_GradientStop(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GradientStop& operator=(CT_GradientStop &b);
@@ -3569,7 +3575,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_GradientStopList(std::vector<std::shared_ptr<CT_GradientStop>> _gs);
+			CT_GradientStopList(std::vector<std::shared_ptr<CT_GradientStop>> &_gs);
 			CT_GradientStopList(CT_GradientStopList &b);
 			CT_GradientStopList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_GradientStopList& operator=(CT_GradientStopList &b);
@@ -3594,7 +3600,7 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_GradientStopList> gsList;
-			EG_ShadeProperties shadeProperties;			
+			std::shared_ptr<EG_ShadeProperties> shadeProperties;			
 			std::shared_ptr<CT_RelativeRect> tileRect;
 		//attributes
 			ST_TileFlipMode flip;
@@ -3885,12 +3891,12 @@ namespace drawingml {
 		class CT_FillProperties {
 		public:
 		//elements
-			EG_FillProperties fillProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
 		//attributes
 
 		public:
 		//end
-			CT_FillProperties(EG_FillProperties &_fillProperties);
+			CT_FillProperties(std::shared_ptr<EG_FillProperties> &_fillProperties);
 			CT_FillProperties(CT_FillProperties &b);
 			CT_FillProperties(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_FillProperties& operator=(CT_FillProperties &b);
@@ -3901,12 +3907,12 @@ namespace drawingml {
 		class CT_FillEffect {
 		public:
 		//elements
-			EG_FillProperties fillProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
 		//attributes
 
 		public:
 		//end
-			CT_FillEffect(EG_FillProperties &_fillProperties);
+			CT_FillEffect(std::shared_ptr<EG_FillProperties> &_fillProperties);
 			CT_FillEffect(CT_FillEffect &b);
 			CT_FillEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_FillEffect& operator=(CT_FillEffect &b);
@@ -3941,13 +3947,13 @@ namespace drawingml {
 		class CT_FillOverlayEffect {
 		public:
 		//elements
-			EG_FillProperties fillProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
 		public:
 		//attributes
 			ST_BlendMode blend;
 		public:
 		//end
-			CT_FillOverlayEffect(EG_FillProperties &_fillProperties, ST_BlendMode &_blend);
+			CT_FillOverlayEffect(std::shared_ptr<EG_FillProperties> &_fillProperties, ST_BlendMode &_blend);
 			CT_FillOverlayEffect(CT_FillOverlayEffect &b);
 			CT_FillOverlayEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_FillOverlayEffect& operator=(CT_FillOverlayEffect &b);
@@ -4165,12 +4171,12 @@ namespace drawingml {
 		class CT_EffectProperties {
 		public:
 		//elements
-			EG_EffectProperties effectProperties;
+			std::shared_ptr<EG_EffectProperties> effectProperties;
 		//attributes
 
 		public:
 		//end
-			CT_EffectProperties(EG_EffectProperties &_effectProperties);
+			CT_EffectProperties(std::shared_ptr<EG_EffectProperties> &_effectProperties);
 			CT_EffectProperties(CT_EffectProperties &b);
 			CT_EffectProperties(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_EffectProperties& operator=(CT_EffectProperties &b);
@@ -5266,9 +5272,9 @@ namespace drawingml {
 		public:
 		//elements
 			
-			EG_LineFillProperties lineFill;
-			EG_LineDashProperties lineDash;
-			EG_LineJoinProperties lineJoin;
+			std::shared_ptr<EG_LineFillProperties> lineFill;
+			std::shared_ptr<EG_LineDashProperties> lineDash;
+			std::shared_ptr<EG_LineJoinProperties> lineJoin;
 
 			std::shared_ptr<CT_LineEndProperties> headEnd;
 			std::shared_ptr<CT_LineEndProperties> tailEnd;
@@ -5315,8 +5321,8 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_GroupTransform2D> xfrm;
-			EG_FillProperties fillProperties;
-			EG_EffectProperties effectProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
+			std::shared_ptr<EG_EffectProperties> effectProperties;
 			std::shared_ptr<CT_Scene3D> scene3d;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
 		//attributes
@@ -5350,7 +5356,7 @@ namespace drawingml {
 		class CT_FontReference {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			ST_FontCollectionIndex idx;
 		public:

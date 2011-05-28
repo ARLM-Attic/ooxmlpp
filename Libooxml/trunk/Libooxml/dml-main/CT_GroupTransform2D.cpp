@@ -9,6 +9,9 @@ CT_GroupTransform2D::CT_GroupTransform2D() {
 	chOff = NULL;
 	ext = NULL;
 	chExt = NULL;
+	flipH = false;
+	flipV = false;
+	rot = 0;
 }
 
 CT_GroupTransform2D::CT_GroupTransform2D(CT_GroupTransform2D &b) {
@@ -26,6 +29,9 @@ CT_GroupTransform2D::CT_GroupTransform2D(xercesc_3_1::DOMNodeList *nodelist, xer
 	chOff = NULL;
 	ext = NULL;
 	chExt = NULL;
+	flipH = false;
+	flipV = false;
+	rot = 0;
 	if (attributes->getNamedItem(L"flipH")) {
 		flipH = attributes->getNamedItem(L"flipH")->getNodeValue();
 	}

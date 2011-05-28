@@ -7,6 +7,13 @@ using namespace drawingml::main;
 CT_Hyperlink::CT_Hyperlink() {
 	snd = NULL;
 	extLst = NULL;
+	invalidUrl = L"";
+	action = L"";
+	tgtFrame = L"";
+	tooltip = L"";
+	history = true;
+	highlightClick = false;
+	endSnd = false;
 }
 
 CT_Hyperlink::CT_Hyperlink(CT_Hyperlink &b) {
@@ -25,6 +32,13 @@ CT_Hyperlink::CT_Hyperlink(CT_Hyperlink &b) {
 CT_Hyperlink::CT_Hyperlink(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	snd = NULL;
 	extLst = NULL;
+	invalidUrl = L"";
+	action = L"";
+	tgtFrame = L"";
+	tooltip = L"";
+	history = true;
+	highlightClick = false;
+	endSnd = false;
 	if (attributes->getNamedItem(L"history")) {
 		history = attributes->getNamedItem(L"history")->getNodeValue();
 	}

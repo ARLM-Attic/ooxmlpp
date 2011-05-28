@@ -4,11 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_GvmlGraphicalObjectFrame::CT_GvmlGraphicalObjectFrame() {
-	graphic = NULL;
-	nvGraphicFramePr = NULL;
+CT_GvmlGraphicalObjectFrame::CT_GvmlGraphicalObjectFrame(std::shared_ptr<CT_GvmlGraphicFrameNonVisual> &_nvGraphicFramePr, std::shared_ptr<CT_GraphicalObject> &_graphic, std::shared_ptr<CT_Transform2D> &_xfrm) {
+	graphic = _graphic;
+	nvGraphicFramePr = _nvGraphicFramePr;
 	extLst = NULL;
-	xfrm = NULL;
+	xfrm = _xfrm;
 }
 
 CT_GvmlGraphicalObjectFrame::CT_GvmlGraphicalObjectFrame(CT_GvmlGraphicalObjectFrame &b) {
@@ -25,7 +25,7 @@ CT_GvmlGraphicalObjectFrame::CT_GvmlGraphicalObjectFrame(xercesc_3_1::DOMNodeLis
 	xfrm = NULL;
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"graphic") == 0) {
-			graphic.reset(new //ref(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			graphic.reset(new CT_GraphicalObject(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
 		}
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"nvGraphicFramePr") == 0) {
 			nvGraphicFramePr.reset(new CT_GvmlGraphicFrameNonVisual(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));

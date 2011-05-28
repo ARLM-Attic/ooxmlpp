@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_LineStyleList::CT_LineStyleList() {
-	ln = NULL;
+	ln.clear();
 }
 
 CT_LineStyleList::CT_LineStyleList(CT_LineStyleList &b) {
@@ -13,10 +13,12 @@ CT_LineStyleList::CT_LineStyleList(CT_LineStyleList &b) {
 }
 
 CT_LineStyleList::CT_LineStyleList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	ln = NULL;
+	ln.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"ln") == 0) {
-			ln.reset(new CT_LineProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_LineProperties> temp;
+			temp.reset(new CT_LineProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			ln.push_back(temp);
 		}
 	}
 }

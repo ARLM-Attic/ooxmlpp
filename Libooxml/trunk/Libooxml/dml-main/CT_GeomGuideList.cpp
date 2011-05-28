@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_GeomGuideList::CT_GeomGuideList() {
-	gd = NULL;
+	gd.clear();
 }
 
 CT_GeomGuideList::CT_GeomGuideList(CT_GeomGuideList &b) {
@@ -13,10 +13,12 @@ CT_GeomGuideList::CT_GeomGuideList(CT_GeomGuideList &b) {
 }
 
 CT_GeomGuideList::CT_GeomGuideList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	gd = NULL;
+	gd.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"gd") == 0) {
-			gd.reset(new CT_GeomGuide(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_GeomGuide> temp;
+			temp.reset(new CT_GeomGuide(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			gd.push_back(temp);
 		}
 	}
 }

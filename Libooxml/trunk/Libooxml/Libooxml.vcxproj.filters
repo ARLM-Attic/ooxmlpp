@@ -1012,6 +1012,9 @@
     <ClCompile Include="dml-main\ST_TileFlipMode.cpp">
       <Filter>dml-main</Filter>
     </ClCompile>
+    <ClCompile Include="dml-main\CT_GvmlTextShape.cpp">
+      <Filter>dml-main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.h">
