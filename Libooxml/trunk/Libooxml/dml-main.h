@@ -5664,7 +5664,7 @@ namespace drawingml {
 			std::shared_ptr<CT_LineProperties> lnTlToBr;
 			std::shared_ptr<CT_LineProperties> lnBlToTr;
 			std::shared_ptr<CT_Cell3D> cell3D;
-			EG_FillProperties fillProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
 			std::shared_ptr<CT_Headers> headers;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
 		//attributes
@@ -5922,8 +5922,8 @@ namespace drawingml {
 		class CT_TableStyleTextStyle {
 		public:
 		//elements
-			EG_ThemeableFontStyles themeableFontStyle;
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ThemeableFontStyles> themeableFontStyle;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 			
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
 		//attributes
@@ -5966,8 +5966,8 @@ namespace drawingml {
 		class CT_TableBackgroundStyle {
 		public:
 		//elements
-			EG_ThemeableFillStyle themeableFillStyle;
-			EG_ThemeableEffectStyle themeableEffectStyle;
+			std::shared_ptr<EG_ThemeableFillStyle> themeableFillStyle;
+			std::shared_ptr<EG_ThemeableEffectStyle> themeableEffectStyle;
 		public:
 		//attributes
 
@@ -5985,7 +5985,7 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_TableCellBorderStyle> tcBdr;
-			EG_ThemeableFillStyle themeableFillStyle;
+			std::shared_ptr<EG_ThemeableFillStyle> themeableFillStyle;
 			std::shared_ptr<CT_Cell3D> cell3D;
 		//attributes
 

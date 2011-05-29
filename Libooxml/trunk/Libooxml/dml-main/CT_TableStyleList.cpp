@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_TableStyleList::CT_TableStyleList() {
+CT_TableStyleList::CT_TableStyleList(officeDocument::sharedTypes::ST_Guid &_def) {
 	tblStyle = NULL;
+	def = _def;
 }
 
 CT_TableStyleList::CT_TableStyleList(CT_TableStyleList &b) {

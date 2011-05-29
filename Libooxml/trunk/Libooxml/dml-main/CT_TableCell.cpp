@@ -8,6 +8,10 @@ CT_TableCell::CT_TableCell() {
 	extLst = NULL;
 	tcPr = NULL;
 	txBody = NULL;
+	rowSpan = 1;
+	gridSpan = 1;
+	hMerge = false;
+	vMerge = false;
 }
 
 CT_TableCell::CT_TableCell(CT_TableCell &b) {
@@ -25,6 +29,10 @@ CT_TableCell::CT_TableCell(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMN
 	extLst = NULL;
 	tcPr = NULL;
 	txBody = NULL;
+	rowSpan = 1;
+	gridSpan = 1;
+	hMerge = false;
+	vMerge = false;
 	if (attributes->getNamedItem(L"hMerge")) {
 		hMerge = attributes->getNamedItem(L"hMerge")->getNodeValue();
 	}

@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_Table::CT_Table() {
-	tblGrid = NULL;
+CT_Table::CT_Table(std::shared_ptr<CT_TableGrid> &_tblGrid) {
+	tblGrid = _tblGrid;
 	tblPr = NULL;
 	tr = NULL;
 }

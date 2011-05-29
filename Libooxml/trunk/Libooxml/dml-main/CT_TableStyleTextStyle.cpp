@@ -8,13 +8,15 @@ CT_TableStyleTextStyle::CT_TableStyleTextStyle() {
 	extLst = NULL;
 	colorChoice = NULL;
 	themeableFontStyle = NULL;
+	b = ST_OnOffStyleType::def;
+	i = ST_OnOffStyleType::def;
 }
 
 CT_TableStyleTextStyle::CT_TableStyleTextStyle(CT_TableStyleTextStyle &b) {
 	extLst = b.extLst;
 	colorChoice = b.colorChoice;
 	themeableFontStyle = b.themeableFontStyle;
-	b = b.b;
+	this->b = b.b;
 	i = b.i;
 }
 
@@ -22,6 +24,8 @@ CT_TableStyleTextStyle::CT_TableStyleTextStyle(xercesc_3_1::DOMNodeList *nodelis
 	extLst = NULL;
 	colorChoice = NULL;
 	themeableFontStyle = NULL;
+	this->b = b.b;
+	i = b.i;
 	if (attributes->getNamedItem(L"b")) {
 		b = attributes->getNamedItem(L"b")->getNodeValue();
 	}
@@ -45,7 +49,7 @@ CT_TableStyleTextStyle& CT_TableStyleTextStyle::operator=(CT_TableStyleTextStyle
 	extLst = b.extLst;
 	colorChoice = b.colorChoice;
 	themeableFontStyle = b.themeableFontStyle;
-	b = b.b;
+	this->b = b.b;
 	i = b.i;
 	return *this;
 }

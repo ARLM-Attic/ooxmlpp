@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_TableCol::CT_TableCol() {
+CT_TableCol::CT_TableCol(ST_Coordinate &_w) {
 	extLst = NULL;
+	w = _w;
 }
 
 CT_TableCol::CT_TableCol(CT_TableCol &b) {

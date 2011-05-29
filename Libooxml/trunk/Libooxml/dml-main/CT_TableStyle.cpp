@@ -4,7 +4,7 @@
 
 using namespace drawingml::main;
 
-CT_TableStyle::CT_TableStyle() {
+CT_TableStyle::CT_TableStyle(officeDocument::sharedTypes::ST_Guid &_styleId,	std::wstring &_styleName) {
 	extLst = NULL;
 	tblBg = NULL;
 	wholeTbl = NULL;
@@ -20,6 +20,8 @@ CT_TableStyle::CT_TableStyle() {
 	firstRow = NULL;
 	neCell = NULL;
 	nwCell = NULL;
+	styleId = _styleId;
+	styleName = _styleName;
 }
 
 CT_TableStyle::CT_TableStyle(CT_TableStyle &b) {

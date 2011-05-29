@@ -4,9 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_TableRow::CT_TableRow() {
+CT_TableRow::CT_TableRow(ST_Coordinate &_h) {
 	extLst = NULL;
 	tc = NULL;
+	h = _h;
 }
 
 CT_TableRow::CT_TableRow(CT_TableRow &b) {
