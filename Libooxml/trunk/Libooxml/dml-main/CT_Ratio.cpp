@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_Ratio::CT_Ratio() {
+CT_Ratio::CT_Ratio(Long &_n, Long &_d) {
+	n = _n;
+	d = _d;
 }
 
 CT_Ratio::CT_Ratio(CT_Ratio &b) {

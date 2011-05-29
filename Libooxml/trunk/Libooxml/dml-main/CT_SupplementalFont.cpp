@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_SupplementalFont::CT_SupplementalFont() {
+CT_SupplementalFont::CT_SupplementalFont(std::wstring &_script, ST_TextTypeface &_typeface) {
+	script = _script;
+	typeface = _typeface;
 }
 
 CT_SupplementalFont::CT_SupplementalFont(CT_SupplementalFont &b) {

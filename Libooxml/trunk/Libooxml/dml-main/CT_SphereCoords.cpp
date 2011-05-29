@@ -4,7 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_SphereCoords::CT_SphereCoords() {
+CT_SphereCoords::CT_SphereCoords(ST_PositiveFixedAngle &_lat, ST_PositiveFixedAngle &_lon, ST_PositiveFixedAngle &_rev) {
+	lat = _lat;
+	lon = _lon;
+	rev = _rev;
 }
 
 CT_SphereCoords::CT_SphereCoords(CT_SphereCoords &b) {

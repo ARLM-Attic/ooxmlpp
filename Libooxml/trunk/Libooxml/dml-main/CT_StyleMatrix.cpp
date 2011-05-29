@@ -4,11 +4,12 @@
 
 using namespace drawingml::main;
 
-CT_StyleMatrix::CT_StyleMatrix() {
-	bgFillStyleLst = NULL;
-	effectStyleLst = NULL;
-	fillStyleList = NULL;
-	lnStyleLst = NULL;
+CT_StyleMatrix::CT_StyleMatrix(std::shared_ptr<CT_FillStyleList> &_fillStyleList,std::shared_ptr<CT_LineStyleList> &_lnStyleLst,std::shared_ptr<CT_EffectStyleList> &_effectStyleLst,std::shared_ptr<CT_BackgroundFillStyleList> &_bgFillStyleLst,std::wstring &_name) {
+	bgFillStyleLst = _bgFillStyleLst;
+	effectStyleLst = _effectStyleLst;
+	fillStyleList = _fillStyleList;
+	lnStyleLst = _lnStyleLst;
+	name = _name;
 }
 
 CT_StyleMatrix::CT_StyleMatrix(CT_StyleMatrix &b) {

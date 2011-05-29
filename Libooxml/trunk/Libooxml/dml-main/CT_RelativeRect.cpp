@@ -5,16 +5,24 @@
 using namespace drawingml::main;
 
 CT_RelativeRect::CT_RelativeRect() {
+	l = L"0%";
+	t = L"0%";
+	r = L"0%";
+	b = L"0%";
 }
 
 CT_RelativeRect::CT_RelativeRect(CT_RelativeRect &b) {
 	l = b.l;
 	t = b.t;
 	r = b.r;
-	b = b.b;
+	this->b = b.b;
 }
 
 CT_RelativeRect::CT_RelativeRect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
+	l = L"0%";
+	t = L"0%";
+	r = L"0%";
+	b = L"0%";
 	if (attributes->getNamedItem(L"l")) {
 		l = attributes->getNamedItem(L"l")->getNodeValue();
 	}

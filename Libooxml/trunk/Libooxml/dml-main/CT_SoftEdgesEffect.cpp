@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_SoftEdgesEffect::CT_SoftEdgesEffect() {
+CT_SoftEdgesEffect::CT_SoftEdgesEffect(ST_PositiveCoordinate &_rad) {
+	rad = _rad;
 }
 
 CT_SoftEdgesEffect::CT_SoftEdgesEffect(CT_SoftEdgesEffect &b) {

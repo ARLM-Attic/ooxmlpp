@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_SystemColor::CT_SystemColor() {
-	colorTransform = NULL;
+CT_SystemColor::CT_SystemColor(ST_SystemColorVal &_val) {
+	colorTransform.clear();
+	val = _val;
 }
 
 CT_SystemColor::CT_SystemColor(CT_SystemColor &b) {
@@ -15,7 +16,7 @@ CT_SystemColor::CT_SystemColor(CT_SystemColor &b) {
 }
 
 CT_SystemColor::CT_SystemColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	colorTransform = NULL;
+	colorTransform.clear();
 	if (attributes->getNamedItem(L"val")) {
 		val = attributes->getNamedItem(L"val")->getNodeValue();
 	}
@@ -24,7 +25,9 @@ CT_SystemColor::CT_SystemColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::
 	}
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"colorTransform") == 0) {
-			colorTransform.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<EG_ColorTransform> temp;
+			temp.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			colorTransform.push_back(temp);
 		}
 	}
 }

@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_StyleMatrixReference::CT_StyleMatrixReference() {
+CT_StyleMatrixReference::CT_StyleMatrixReference(ST_StyleMatrixColumnIndex &_idx) {
 	colorChoice = NULL;
+	idx = _idx;
 }
 
 CT_StyleMatrixReference::CT_StyleMatrixReference(CT_StyleMatrixReference &b) {

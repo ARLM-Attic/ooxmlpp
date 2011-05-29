@@ -4,11 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_ShapeStyle::CT_ShapeStyle() {
-	fontRef = NULL;
-	lnRef = NULL;
-	fillRef = NULL;
-	effectRef = NULL;
+CT_ShapeStyle::CT_ShapeStyle(std::shared_ptr<CT_StyleMatrixReference> &_lnRef,std::shared_ptr<CT_StyleMatrixReference> &_fillRef,	std::shared_ptr<CT_StyleMatrixReference> &_effectRef,	std::shared_ptr<CT_FontReference> &_fontRef) {
+	fontRef = _fontRef;
+	lnRef = _lnRef;
+	fillRef = _fillRef;
+	effectRef = _effectRef;
 }
 
 CT_ShapeStyle::CT_ShapeStyle(CT_ShapeStyle &b) {

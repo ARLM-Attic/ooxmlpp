@@ -5,6 +5,20 @@
 using namespace drawingml::main;
 
 CT_ReflectionEffect::CT_ReflectionEffect() {
+	blurRad = 0;
+	stA = L"100%";
+	stPos = L"0%";
+	endA = L"0%";
+	endPos = L"100%";
+	dist = 0;
+	dir = 0;
+	fadeDir = 5400000;
+	sx = L"100%";
+	sy = L"100%";
+	kx = 0;
+	ky = 0;
+	algn = ST_RectAlignment::b;
+	rotWithShape = true;
 }
 
 CT_ReflectionEffect::CT_ReflectionEffect(CT_ReflectionEffect &b) {
@@ -25,6 +39,20 @@ CT_ReflectionEffect::CT_ReflectionEffect(CT_ReflectionEffect &b) {
 }
 
 CT_ReflectionEffect::CT_ReflectionEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
+	blurRad = 0;
+	stA = L"100%";
+	stPos = L"0%";
+	endA = L"0%";
+	endPos = L"100%";
+	dist = 0;
+	dir = 0;
+	fadeDir = 5400000;
+	sx = L"100%";
+	sy = L"100%";
+	kx = 0;
+	ky = 0;
+	algn = ST_RectAlignment::b;
+	rotWithShape = true;
 	if (attributes->getNamedItem(L"rotWithShape")) {
 		rotWithShape = attributes->getNamedItem(L"rotWithShape")->getNodeValue();
 	}

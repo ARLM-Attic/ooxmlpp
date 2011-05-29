@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_Scale2D::CT_Scale2D() {
-	cx = NULL;
-	cy = NULL;
+CT_Scale2D::CT_Scale2D(std::shared_ptr<CT_Ratio> &_cx, std::shared_ptr<CT_Ratio> &_cy) {
+	cx = _cx;
+	cy = _cy;
 }
 
 CT_Scale2D::CT_Scale2D(CT_Scale2D &b) {

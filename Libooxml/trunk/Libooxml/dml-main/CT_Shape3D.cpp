@@ -10,6 +10,10 @@ CT_Shape3D::CT_Shape3D() {
 	extrusionClr = NULL;
 	contourClr = NULL;
 	extLst = NULL;
+	z = 0;
+	extrusionH = 0;
+	contourW = 0;
+	prstMaterial = ST_PresetMaterialType::warmMatte;
 }
 
 CT_Shape3D::CT_Shape3D(CT_Shape3D &b) {
@@ -30,6 +34,10 @@ CT_Shape3D::CT_Shape3D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamed
 	extrusionClr = NULL;
 	contourClr = NULL;
 	extLst = NULL;
+	z = 0;
+	extrusionH = 0;
+	contourW = 0;
+	prstMaterial = ST_PresetMaterialType::warmMatte;
 	if (attributes->getNamedItem(L"z")) {
 		z = attributes->getNamedItem(L"z")->getNodeValue();
 	}

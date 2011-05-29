@@ -545,7 +545,7 @@ namespace drawingml {
 			ST_TextTypeface typeface;
 		public:
 		//end
-			CT_SupplementalFont(std::wstring _script, ST_TextTypeface _typeface);
+			CT_SupplementalFont(std::wstring &_script, ST_TextTypeface &_typeface);
 			CT_SupplementalFont(CT_SupplementalFont &b);
 			CT_SupplementalFont(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_SupplementalFont& operator=(CT_SupplementalFont &b);
@@ -735,7 +735,7 @@ namespace drawingml {
 			std::wstring name;
 		public:
 		//end
-			CT_StyleMatrix(std::shared_ptr<CT_FillStyleList> _fillStyleList,std::shared_ptr<CT_LineStyleList> _lnStyleLst,std::shared_ptr<CT_EffectStyleList> _effectStyleLst,std::shared_ptr<CT_BackgroundFillStyleList> _bgFillStyleLst,std::wstring _name);
+			CT_StyleMatrix(std::shared_ptr<CT_FillStyleList> &_fillStyleList,std::shared_ptr<CT_LineStyleList> &_lnStyleLst,std::shared_ptr<CT_EffectStyleList> &_effectStyleLst,std::shared_ptr<CT_BackgroundFillStyleList> &_bgFillStyleLst,std::wstring &_name);
 			CT_StyleMatrix(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_StyleMatrix(CT_StyleMatrix &b);
 			~CT_StyleMatrix();
@@ -969,7 +969,7 @@ namespace drawingml {
 			Long d;
 		public:
 		//end
-			CT_Ratio(Long _n, Long _d);
+			CT_Ratio(Long &_n, Long &_d);
 			CT_Ratio(CT_Ratio &b);
 			CT_Ratio(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Ratio& operator=(CT_Ratio &b);
@@ -1107,7 +1107,7 @@ namespace drawingml {
 			ST_Percentage b;
 		public:
 		//end
-			CT_ScRgbColor(ST_Percentage _r, ST_Percentage _g, ST_Percentage _b);
+			CT_ScRgbColor(ST_Percentage &_r, ST_Percentage &_g, ST_Percentage &_b);
 			CT_ScRgbColor(CT_ScRgbColor &b);
 			CT_ScRgbColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_ScRgbColor& operator=(CT_ScRgbColor &b);
@@ -1206,7 +1206,7 @@ namespace drawingml {
 			officeDocument::sharedTypes::ST_HexColorRGB lastClr;
 		public:
 		//end
-			CT_SystemColor(ST_SystemColorVal _val);
+			CT_SystemColor(ST_SystemColorVal &_val);
 			CT_SystemColor(CT_SystemColor &b);
 			CT_SystemColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_SystemColor& operator=(CT_SystemColor &b);
@@ -1255,7 +1255,7 @@ namespace drawingml {
 			ST_SchemeColorVal val;
 		public:
 		//end
-			CT_SchemeColor(ST_SchemeColorVal _val);
+			CT_SchemeColor(ST_SchemeColorVal &_val);
 			CT_SchemeColor(CT_SchemeColor &b);
 			CT_SchemeColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_SchemeColor& operator=(CT_SchemeColor &b);
@@ -1512,7 +1512,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_Scale2D(std::shared_ptr<CT_Ratio> _cx, std::shared_ptr<CT_Ratio> _cy);
+			CT_Scale2D(std::shared_ptr<CT_Ratio> &_cx, std::shared_ptr<CT_Ratio> &_cy);
 			CT_Scale2D(CT_Scale2D &b);
 			CT_Scale2D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Scale2D& operator=(CT_Scale2D &b);
@@ -1588,7 +1588,7 @@ namespace drawingml {
 			ST_Coordinate dz;
 		public:
 		//end
-			CT_Vector3D(ST_Coordinate _dx,	ST_Coordinate _dy, ST_Coordinate _dz);
+			CT_Vector3D(ST_Coordinate &_dx,	ST_Coordinate &_dy, ST_Coordinate &_dz);
 			CT_Vector3D(CT_Vector3D &b);
 			CT_Vector3D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Vector3D& operator=(CT_Vector3D &b);
@@ -1606,7 +1606,7 @@ namespace drawingml {
 			ST_PositiveFixedAngle rev;
 		public:
 		//end
-			CT_SphereCoords(ST_PositiveFixedAngle _lat, ST_PositiveFixedAngle _lon, ST_PositiveFixedAngle _rev);
+			CT_SphereCoords(ST_PositiveFixedAngle &_lat, ST_PositiveFixedAngle &_lon, ST_PositiveFixedAngle &_rev);
 			CT_SphereCoords(CT_SphereCoords &b);
 			CT_SphereCoords(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_SphereCoords& operator=(CT_SphereCoords &b);
@@ -2822,7 +2822,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_Scene3D(std::shared_ptr<CT_Camera> _camera,	std::shared_ptr<CT_LightRig> _lightRig);
+			CT_Scene3D(std::shared_ptr<CT_Camera> &_camera,	std::shared_ptr<CT_LightRig> &_lightRig);
 			CT_Scene3D(CT_Scene3D &b);
 			CT_Scene3D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Scene3D& operator=(CT_Scene3D &b);
@@ -3397,7 +3397,7 @@ namespace drawingml {
 			ST_PositiveCoordinate rad;
 		public:
 		//end
-			CT_SoftEdgesEffect(ST_PositiveCoordinate _rad);
+			CT_SoftEdgesEffect(ST_PositiveCoordinate &_rad);
 			CT_SoftEdgesEffect(CT_SoftEdgesEffect &b);
 			CT_SoftEdgesEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_SoftEdgesEffect& operator=(CT_SoftEdgesEffect &b);
@@ -3462,7 +3462,7 @@ namespace drawingml {
 		class CT_SolidColorFillProperties {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 
 		public:
@@ -5298,10 +5298,10 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_Transform2D> xfrm;
-			EG_Geometry geometry;
-			EG_FillProperties fillProperties;
+			std::shared_ptr<EG_Geometry> geometry;
+			std::shared_ptr<EG_FillProperties> fillProperties;
 			std::shared_ptr<CT_LineProperties> ln;
-			EG_EffectProperties effectProperties;
+			std::shared_ptr<EG_EffectProperties> effectProperties;
 			std::shared_ptr<CT_Scene3D> scene3d;
 			std::shared_ptr<CT_Shape3D> sp3d;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
@@ -5340,7 +5340,7 @@ namespace drawingml {
 		class CT_StyleMatrixReference {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			ST_StyleMatrixColumnIndex idx;
 		public:

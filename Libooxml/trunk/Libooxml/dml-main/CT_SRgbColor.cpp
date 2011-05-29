@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_SRgbColor::CT_SRgbColor() {
-	colorTransform = NULL;
+CT_SRgbColor::CT_SRgbColor(officeDocument::sharedTypes::ST_HexColorRGB &_val) {
+	colorTransform.clear();
 }
 
 CT_SRgbColor::CT_SRgbColor(CT_SRgbColor &b) {
@@ -14,13 +14,15 @@ CT_SRgbColor::CT_SRgbColor(CT_SRgbColor &b) {
 }
 
 CT_SRgbColor::CT_SRgbColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	colorTransform = NULL;
+	colorTransform.clear();
 	if (attributes->getNamedItem(L"val")) {
 		val = attributes->getNamedItem(L"val")->getNodeValue();
 	}
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"colorTransform") == 0) {
-			colorTransform.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<EG_ColorTransform> temp;
+			temp.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			colorTransform.push_back(temp);
 		}
 	}
 }

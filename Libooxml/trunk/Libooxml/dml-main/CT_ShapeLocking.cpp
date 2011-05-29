@@ -6,6 +6,17 @@ using namespace drawingml::main;
 
 CT_ShapeLocking::CT_ShapeLocking() {
 	extLst = NULL;
+	noGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
+	noEditPoints = false;
+	noAdjustHandles = false;
+	noChangeArrowheads = false;
+	noChangeShapeType = false;
+	noTextEdit = false;
 }
 
 CT_ShapeLocking::CT_ShapeLocking(CT_ShapeLocking &b) {
@@ -25,6 +36,17 @@ CT_ShapeLocking::CT_ShapeLocking(CT_ShapeLocking &b) {
 
 CT_ShapeLocking::CT_ShapeLocking(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	extLst = NULL;
+	noGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
+	noEditPoints = false;
+	noAdjustHandles = false;
+	noChangeArrowheads = false;
+	noChangeShapeType = false;
+	noTextEdit = false;
 	if (attributes->getNamedItem(L"noGrp")) {
 		noGrp = attributes->getNamedItem(L"noGrp")->getNodeValue();
 	}

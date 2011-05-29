@@ -4,19 +4,22 @@
 
 using namespace drawingml::main;
 
-CT_ScRgbColor::CT_ScRgbColor() {
-	colorTransform = NULL;
+CT_ScRgbColor::CT_ScRgbColor(ST_Percentage &_r, ST_Percentage &_g, ST_Percentage &_b) {
+	colorTransform.clear();
+	r = _r;
+	g = _g;
+	b = _b;
 }
 
 CT_ScRgbColor::CT_ScRgbColor(CT_ScRgbColor &b) {
 	colorTransform = b.colorTransform;
 	r = b.r;
 	g = b.g;
-	b = b.b;
+	this->b = b.b;
 }
 
 CT_ScRgbColor::CT_ScRgbColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	colorTransform = NULL;
+	colorTransform.clear();
 	if (attributes->getNamedItem(L"r")) {
 		r = attributes->getNamedItem(L"r")->getNodeValue();
 	}
@@ -28,7 +31,9 @@ CT_ScRgbColor::CT_ScRgbColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DO
 	}
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"colorTransform") == 0) {
-			colorTransform.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<EG_ColorTransform> temp;
+			temp.reset(new EG_ColorTransform(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			colorTransform.push_back(temp);
 		}
 	}
 }

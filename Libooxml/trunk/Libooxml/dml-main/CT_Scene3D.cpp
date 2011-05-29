@@ -4,10 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_Scene3D::CT_Scene3D() {
+CT_Scene3D::CT_Scene3D(std::shared_ptr<CT_Camera> &_camera,	std::shared_ptr<CT_LightRig> &_lightRig) {
 	backdrop = NULL;
-	camera = NULL;
-	lightRig = NULL;
+	camera = _camera;
+	lightRig = _lightRig;
 	extLst = NULL;
 }
 

@@ -5,6 +5,8 @@
 using namespace drawingml::main;
 
 CT_RelativeOffsetEffect::CT_RelativeOffsetEffect() {
+	tx = L"0%";
+	ty = L"0%";
 }
 
 CT_RelativeOffsetEffect::CT_RelativeOffsetEffect(CT_RelativeOffsetEffect &b) {
@@ -13,6 +15,8 @@ CT_RelativeOffsetEffect::CT_RelativeOffsetEffect(CT_RelativeOffsetEffect &b) {
 }
 
 CT_RelativeOffsetEffect::CT_RelativeOffsetEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
+	tx = L"0%";
+	ty = L"0%";
 	if (attributes->getNamedItem(L"tx")) {
 		tx = attributes->getNamedItem(L"tx")->getNodeValue();
 	}
