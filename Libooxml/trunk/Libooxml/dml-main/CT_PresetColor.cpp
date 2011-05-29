@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_PresetColor::CT_PresetColor() {
-	colorTransform = NULL;
+CT_PresetColor::CT_PresetColor(ST_PresetColorVal &_val) {
+	colorTransform.clear();
+	val = _val;
 }
 
 CT_PresetColor::CT_PresetColor(CT_PresetColor &b) {
@@ -14,7 +15,7 @@ CT_PresetColor::CT_PresetColor(CT_PresetColor &b) {
 }
 
 CT_PresetColor::CT_PresetColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	colorTransform = NULL;
+	colorTransform.clear();
 	if (attributes->getNamedItem(L"val")) {
 		val = attributes->getNamedItem(L"val")->getNodeValue();
 	}

@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_PresetGeometry2D::CT_PresetGeometry2D() {
+CT_PresetGeometry2D::CT_PresetGeometry2D(ST_ShapeType &_prst) {
 	avList = NULL;
+	prst = _prst;
 }
 
 CT_PresetGeometry2D::CT_PresetGeometry2D(CT_PresetGeometry2D &b) {

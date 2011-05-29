@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_PositiveFixedAngle::CT_PositiveFixedAngle() {
+CT_PositiveFixedAngle::CT_PositiveFixedAngle(ST_PositiveFixedAngle &_val) {
+	val = _val;
 }
 
 CT_PositiveFixedAngle::CT_PositiveFixedAngle(CT_PositiveFixedAngle &b) {

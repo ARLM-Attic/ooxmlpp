@@ -4,10 +4,12 @@
 
 using namespace drawingml::main;
 
-CT_NonVisualDrawingProps::CT_NonVisualDrawingProps() {
+CT_NonVisualDrawingProps::CT_NonVisualDrawingProps(ST_DrawingElementId &_id, std::wstring &_name) {
 	hlinkClick = NULL;
 	hlinkHover = NULL;
 	extLst = NULL;
+	id = _id;
+	name = _name;
 }
 
 CT_NonVisualDrawingProps::CT_NonVisualDrawingProps(CT_NonVisualDrawingProps &b) {

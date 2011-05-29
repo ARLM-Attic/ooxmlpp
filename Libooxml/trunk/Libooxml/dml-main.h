@@ -358,7 +358,7 @@ namespace drawingml {
 			std::wstring contentType;
 		public:
 		//end
-			CT_VideoFile(officeDocument::relationships::ST_RelationshipId rLink);
+			CT_VideoFile(officeDocument::relationships::ST_RelationshipId &rLink);
 			CT_VideoFile(CT_VideoFile &b);
 			CT_VideoFile(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			~CT_VideoFile();
@@ -374,7 +374,7 @@ namespace drawingml {
 			officeDocument::relationships::ST_RelationshipId link;
 		public:
 		//end
-			CT_QuickTimeFile(officeDocument::relationships::ST_RelationshipId rLink);
+			CT_QuickTimeFile(officeDocument::relationships::ST_RelationshipId &rLink);
 			CT_QuickTimeFile(CT_QuickTimeFile &b);
 			CT_QuickTimeFile(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			~CT_QuickTimeFile();
@@ -770,7 +770,7 @@ namespace drawingml {
 			std::wstring uri;
 		public:
 		//end
-			CT_OfficeArtExtension(std::wstring _uri);
+			CT_OfficeArtExtension(std::wstring &_uri);
 			CT_OfficeArtExtension(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_OfficeArtExtension(CT_OfficeArtExtension &b);
 			~CT_OfficeArtExtension();
@@ -888,7 +888,7 @@ namespace drawingml {
 			ST_PositiveFixedAngle val;
 		public:
 		//end
-			CT_PositiveFixedAngle(ST_PositiveFixedAngle _val);
+			CT_PositiveFixedAngle(ST_PositiveFixedAngle &_val);
 			CT_PositiveFixedAngle(CT_PositiveFixedAngle &b);
 			CT_PositiveFixedAngle(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_PositiveFixedAngle& operator=(CT_PositiveFixedAngle &b);
@@ -904,7 +904,7 @@ namespace drawingml {
 			ST_Percentage val;
 		public:
 		//end
-			CT_Percentage(ST_Percentage _val);
+			CT_Percentage(ST_Percentage &_val);
 			CT_Percentage(CT_Percentage &b);
 			CT_Percentage(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Percentage& operator=(CT_Percentage &b);
@@ -920,7 +920,7 @@ namespace drawingml {
 			ST_PositivePercentage val;
 		public:
 		//end
-			CT_PositivePercentage(ST_PositivePercentage _val);
+			CT_PositivePercentage(ST_PositivePercentage &_val);
 			CT_PositivePercentage(CT_PositivePercentage &b);
 			CT_PositivePercentage(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_PositivePercentage& operator=(CT_PositivePercentage &b);
@@ -952,7 +952,7 @@ namespace drawingml {
 			ST_PositiveFixedPercentage val;
 		public:
 		//end
-			CT_PositiveFixedPercentage(ST_PositiveFixedPercentage _val);
+			CT_PositiveFixedPercentage(ST_PositiveFixedPercentage &_val);
 			CT_PositiveFixedPercentage(CT_PositiveFixedPercentage &b);
 			CT_PositiveFixedPercentage(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_PositiveFixedPercentage& operator=(CT_PositiveFixedPercentage &b);
@@ -986,7 +986,7 @@ namespace drawingml {
 			ST_Coordinate y;
 		public:
 		//end
-			CT_Point2D(ST_Coordinate _x, ST_Coordinate _y);
+			CT_Point2D(ST_Coordinate &_x, ST_Coordinate &_y);
 			CT_Point2D(CT_Point2D &b);
 			CT_Point2D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Point2D& operator=(CT_Point2D &b);
@@ -1003,7 +1003,7 @@ namespace drawingml {
 			ST_PositiveCoordinate cy;
 		public:
 		//end
-			CT_PositiveSize2D(ST_PositiveCoordinate _cx, ST_PositiveCoordinate _cy);
+			CT_PositiveSize2D(ST_PositiveCoordinate &_cx, ST_PositiveCoordinate &_cy);
 			CT_PositiveSize2D(CT_PositiveSize2D &b);
 			CT_PositiveSize2D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_PositiveSize2D& operator=(CT_PositiveSize2D &b);
@@ -1479,7 +1479,7 @@ namespace drawingml {
 			ST_PresetColorVal val;
 		public:
 		//end
-			CT_PresetColor(ST_PresetColorVal _val);
+			CT_PresetColor(ST_PresetColorVal &_val);
 			CT_PresetColor(CT_PresetColor &b);
 			CT_PresetColor(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_PresetColor& operator=(CT_PresetColor &b);
@@ -1570,7 +1570,7 @@ namespace drawingml {
 			ST_Coordinate z;
 		public:
 		//end
-			CT_Point3D(ST_Coordinate _x, ST_Coordinate _y, ST_Coordinate _z);
+			CT_Point3D(ST_Coordinate &_x, ST_Coordinate &_y, ST_Coordinate &_z);
 			CT_Point3D(CT_Point3D &b);
 			CT_Point3D(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_Point3D& operator=(CT_Point3D &b);
@@ -1898,10 +1898,10 @@ namespace drawingml {
 			std::wstring title;
 		public:
 		//end
-			CT_NonVisualDrawingProps(ST_DrawingElementId _id, std::wstring _name);
+			CT_NonVisualDrawingProps(ST_DrawingElementId &_id, std::wstring &_name);
 			CT_NonVisualDrawingProps(CT_NonVisualDrawingProps &b);
 			CT_NonVisualDrawingProps(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
-			CT_NonVisualDrawingProps operator=(CT_NonVisualDrawingProps &b);
+			CT_NonVisualDrawingProps& operator=(CT_NonVisualDrawingProps &b);
 			~CT_NonVisualDrawingProps();
 			std::wstring Xml();
 		};
@@ -3266,7 +3266,7 @@ namespace drawingml {
 		class CT_OuterShadowEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			ST_PositiveCoordinate blurRad;
 			ST_PositiveCoordinate dist;
@@ -3279,7 +3279,7 @@ namespace drawingml {
 			Bool rotWithShape;
 		public:
 		//end
-			CT_OuterShadowEffect(EG_ColorChoice _colorChoice);
+			CT_OuterShadowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice);
 			CT_OuterShadowEffect(CT_OuterShadowEffect &b);
 			CT_OuterShadowEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_OuterShadowEffect& operator=(CT_OuterShadowEffect &b);
@@ -3328,14 +3328,14 @@ namespace drawingml {
 		class CT_PresetShadowEffect {
 		public:
 		//elements
-			EG_ColorChoice colorChoice;
+			std::shared_ptr<EG_ColorChoice> colorChoice;
 		//attributes
 			ST_PresetShadowVal prst;
 			ST_PositiveCoordinate dist;
 			ST_PositiveFixedAngle dir;
 		public:
 		//end
-			CT_PresetShadowEffect(EG_ColorChoice _colorChoice,ST_PresetShadowVal _prst);
+			CT_PresetShadowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice,ST_PresetShadowVal &_prst);
 			CT_PresetShadowEffect(CT_PresetShadowEffect &b);
 			CT_PresetShadowEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_PresetShadowEffect& operator=(CT_PresetShadowEffect &b);

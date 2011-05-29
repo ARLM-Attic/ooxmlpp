@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_PresetTextShape::CT_PresetTextShape() {
+CT_PresetTextShape::CT_PresetTextShape(ST_ShapeType &_prst) {
 	avList = NULL;
+	prst = _prst;
 }
 
 CT_PresetTextShape::CT_PresetTextShape(CT_PresetTextShape &b) {

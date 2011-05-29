@@ -5,7 +5,7 @@
 using namespace drawingml::main;
 
 CT_OfficeArtExtensionList::CT_OfficeArtExtensionList() {
-	ext = NULL;
+	ext.clear();
 }
 
 CT_OfficeArtExtensionList::CT_OfficeArtExtensionList(CT_OfficeArtExtensionList &b) {
@@ -13,10 +13,12 @@ CT_OfficeArtExtensionList::CT_OfficeArtExtensionList(CT_OfficeArtExtensionList &
 }
 
 CT_OfficeArtExtensionList::CT_OfficeArtExtensionList(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	ext = NULL;
+	ext.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"ext") == 0) {
-			ext.reset(new CT_OfficeArtExtension(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_OfficeArtExtension> temp;
+			temp.reset(new CT_OfficeArtExtension(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			ext.push_back(temp);
 		}
 	}
 }

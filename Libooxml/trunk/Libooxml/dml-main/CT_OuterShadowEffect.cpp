@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_OuterShadowEffect::CT_OuterShadowEffect() {
-	colorChoice = NULL;
+CT_OuterShadowEffect::CT_OuterShadowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice) {
+	colorChoice = _colorChoice;
 }
 
 CT_OuterShadowEffect::CT_OuterShadowEffect(CT_OuterShadowEffect &b) {

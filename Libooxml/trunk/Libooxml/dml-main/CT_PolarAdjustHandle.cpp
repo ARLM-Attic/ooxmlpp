@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_PolarAdjustHandle::CT_PolarAdjustHandle() {
-	pos = NULL;
+CT_PolarAdjustHandle::CT_PolarAdjustHandle(std::shared_ptr<CT_AdjPoint2D> &_pos) {
+	pos = _pos;
 }
 
 CT_PolarAdjustHandle::CT_PolarAdjustHandle(CT_PolarAdjustHandle &b) {

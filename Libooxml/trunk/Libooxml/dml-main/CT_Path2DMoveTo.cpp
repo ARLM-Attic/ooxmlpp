@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_Path2DMoveTo::CT_Path2DMoveTo() {
-	pt = NULL;
+CT_Path2DMoveTo::CT_Path2DMoveTo(std::shared_ptr<CT_AdjPoint2D> &_pt) {
+	pt = _pt;
 }
 
 CT_Path2DMoveTo::CT_Path2DMoveTo(CT_Path2DMoveTo &b) {

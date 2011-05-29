@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_OfficeStyleSheet::CT_OfficeStyleSheet() {
-	themeElements = NULL;
+CT_OfficeStyleSheet::CT_OfficeStyleSheet(std::shared_ptr<CT_BaseStyles> &_themeElements) {
+	themeElements = _themeElements;
 	extraClrSchemeLst = NULL;
 	custClrLst = NULL;
 	objectDefaults = NULL;

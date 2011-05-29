@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_PositivePercentage::CT_PositivePercentage() {
+CT_PositivePercentage::CT_PositivePercentage(ST_PositivePercentage &_val) {
+	val = _val;
 }
 
 CT_PositivePercentage::CT_PositivePercentage(CT_PositivePercentage &b) {

@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_Point2D::CT_Point2D() {
+CT_Point2D::CT_Point2D(ST_Coordinate &_x, ST_Coordinate &_y) {
+	x = _x;
+	y = _y;
 }
 
 CT_Point2D::CT_Point2D(CT_Point2D &b) {

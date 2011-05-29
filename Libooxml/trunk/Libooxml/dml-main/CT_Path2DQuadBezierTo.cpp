@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_Path2DQuadBezierTo::CT_Path2DQuadBezierTo() {
-	pt[0] = NULL;
-	pt[1] = NULL;
+CT_Path2DQuadBezierTo::CT_Path2DQuadBezierTo(std::shared_ptr<CT_AdjPoint2D> &pt1,std::shared_ptr<CT_AdjPoint2D> &pt2) {
+	pt[0] = pt1;
+	pt[1] = pt2;
 }
 
 CT_Path2DQuadBezierTo::CT_Path2DQuadBezierTo(CT_Path2DQuadBezierTo &b) {

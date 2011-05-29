@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_Path2DLineTo::CT_Path2DLineTo() {
-	pt = NULL;
+CT_Path2DLineTo::CT_Path2DLineTo(std::shared_ptr<CT_AdjPoint2D> &_pt) {
+	pt = _pt;
 }
 
 CT_Path2DLineTo::CT_Path2DLineTo(CT_Path2DLineTo &b) {

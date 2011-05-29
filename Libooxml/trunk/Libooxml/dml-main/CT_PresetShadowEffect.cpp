@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_PresetShadowEffect::CT_PresetShadowEffect() {
-	colorChoice = NULL;
+CT_PresetShadowEffect::CT_PresetShadowEffect(std::shared_ptr<EG_ColorChoice> &_colorChoice,ST_PresetShadowVal &_prst) {
+	colorChoice = _colorChoice;
+	prst = _prst;
 }
 
 CT_PresetShadowEffect::CT_PresetShadowEffect(CT_PresetShadowEffect &b) {

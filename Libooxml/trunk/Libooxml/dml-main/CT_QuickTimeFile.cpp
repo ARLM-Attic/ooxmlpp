@@ -4,8 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_QuickTimeFile::CT_QuickTimeFile() {
+CT_QuickTimeFile::CT_QuickTimeFile(officeDocument::relationships::ST_RelationshipId &rLink) {
 	extLst = NULL;
+	link = rLink;
 }
 
 CT_QuickTimeFile::CT_QuickTimeFile(CT_QuickTimeFile &b) {

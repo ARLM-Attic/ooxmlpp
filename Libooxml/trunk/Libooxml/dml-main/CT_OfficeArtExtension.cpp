@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_OfficeArtExtension::CT_OfficeArtExtension() {
+CT_OfficeArtExtension::CT_OfficeArtExtension(std::wstring &_uri) {
+	uri = _uri;
 }
 
 CT_OfficeArtExtension::CT_OfficeArtExtension(CT_OfficeArtExtension &b) {

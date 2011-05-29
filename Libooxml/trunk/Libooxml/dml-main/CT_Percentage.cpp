@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_Percentage::CT_Percentage() {
+CT_Percentage::CT_Percentage(ST_Percentage &_val) {
+	val = _val;
 }
 
 CT_Percentage::CT_Percentage(CT_Percentage &b) {

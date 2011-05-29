@@ -4,10 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_Path2DCubicBezierTo::CT_Path2DCubicBezierTo() {
-	pt[0] = NULL;
-	pt[1] = NULL;
-	pt[2] = NULL;
+CT_Path2DCubicBezierTo::CT_Path2DCubicBezierTo(std::shared_ptr<CT_AdjPoint2D> &pt1,std::shared_ptr<CT_AdjPoint2D> &pt2,std::shared_ptr<CT_AdjPoint2D> &pt3) {
+	pt[0] = pt1;
+	pt[1] = pt2;
+	pt[2] = pt3;
 }
 
 CT_Path2DCubicBezierTo::CT_Path2DCubicBezierTo(CT_Path2DCubicBezierTo &b) {

@@ -4,7 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_PositiveSize2D::CT_PositiveSize2D() {
+CT_PositiveSize2D::CT_PositiveSize2D(ST_PositiveCoordinate &_cx, ST_PositiveCoordinate &_cy) {
+	cx = _cx;
+	cy = _cy;
 }
 
 CT_PositiveSize2D::CT_PositiveSize2D(CT_PositiveSize2D &b) {

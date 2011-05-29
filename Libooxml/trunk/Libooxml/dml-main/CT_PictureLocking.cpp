@@ -6,6 +6,17 @@ using namespace drawingml::main;
 
 CT_PictureLocking::CT_PictureLocking() {
 	extLst = NULL;
+	noGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
+	noEditPoints = false;
+	noAdjustHandles = false;
+	noChangeArrowheads = false;
+	noChangeShapeType = false;
+	noCrop = false;
 }
 
 CT_PictureLocking::CT_PictureLocking(CT_PictureLocking &b) {
@@ -25,6 +36,17 @@ CT_PictureLocking::CT_PictureLocking(CT_PictureLocking &b) {
 
 CT_PictureLocking::CT_PictureLocking(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	extLst = NULL;
+	noGrp = false;
+	noSelect = false;
+	noRot = false;
+	noChangeAspect = false;
+	noMove = false;
+	noResize = false;
+	noEditPoints = false;
+	noAdjustHandles = false;
+	noChangeArrowheads = false;
+	noChangeShapeType = false;
+	noCrop = false;
 	if (attributes->getNamedItem(L"noGrp")) {
 		noGrp = attributes->getNamedItem(L"noGrp")->getNodeValue();
 	}

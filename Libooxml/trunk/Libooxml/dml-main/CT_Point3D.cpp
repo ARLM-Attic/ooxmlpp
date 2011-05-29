@@ -4,7 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_Point3D::CT_Point3D() {
+CT_Point3D::CT_Point3D(ST_Coordinate &_x, ST_Coordinate &_y, ST_Coordinate &_z) {
+	x = _x;
+	y = _y;
+	z = _z;
 }
 
 CT_Point3D::CT_Point3D(CT_Point3D &b) {

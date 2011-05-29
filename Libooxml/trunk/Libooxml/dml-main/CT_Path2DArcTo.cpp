@@ -4,7 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_Path2DArcTo::CT_Path2DArcTo() {
+CT_Path2DArcTo::CT_Path2DArcTo(ST_AdjCoordinate &_wR, ST_AdjCoordinate &_hR,ST_AdjAngle &_stAng,ST_AdjAngle &_swAng) {
+	wR = _wR;
+	hR = _hR;
+	stAng = _stAng;
+	swAng = _swAng;
 }
 
 CT_Path2DArcTo::CT_Path2DArcTo(CT_Path2DArcTo &b) {
