@@ -4,10 +4,12 @@
 
 using namespace drawingml::main;
 
-CT_TextField::CT_TextField() {
+CT_TextField::CT_TextField(officeDocument::sharedTypes::ST_Guid &_id,	std::wstring &_type) {
 	rPr = NULL;
 	pPr = NULL;
-	t = NULL;
+	t = L"";
+	id = _id;
+	type = _type;
 }
 
 CT_TextField::CT_TextField(CT_TextField &b) {
@@ -21,7 +23,7 @@ CT_TextField::CT_TextField(CT_TextField &b) {
 CT_TextField::CT_TextField(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	rPr = NULL;
 	pPr = NULL;
-	t = NULL;
+	t = L"";
 	if (attributes->getNamedItem(L"id")) {
 		id = attributes->getNamedItem(L"id")->getNodeValue();
 	}
@@ -36,7 +38,7 @@ CT_TextField::CT_TextField(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMN
 			pPr.reset(new CT_TextParagraphProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
 		}
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"t") == 0) {
-			t.reset(new std::wstring(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			t = nodelist->item(i)->getNodeValue();
 		}
 	}
 }

@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextBulletSizePercent::CT_TextBulletSizePercent() {
+CT_TextBulletSizePercent::CT_TextBulletSizePercent(ST_TextBulletSizePercent &_val) {
+	val = _val;
 }
 
 CT_TextBulletSizePercent::CT_TextBulletSizePercent(CT_TextBulletSizePercent &b) {

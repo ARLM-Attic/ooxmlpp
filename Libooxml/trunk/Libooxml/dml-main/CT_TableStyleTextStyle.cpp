@@ -24,8 +24,8 @@ CT_TableStyleTextStyle::CT_TableStyleTextStyle(xercesc_3_1::DOMNodeList *nodelis
 	extLst = NULL;
 	colorChoice = NULL;
 	themeableFontStyle = NULL;
-	this->b = b.b;
-	i = b.i;
+	b = ST_OnOffStyleType::def;
+	i = ST_OnOffStyleType::def;
 	if (attributes->getNamedItem(L"b")) {
 		b = attributes->getNamedItem(L"b")->getNodeValue();
 	}

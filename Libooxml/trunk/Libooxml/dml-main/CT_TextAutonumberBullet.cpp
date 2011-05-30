@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextAutonumberBullet::CT_TextAutonumberBullet() {
+CT_TextAutonumberBullet::CT_TextAutonumberBullet(ST_TextAutonumberScheme &_type) {
+	type = _type;
 }
 
 CT_TextAutonumberBullet::CT_TextAutonumberBullet(CT_TextAutonumberBullet &b) {

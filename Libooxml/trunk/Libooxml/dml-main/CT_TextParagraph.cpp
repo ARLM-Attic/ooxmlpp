@@ -7,7 +7,7 @@ using namespace drawingml::main;
 CT_TextParagraph::CT_TextParagraph() {
 	endParaRPr = NULL;
 	pPr = NULL;
-	textRun = NULL;
+	textRun.clear();
 }
 
 CT_TextParagraph::CT_TextParagraph(CT_TextParagraph &b) {
@@ -19,7 +19,7 @@ CT_TextParagraph::CT_TextParagraph(CT_TextParagraph &b) {
 CT_TextParagraph::CT_TextParagraph(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	endParaRPr = NULL;
 	pPr = NULL;
-	textRun = NULL;
+	textRun.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"endParaRPr") == 0) {
 			endParaRPr.reset(new CT_TextCharacterProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));

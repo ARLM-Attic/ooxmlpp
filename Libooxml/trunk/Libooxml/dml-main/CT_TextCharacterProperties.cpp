@@ -19,6 +19,10 @@ CT_TextCharacterProperties::CT_TextCharacterProperties() {
 	fillProperties = NULL;
 	textUnderlineFill = NULL;
 	textUnderlineLine = NULL;
+	dirty = true;
+	err = false;
+	smtClean = true;
+	smtId = 0;
 }
 
 CT_TextCharacterProperties::CT_TextCharacterProperties(CT_TextCharacterProperties &b) {
@@ -72,6 +76,10 @@ CT_TextCharacterProperties::CT_TextCharacterProperties(xercesc_3_1::DOMNodeList 
 	fillProperties = NULL;
 	textUnderlineFill = NULL;
 	textUnderlineLine = NULL;
+	dirty = true;
+	err = false;
+	smtClean = true;
+	smtId = 0;
 	if (attributes->getNamedItem(L"kumimoji")) {
 		kumimoji = attributes->getNamedItem(L"kumimoji")->getNodeValue();
 	}

@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextCharBullet::CT_TextCharBullet() {
+CT_TextCharBullet::CT_TextCharBullet(std::wstring &__char) {
+	_char = __char;
 }
 
 CT_TextCharBullet::CT_TextCharBullet(CT_TextCharBullet &b) {
@@ -12,8 +13,8 @@ CT_TextCharBullet::CT_TextCharBullet(CT_TextCharBullet &b) {
 }
 
 CT_TextCharBullet::CT_TextCharBullet(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
-	if (attributes->getNamedItem(L"_char")) {
-		_char = attributes->getNamedItem(L"_char")->getNodeValue();
+	if (attributes->getNamedItem(L"char")) {
+		_char = attributes->getNamedItem(L"char")->getNodeValue();
 	}
 	for (int i = 0; i < nodelist->getLength();++i) {
 	}

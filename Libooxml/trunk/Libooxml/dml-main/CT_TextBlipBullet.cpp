@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextBlipBullet::CT_TextBlipBullet() {
-	blip = NULL;
+CT_TextBlipBullet::CT_TextBlipBullet(std::shared_ptr<CT_Blip> &_blip) {
+	blip = _blip;
 }
 
 CT_TextBlipBullet::CT_TextBlipBullet(CT_TextBlipBullet &b) {

@@ -4,10 +4,11 @@
 
 using namespace drawingml::main;
 
-CT_TextBody::CT_TextBody() {
-	bodyPr = NULL;
+CT_TextBody::CT_TextBody(std::shared_ptr<CT_TextBodyProperties> &_bodyPr,std::shared_ptr<CT_TextParagraph> &_p) {
+	bodyPr = _bodyPr;
 	lstStyle = NULL;
-	p = NULL;
+	p.clear();
+	p.push_back(_p);
 }
 
 CT_TextBody::CT_TextBody(CT_TextBody &b) {
@@ -19,7 +20,7 @@ CT_TextBody::CT_TextBody(CT_TextBody &b) {
 CT_TextBody::CT_TextBody(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
 	bodyPr = NULL;
 	lstStyle = NULL;
-	p = NULL;
+	p.clear();
 	for (int i = 0; i < nodelist->getLength();++i) {
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"bodyPr") == 0) {
 			bodyPr.reset(new CT_TextBodyProperties(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
@@ -28,7 +29,9 @@ CT_TextBody::CT_TextBody(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNam
 			lstStyle.reset(new CT_TextListStyle(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
 		}
 		if (wcscmp(nodelist->item(i)->getLocalName(),L"p") == 0) {
-			p.reset(new CT_TextParagraph(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			std::shared_ptr<CT_TextParagraph> temp;
+			temp.reset(new CT_TextParagraph(nodelist->item(i)->getChildNodes(),nodelist->item(i)->getAttributes()));
+			p.push_back(temp);
 		}
 	}
 }

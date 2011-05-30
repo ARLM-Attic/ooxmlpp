@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextFont::CT_TextFont() {
+CT_TextFont::CT_TextFont(ST_TextTypeface &_typeface) {
+	typeface = _typeface;
 }
 
 CT_TextFont::CT_TextFont(CT_TextFont &b) {

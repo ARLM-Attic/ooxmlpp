@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextSpacingPoint::CT_TextSpacingPoint() {
+CT_TextSpacingPoint::CT_TextSpacingPoint(ST_TextSpacingPoint &_val) {
+	val = _val;
 }
 
 CT_TextSpacingPoint::CT_TextSpacingPoint(CT_TextSpacingPoint &b) {

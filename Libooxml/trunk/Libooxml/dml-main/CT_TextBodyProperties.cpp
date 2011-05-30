@@ -10,6 +10,7 @@ CT_TextBodyProperties::CT_TextBodyProperties() {
 	scene3D = NULL;
 	text3D = NULL;
 	textAutoFit = NULL;
+	upright = false;
 }
 
 CT_TextBodyProperties::CT_TextBodyProperties(CT_TextBodyProperties &b) {
@@ -45,6 +46,7 @@ CT_TextBodyProperties::CT_TextBodyProperties(xercesc_3_1::DOMNodeList *nodelist,
 	scene3D = NULL;
 	text3D = NULL;
 	textAutoFit = NULL;
+	upright = false;
 	if (attributes->getNamedItem(L"spcFirstLastPara")) {
 		spcFirstLastPara = attributes->getNamedItem(L"spcFirstLastPara")->getNodeValue();
 	}

@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextSpacingPercent::CT_TextSpacingPercent() {
+CT_TextSpacingPercent::CT_TextSpacingPercent(ST_TextSpacingPercentOrPercentString &_val) {
+	val = _val;
 }
 
 CT_TextSpacingPercent::CT_TextSpacingPercent(CT_TextSpacingPercent &b) {

@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextBulletSizePoint::CT_TextBulletSizePoint() {
+CT_TextBulletSizePoint::CT_TextBulletSizePoint(ST_TextFontSize &_val) {
+	val = _val;
 }
 
 CT_TextBulletSizePoint::CT_TextBulletSizePoint(CT_TextBulletSizePoint &b) {

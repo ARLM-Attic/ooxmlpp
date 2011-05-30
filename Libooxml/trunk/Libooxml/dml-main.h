@@ -6266,9 +6266,9 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_PresetTextShape> prstTxWarp;
-			EG_TextAutofit textAutoFit;
+			std::shared_ptr<EG_TextAutofit> textAutoFit;
 			std::shared_ptr<CT_Scene3D> scene3D;
-			EG_Text3D text3D;
+			std::shared_ptr<EG_Text3D> text3D;
 			std::shared_ptr<CT_OfficeArtExtensionList> extLst;
 		//attributes
 			ST_Angle rot;
@@ -6310,7 +6310,7 @@ namespace drawingml {
 
 		public:
 		//end
-			CT_TextBody(std::shared_ptr<CT_TextBodyProperties> &_bodyPr,std::shared_ptr<CT_TextParagraph> &_para);
+			CT_TextBody(std::shared_ptr<CT_TextBodyProperties> &_bodyPr,std::shared_ptr<CT_TextParagraph> &_p);
 			CT_TextBody(CT_TextBody &b);
 			CT_TextBody(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_TextBody& operator=(CT_TextBody &b);
@@ -6406,8 +6406,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_TextBulletColorFollowText();
+			CT_TextBulletColorFollowText(CT_TextBulletColorFollowText &b);
 			CT_TextBulletColorFollowText(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_TextBulletColorFollowText& operator=(CT_TextBulletColorFollowText &b);
 			~CT_TextBulletColorFollowText();
+			std::wstring Xml();
 		};
 
 		class ST_TextBulletSizePercent {
@@ -6475,7 +6479,7 @@ namespace drawingml {
 			ST_TextFontSize val;
 		public:
 		//end
-			CT_TextBulletSizePoint();
+			CT_TextBulletSizePoint(ST_TextFontSize &_val);
 			CT_TextBulletSizePoint(CT_TextBulletSizePoint &b);
 			CT_TextBulletSizePoint(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_TextBulletSizePoint& operator=(CT_TextBulletSizePoint &b);
@@ -6820,13 +6824,13 @@ namespace drawingml {
 		public:
 		//elements
 			std::shared_ptr<CT_LineProperties> ln;
-			EG_FillProperties fillProperties;
-			EG_EffectProperties effectProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
+			std::shared_ptr<EG_EffectProperties> effectProperties;
 
 			std::shared_ptr<CT_Color> highlight;
 			
-			EG_TextUnderlineLine textUnderlineLine;
-			EG_TextUnderlineFill textUnderlineFill;
+			std::shared_ptr<EG_TextUnderlineLine> textUnderlineLine;
+			std::shared_ptr<EG_TextUnderlineFill> textUnderlineFill;
 			
 			std::shared_ptr<CT_TextFont> latin;
 			std::shared_ptr<CT_TextFont> ea;
@@ -7101,10 +7105,10 @@ namespace drawingml {
 			std::shared_ptr<CT_TextSpacing> spcBef;
 			std::shared_ptr<CT_TextSpacing> spcAft;
 			
-			EG_TextBulletColor textBulletColor;
-			EG_TextBulletSize textBulletSize;
-			EG_TextBulletTypeface textBulletTypeface;
-			EG_TextBullet textBullet;
+			std::shared_ptr<EG_TextBulletColor> textBulletColor;
+			std::shared_ptr<EG_TextBulletSize> textBulletSize;
+			std::shared_ptr<EG_TextBulletTypeface> textBulletTypeface;
+			std::shared_ptr<EG_TextBullet> textBullet;
 
 			std::shared_ptr<CT_TextTabStopList> tabLst;
 			std::shared_ptr<CT_TextCharacterProperties> defRPr;

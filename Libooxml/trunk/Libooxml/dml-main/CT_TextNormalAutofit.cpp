@@ -5,6 +5,8 @@
 using namespace drawingml::main;
 
 CT_TextNormalAutofit::CT_TextNormalAutofit() {
+	fontScale = L"100%";
+	lnSpcReduction = L"0%";
 }
 
 CT_TextNormalAutofit::CT_TextNormalAutofit(CT_TextNormalAutofit &b) {
@@ -13,6 +15,8 @@ CT_TextNormalAutofit::CT_TextNormalAutofit(CT_TextNormalAutofit &b) {
 }
 
 CT_TextNormalAutofit::CT_TextNormalAutofit(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
+	fontScale = L"100%";
+	lnSpcReduction = L"0%";
 	if (attributes->getNamedItem(L"fontScale")) {
 		fontScale = attributes->getNamedItem(L"fontScale")->getNodeValue();
 	}
