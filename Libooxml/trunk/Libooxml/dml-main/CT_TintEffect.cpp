@@ -5,6 +5,8 @@
 using namespace drawingml::main;
 
 CT_TintEffect::CT_TintEffect() {
+	hue = 0;
+	amt = L"0%";
 }
 
 CT_TintEffect::CT_TintEffect(CT_TintEffect &b) {
@@ -13,6 +15,8 @@ CT_TintEffect::CT_TintEffect(CT_TintEffect &b) {
 }
 
 CT_TintEffect::CT_TintEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
+	hue = 0;
+	amt = L"0%";
 	if (attributes->getNamedItem(L"amt")) {
 		amt = attributes->getNamedItem(L"amt")->getNodeValue();
 	}

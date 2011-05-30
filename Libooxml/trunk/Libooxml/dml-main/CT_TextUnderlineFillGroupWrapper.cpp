@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_TextUnderlineFillGroupWrapper::CT_TextUnderlineFillGroupWrapper() {
-	fillProperties = NULL;
+CT_TextUnderlineFillGroupWrapper::CT_TextUnderlineFillGroupWrapper(std::shared_ptr<EG_FillProperties> &_fillProperties) {
+	fillProperties = _fillProperties;
 }
 
 CT_TextUnderlineFillGroupWrapper::CT_TextUnderlineFillGroupWrapper(CT_TextUnderlineFillGroupWrapper &b) {

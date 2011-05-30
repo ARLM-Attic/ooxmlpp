@@ -4,9 +4,9 @@
 
 using namespace drawingml::main;
 
-CT_ThemeableLineStyle::CT_ThemeableLineStyle() {
-	ln = NULL;
-	lnRef = NULL;
+CT_ThemeableLineStyle::CT_ThemeableLineStyle(std::shared_ptr<CT_LineProperties> &_ln,	std::shared_ptr<CT_StyleMatrixReference> &_lnRef) {
+	ln = _ln;
+	lnRef = _lnRef;
 }
 
 CT_ThemeableLineStyle::CT_ThemeableLineStyle(CT_ThemeableLineStyle &b) {

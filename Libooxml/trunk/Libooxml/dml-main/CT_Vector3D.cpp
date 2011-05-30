@@ -4,7 +4,10 @@
 
 using namespace drawingml::main;
 
-CT_Vector3D::CT_Vector3D() {
+CT_Vector3D::CT_Vector3D(ST_Coordinate &_dx,	ST_Coordinate &_dy, ST_Coordinate &_dz) {
+	dx = _dx;
+	dy = _dy;
+	dz = _dz;
 }
 
 CT_Vector3D::CT_Vector3D(CT_Vector3D &b) {

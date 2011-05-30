@@ -4,7 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_VideoFile::CT_VideoFile() {
+CT_VideoFile::CT_VideoFile(officeDocument::relationships::ST_RelationshipId &rLink) {
+	link = rLink;
 	extLst = NULL;
 }
 

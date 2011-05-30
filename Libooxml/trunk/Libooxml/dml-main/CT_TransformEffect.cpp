@@ -5,6 +5,12 @@
 using namespace drawingml::main;
 
 CT_TransformEffect::CT_TransformEffect() {
+	sx = L"100%";
+	sy = L"100%";
+	kx = 0;
+	ky = 0;
+	tx = 0;
+	ty = 0;
 }
 
 CT_TransformEffect::CT_TransformEffect(CT_TransformEffect &b) {
@@ -17,6 +23,12 @@ CT_TransformEffect::CT_TransformEffect(CT_TransformEffect &b) {
 }
 
 CT_TransformEffect::CT_TransformEffect(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes) {
+	sx = L"100%";
+	sy = L"100%";
+	kx = 0;
+	ky = 0;
+	tx = 0;
+	ty = 0;
 	if (attributes->getNamedItem(L"tx")) {
 		tx = attributes->getNamedItem(L"tx")->getNodeValue();
 	}

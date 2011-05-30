@@ -4,8 +4,8 @@
 
 using namespace drawingml::main;
 
-CT_XYAdjustHandle::CT_XYAdjustHandle() {
-	pos = NULL;
+CT_XYAdjustHandle::CT_XYAdjustHandle(std::shared_ptr<CT_AdjPoint2D> &_pos) {
+	pos = _pos;
 }
 
 CT_XYAdjustHandle::CT_XYAdjustHandle(CT_XYAdjustHandle &b) {

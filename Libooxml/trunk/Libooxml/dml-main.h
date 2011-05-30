@@ -5868,8 +5868,12 @@ namespace drawingml {
 
 		public:
 		//end
+			CT_ThemeableLineStyle(std::shared_ptr<CT_LineProperties> &_ln,	std::shared_ptr<CT_StyleMatrixReference> &_lnRef);
+			CT_ThemeableLineStyle(CT_ThemeableLineStyle &b);
 			CT_ThemeableLineStyle(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
+			CT_ThemeableLineStyle& operator=(CT_ThemeableLineStyle &b);
 			~CT_ThemeableLineStyle();
+			std::wstring Xml();
 		};
 
 		class EG_ThemeableEffectStyle {
@@ -6737,12 +6741,12 @@ namespace drawingml {
 		class CT_TextUnderlineFillGroupWrapper {
 		public:
 		//elements
-			EG_FillProperties fillProperties;
+			std::shared_ptr<EG_FillProperties> fillProperties;
 		//attributes
 
 		public:
 		//end
-			CT_TextUnderlineFillGroupWrapper(EG_FillProperties &_fillProperties);
+			CT_TextUnderlineFillGroupWrapper(std::shared_ptr<EG_FillProperties> &_fillProperties);
 			CT_TextUnderlineFillGroupWrapper(CT_TextUnderlineFillGroupWrapper &b);
 			CT_TextUnderlineFillGroupWrapper(xercesc_3_1::DOMNodeList *nodelist, xercesc_3_1::DOMNamedNodeMap *attributes);
 			CT_TextUnderlineFillGroupWrapper& operator=(CT_TextUnderlineFillGroupWrapper &b);
