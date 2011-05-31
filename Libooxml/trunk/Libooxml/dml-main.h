@@ -505,6 +505,12 @@ namespace drawingml {
 			std::shared_ptr<CT_PresetColor> _prstColor;
 		public:
 			EG_ColorChoice();
+			EG_ColorChoice(std::shared_ptr<CT_ScRgbColor> &__scrgbColor);
+			EG_ColorChoice(std::shared_ptr<CT_SRgbColor> &__srgbColor);
+			EG_ColorChoice(std::shared_ptr<CT_HslColor> &__hslColor);
+			EG_ColorChoice(std::shared_ptr<CT_SystemColor> &__sysColor);
+			EG_ColorChoice(std::shared_ptr<CT_SchemeColor> &__schemeColor);
+			EG_ColorChoice(std::shared_ptr<CT_PresetColor> &__prstColor);
 			EG_ColorChoice& operator=(std::shared_ptr<CT_ScRgbColor> &__scrgbColor);
 			EG_ColorChoice& operator=(std::shared_ptr<CT_SRgbColor> &__srgbColor);
 			EG_ColorChoice& operator=(std::shared_ptr<CT_HslColor> &__hslColor);
@@ -807,7 +813,7 @@ namespace drawingml {
 			ST_Coordinate(officeDocument::sharedTypes::ST_UniversalMeasure &b);
 			ST_Coordinate& operator=(ST_CoordinateUnqualified &b);
 			ST_Coordinate& operator=(officeDocument::sharedTypes::ST_UniversalMeasure &b);
-			ST_Coordinate& operator =( ST_Coordinate& b);
+			ST_Coordinate& operator =(ST_Coordinate& b);
 			ST_Coordinate& operator =(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring () const;
@@ -834,7 +840,7 @@ namespace drawingml {
 			ST_PositiveCoordinate();
 			ST_PositiveCoordinate(long b);
 			ST_PositiveCoordinate(std::wstring b);
-			virtual ST_PositiveCoordinate& operator =( ST_PositiveCoordinate& b);
+			virtual ST_PositiveCoordinate& operator =(ST_PositiveCoordinate& b);
 			virtual ST_PositiveCoordinate& operator =(long b);
 			virtual ST_PositiveCoordinate& operator =(std::wstring b);
 		//end
@@ -2150,8 +2156,8 @@ namespace drawingml {
 			ST_AnimationBuildType(std::wstring b);
 			ST_AnimationBuildType(ST_AnimationBuildType &b);
 			ST_AnimationBuildType& operator=(value _v);
-			ST_AnimationBuildType& operator =( ST_AnimationBuildType& b);
-			ST_AnimationBuildType& operator =(std::wstring b);
+			ST_AnimationBuildType& operator=( ST_AnimationBuildType& b);
+			ST_AnimationBuildType& operator=(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
 		};
@@ -2259,8 +2265,8 @@ namespace drawingml {
 			ST_AnimationChartBuildType(std::wstring b);
 			ST_AnimationChartBuildType(ST_AnimationChartBuildType &b);
 			ST_AnimationChartBuildType& operator=(value _v);
-			ST_AnimationChartBuildType& operator =(ST_AnimationChartBuildType& b);
-			ST_AnimationChartBuildType& operator =(std::wstring b);
+			ST_AnimationChartBuildType& operator=(ST_AnimationChartBuildType& b);
+			ST_AnimationChartBuildType& operator=(std::wstring b);
 			operator const wchar_t*() const;
 			operator std::wstring() const;
 		};
@@ -4482,17 +4488,20 @@ namespace drawingml {
 		};
 
 		class ST_AdjCoordinate {
+		public:
+			enum valuetype {coordinate, geomGuideName};
 		private:
 		//end
 			ST_Coordinate _c;
 			ST_GeomGuideName _g;
+			valuetype vtype;
 		public:
 			ST_AdjCoordinate();
 			ST_AdjCoordinate(ST_Coordinate &__c);
 			ST_AdjCoordinate(ST_GeomGuideName &__g);
 			ST_AdjCoordinate(ST_AdjCoordinate &b);
-			ST_AdjCoordinate& operator =(ST_AdjCoordinate& b);
-			ST_AdjCoordinate& operator =(std::wstring b);
+			ST_AdjCoordinate& operator=(ST_AdjCoordinate& b);
+			ST_AdjCoordinate& operator=(std::wstring b);
 			ST_AdjCoordinate& operator=(ST_Coordinate &__c);
 			ST_AdjCoordinate& operator=(ST_GeomGuideName &__g);
 			ST_Coordinate c();
@@ -4501,24 +4510,30 @@ namespace drawingml {
 			//operator ST_GeomGuideName () const;
 			operator const wchar_t*() const;
 			operator std::wstring () const;
+			valuetype type();
 		};
 
 		class ST_AdjAngle {
+		public:
+			enum valuetype {angle,geomGuideName};
 		private:
 			//end
 			ST_Angle _a;
 			ST_GeomGuideName _g;
+			valuetype vtype;
 		public:
 		//end
+			ST_AdjAngle();
 			ST_AdjAngle(ST_Angle &__a);
 			ST_AdjAngle(ST_GeomGuideName &__g);
 			ST_AdjAngle(ST_AdjAngle &b);
-			ST_AdjAngle& operator =( ST_AdjAngle& b);
+			ST_AdjAngle& operator =(ST_AdjAngle& b);
 			ST_AdjAngle& operator =(std::wstring b);
 			ST_AdjAngle& operator =(ST_Angle &__a);
 			ST_AdjAngle& operator =(ST_GeomGuideName &__g);
 			ST_Angle a();
 			ST_GeomGuideName g();
+			valuetype type();
 			operator const wchar_t*() const;
 			operator std::wstring () const;
 		};
